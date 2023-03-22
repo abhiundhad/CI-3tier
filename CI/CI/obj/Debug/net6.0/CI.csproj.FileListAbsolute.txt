@@ -1,0 +1,246 @@
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\appsettings.Development.json
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\appsettings.json
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI.staticwebassets.runtime.json
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI.exe
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI.deps.json
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI.runtimeconfig.json
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI.pdb
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Azure.Core.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Azure.Identity.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Humanizer.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Assessment.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Assessment.Types.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Data.Tools.Sql.BatchParser.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.ConnectionInfo.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Dmf.Common.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Dmf.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.Assessment.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.Collector.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.CollectorEnum.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.HadrData.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.HadrModel.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.RegisteredServers.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.SqlScriptPublish.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEvent.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEventDbScoped.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEventEnum.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.PolicyEnum.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.ServiceBrokerEnum.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Smo.Notebook.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Smo.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.SmoExtended.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.SqlEnum.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.SqlWmiManagement.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.WmiEnum.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Mono.TextTemplating.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\Newtonsoft.Json.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.CodeDom.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Data.OleDb.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Diagnostics.PerformanceCounter.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Drawing.Common.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Management.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Memory.Data.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Runtime.Caching.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Security.Permissions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Text.Json.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\System.Windows.Extensions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Data.OleDb.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI Entity.dll
+A:\TatvaSoft\CI Main\CI\CI\bin\Debug\net6.0\CI Entity.pdb
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.csproj.AssemblyReference.cache
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.GeneratedMSBuildEditorConfig.editorconfig
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.AssemblyInfoInputs.cache
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.AssemblyInfo.cs
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.csproj.CoreCompileInputs.cache
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.MvcApplicationPartsAssemblyInfo.cache
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.RazorAssemblyInfo.cache
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.RazorAssemblyInfo.cs
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.CI.Microsoft.AspNetCore.StaticWebAssets.props
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.build.CI.props
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CI.props
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CI.props
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\staticwebassets.pack.json
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\staticwebassets.build.json
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\staticwebassets.development.json
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\scopedcss\bundle\CI.styles.css
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\scopedcss\projectbundle\CI.bundle.scp.css
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.csproj.CopyComplete
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.dll
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\refint\CI.dll
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.pdb
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\CI.genruntimeconfig.cache
+A:\TatvaSoft\CI Main\CI\CI\obj\Debug\net6.0\ref\CI.dll
+A:\CI\CI\CI\obj\Debug\net6.0\CI.csproj.AssemblyReference.cache
+A:\CI\CI\CI\obj\Debug\net6.0\CI.GeneratedMSBuildEditorConfig.editorconfig
+A:\CI\CI\CI\obj\Debug\net6.0\CI.AssemblyInfoInputs.cache
+A:\CI\CI\CI\obj\Debug\net6.0\CI.AssemblyInfo.cs
+A:\CI\CI\CI\obj\Debug\net6.0\CI.csproj.CoreCompileInputs.cache
+A:\CI\CI\CI\obj\Debug\net6.0\CI.MvcApplicationPartsAssemblyInfo.cache
+A:\CI\CI\CI\obj\Debug\net6.0\CI.RazorAssemblyInfo.cache
+A:\CI\CI\CI\obj\Debug\net6.0\CI.RazorAssemblyInfo.cs
+A:\CI\CI\CI\bin\Debug\net6.0\appsettings.Development.json
+A:\CI\CI\CI\bin\Debug\net6.0\appsettings.json
+A:\CI\CI\CI\bin\Debug\net6.0\CI.staticwebassets.runtime.json
+A:\CI\CI\CI\bin\Debug\net6.0\CI.exe
+A:\CI\CI\CI\bin\Debug\net6.0\CI.deps.json
+A:\CI\CI\CI\bin\Debug\net6.0\CI.runtimeconfig.json
+A:\CI\CI\CI\bin\Debug\net6.0\CI.dll
+A:\CI\CI\CI\bin\Debug\net6.0\CI.pdb
+A:\CI\CI\CI\bin\Debug\net6.0\Azure.Core.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Azure.Identity.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Humanizer.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Assessment.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Assessment.Types.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Data.Tools.Sql.BatchParser.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.ConnectionInfo.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Dmf.Common.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Dmf.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.Assessment.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.Collector.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.CollectorEnum.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.HadrData.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.HadrModel.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.RegisteredServers.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.SqlScriptPublish.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEvent.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEventDbScoped.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Management.XEventEnum.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.PolicyEnum.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.ServiceBrokerEnum.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Smo.Notebook.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.Smo.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.SmoExtended.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.SqlEnum.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.SqlWmiManagement.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.SqlServer.WmiEnum.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Mono.TextTemplating.dll
+A:\CI\CI\CI\bin\Debug\net6.0\Newtonsoft.Json.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.CodeDom.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Data.OleDb.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Diagnostics.PerformanceCounter.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Drawing.Common.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Management.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Memory.Data.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Runtime.Caching.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Security.Permissions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Text.Json.dll
+A:\CI\CI\CI\bin\Debug\net6.0\System.Windows.Extensions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Data.OleDb.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+A:\CI\CI\CI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+A:\CI\CI\CI\bin\Debug\net6.0\CI Entity.dll
+A:\CI\CI\CI\bin\Debug\net6.0\CI.Repository.dll
+A:\CI\CI\CI\bin\Debug\net6.0\CI Entity.pdb
+A:\CI\CI\CI\bin\Debug\net6.0\CI.Repository.pdb
+A:\CI\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.CI.Microsoft.AspNetCore.StaticWebAssets.props
+A:\CI\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.build.CI.props
+A:\CI\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CI.props
+A:\CI\CI\CI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CI.props
+A:\CI\CI\CI\obj\Debug\net6.0\staticwebassets.pack.json
+A:\CI\CI\CI\obj\Debug\net6.0\staticwebassets.build.json
+A:\CI\CI\CI\obj\Debug\net6.0\staticwebassets.development.json
+A:\CI\CI\CI\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+A:\CI\CI\CI\obj\Debug\net6.0\scopedcss\bundle\CI.styles.css
+A:\CI\CI\CI\obj\Debug\net6.0\scopedcss\projectbundle\CI.bundle.scp.css
+A:\CI\CI\CI\obj\Debug\net6.0\CI.csproj.CopyComplete
+A:\CI\CI\CI\obj\Debug\net6.0\CI.dll
+A:\CI\CI\CI\obj\Debug\net6.0\refint\CI.dll
+A:\CI\CI\CI\obj\Debug\net6.0\CI.pdb
+A:\CI\CI\CI\obj\Debug\net6.0\CI.genruntimeconfig.cache
+A:\CI\CI\CI\obj\Debug\net6.0\ref\CI.dll

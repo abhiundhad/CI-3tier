@@ -1,0 +1,182 @@
+﻿
+.missioncontainer{
+    margin-top:110px;
+}
+
+/*mission corusel css*/
+* {
+    box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+      cursor: pointer;
+    position: absolute;
+    top: 83%;
+    background-color: rgba(0, 0, 0, 1.8);
+    width: 4%;
+    padding-top: 3%;
+    padding-left: 1%;
+    padding-bottom: 3%;
+    /* padding: 16px; */
+    /* margin-top: -50px; */
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.prev{
+margin-left:2%;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+
+
+    /*card.cssss*/
+
+/*.rule {
+    display: flex;
+    / flex-direction: row;
+    / / flex-wrap: nowrap;
+    /
+}
+
+hr {
+    flex: 1;
+    border: none;
+    height: 2px;
+    background: black;
+}*/
+
+.goal  {
+    border: 1px solid grey;
+}
+.foursquer {
+    border: 1px solid grey;
+}
+
+@media screen and (max-width:1023px) {
+    .rightdiv {
+        margin-top: 25px;
+     
+        
+    }
+}
+
+.Addfavourite{
+    border:1px solid black;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.trees {
+    margin: 1rem 0;
+    background-color: black !important;
+    border: 2px !important;
+    opacity: .25;
+    width: 100% !important;
+}
+.aply {
+    border: 1px solid #F88634 !important;
+   
+}
+
+.aplys{
+    color: #F88634 !important;
+    
+}
+.involveduserprofile {
+    border-radius: 50px;
+    height: 55%;
+    width: 90%;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-bottom: 3px solid #F88634;
+}
+.aviluser{
+    border-radius:50px;
+    width:52px;
+    heid:52px;
+}
+.userlistdiv{
+    background-color:lightgray;
+}
+.form-floating{
+    border:1px solid black;
+}
+.cmtbtn {
+    border-color: #F88634;
+    color: #F88634;
+    font-size:20px;
+}
+.comtuserimg {
+    height: 52px;
+    width: 52px;
+    border-radius: 50px;
+}

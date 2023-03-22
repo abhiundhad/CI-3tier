@@ -1,0 +1,719 @@
+@{
+    var id = Context.Session.GetString("userID");
+    var firstname = Context.Session.GetString("Firstname");
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
+    <link rel="stylesheet" href="~/css/navbar.css">
+@*    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>*@
+
+
+
+
+
+</head>
+<body>
+    <div class=" mainheader fixed-top">
+
+        <nav class="navbar navbar-expand-md navbar-light  header  pb-1" aria-label="Eighth navbar example">
+            <div class="container">
+
+                <button class="btn  hamburger " type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <img src="~/images/list1.png">
+                </button>
+
+
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                     aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header">
+                        <h2 class="mt-2 me-2">CI-PLATFORM</h2>
+                        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body navbar-nav me-auto mb-2 mb-lg-0 align-self-center">
+
+                        @if (id == null)
+                        {
+                            <a class="col-12" href="/Login/Login"><button class="btn btn-primary w-100">Login</button></a>
+                            <a class="mt-2 col-12" href="/User/register"><button class="btn btn-success w-100">Register</button></a>
+
+                        }
+                        else
+                        {
+
+
+                            <div class=" dropdown text-end ">
+                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src="~/images/user-img.png" alt="mdo" width="40" height="40" class="rounded-circle">
+                                    @* <span class="txt text-dark">Evan Donohue</span>*@
+
+
+                                    @firstname
+                                </a>
+                                <ul class="dropdown-menu text-small">
+                                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" asp-controller="Login" asp-action="Login">Sign out</a></li>
+                                </ul>
+                            </div>
+                        }
+
+
+                        @if (id == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" onclick="alertmsg();">Story</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/StoryListing/StoryListing/@ViewBag.UserId">Story</a>
+                            </li>
+                        }
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Policy</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+
+                <h2 class="nav-brand ms-3 me-auto">CI-PLATFORM</h2>
+                <ul class="navbar-nav  navbar1  me-auto mb-2 mb-lg-0 ">
+                    @if(id==null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" onclick="alertmsg();">Story</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/StoryListing/StoryListing/@ViewBag.UserId">Story</a>
+                        </li>
+                    }
+            
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Policy</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                @if (id == null)
+                {
+                    <a class="ms-2 d-none d-md-block" href="/Login/Login" ><button class="btn btn-primary">Login</button></a>
+                    <a class="ms-2  d-none d-md-block" href="/User/register"><button class="btn btn-success">Register</button></a>
+
+                }
+                else
+                {
+
+                    <div class="dropdown text-end userprofile ">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <img src="~/images/user-img.png" alt="mdo" width="40" height="40" class="rounded-circle">
+                            @*   <span class="txt text-dark">Evan Donohue</span>*@
+
+                            @firstname
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" asp-controller="Login" asp-action="Login">Sign out</a></li>
+                        </ul>
+                    </div>
+                }
+
+            </div>
+        </nav>
+
+
+        <!-- navbar-2 -->
+
+        <nav class="navbar navbar-expand-md navbar-lighte  header2" aria-label="Second navbar example">
+            <div class="container">
+                <div class="col-9 col-lg-6 col-md-5 me-2   ">
+                    <form role="search" class="d-flex">
+                        <!-- <img src="../HTML/images/search.png" height="22px" width="21px"class="mt-2">? -->
+                        <i class="bi bi-search mt-2 "></i>
+                        <input class="form-control" type="search" placeholder="Search mission....." aria-label="Search "
+                               value="@ViewBag.Searchinput" class="searchbox" name="searchinput" id="search-bar">
+                    </form>
+                </div>
+
+                <button class="btn hamburger" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#filteroffcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <img src="~/images/filter.png">
+                </button>
+
+
+
+
+
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="filteroffcanvasWithBothOptions"
+                     aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header">
+
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item dropdown mt-3">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Country
+                            </a>
+                            <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
+
+                                @if (ViewBag.Country != null)
+                                {
+
+
+                                    @foreach (var items in ViewBag.Country)
+                                    {
+                                        <li>
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="  @items.Name" id=" @items.CountryId" onchange="FilterforCountry()" aria-label="Checkbox for following text input" />
+                                            @items.Name
+                                        </li>
+
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                City
+                            </a>
+                            <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
+
+                                @if (ViewBag.Cityy != null)
+                                {
+
+
+                                    @foreach (var items in ViewBag.Cityy)
+                                    {
+                                        <li>
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="  @items.Name" id="" aria-label="Checkbox for following text input" />
+                                            @items.Name
+                                        </li>
+
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Theme
+                            </a>
+                            <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
+
+                                @if (ViewBag.Themes != null)
+                                {
+
+
+                                    @foreach (var items in ViewBag.Themes)
+                                    {
+                                        <li>
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="  @items.Title" id="" aria-label="Checkbox for following text input" />
+                                            @items.Title
+                                        </li>
+
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Skill
+                            </a>
+                            <ul class="dropdown-menu " style="  height:100px!important;
+    overflow-y:auto!important;">
+                                <div>
+                                    <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="Computer Science" id="" name="Computer Science" aria-label="Checkbox for following text input">
+                                    Computer Science
+                                </div>
+                                <div>
+                                    <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="Music" id="" name="Music" aria-label="Checkbox for following text input">
+                                    Music
+
+                                    <div>
+                                        <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="History" id="" name="History" aria-label="Checkbox for following text input">
+                                        History
+                                    </div>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+
+                <div class="seconddiv col-lg-6 col-md-7">
+                    <ul class="navbar-nav">
+
+
+                        <li class="nav-item col-lg-3 col-md-3  dropdown filterdiv">
+                            <a class="nav-link dropdown d-flex" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <p class="me-auto mt-1"> Country </p>
+                                <img src="~/images/drop-down.png" height="10%" width="10%" class="mt-3 ">
+
+                            </a>
+                            <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
+
+                                @if (ViewBag.Country != null)
+                                {
+
+
+                                    @foreach (var items in ViewBag.Country)
+                                    {
+                                        <li>
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" name="country" type="checkbox" value="@items.Name" id=@items.CountryId onchange="FilterforCountry()" aria-label="Checkbox for following text input" />
+                                            @items.Name
+                                        </li>
+
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+
+                        <li class="nav-item col-lg-3  col-md-3 dropdown filterdiv">
+                            <a class="nav-link dropdown d-flex" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <p class="me-auto mt-1 "> City </p>
+                                <img src="~/images/drop-down.png" height="10%" width="10%" class="mt-3 ">
+                            </a>
+                            <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
+
+                                @if (ViewBag.Cityy != null)
+                                {
+
+
+                                    @foreach (var items in ViewBag.Cityy)
+                                    {
+                                        <li>
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Name" name="city" onchange="FilterforCity()" id=@items.CityId aria-label="Checkbox for following text input" />
+                                            @items.Name
+                                        </li>
+
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+
+                        <li class="nav-item col-lg-3  col-md-3 dropdown filterdiv">
+                            <a class="nav-link dropdown d-flex" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <p class="me-auto mt-1 "> Theme </p>
+                                <img src="~/images/drop-down.png" height="10%" width="10%" class="mt-3">
+                            </a>
+                            <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
+
+                                @if (ViewBag.Themes != null)
+                                {
+
+
+                                    @foreach (var items in ViewBag.Themes)
+                                    {
+                                        <li>
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Title" name="theme" id=@items.MissionThemeId onchange="FilterForTheme()" aria-label="Checkbox for following text input" />
+                                            @items.Title
+                                        </li>
+
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item  col-lg-3 col-md-3 dropdown filterdiv">
+                            <a class="nav-link dropdown d-flex" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <p class="me-auto  mt-1   "> Skill </p>
+                                <img src="~/images/drop-down.png" height="10%" width="10%" class="mt-3 ">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <div>
+                                    <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="Computer Science" id="" name="Computer Science" aria-label="Checkbox for following text input">
+                                    Computer Science
+                                </div>
+                                <div>
+                                    <input class=checkboxf "form-check-input mt-1 ms-2" type="checkbox" value="Music" id="" name="Music" aria-label="Checkbox for following text input">
+                                    Music
+
+                                    <div>
+                                        <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="History" id="" name="History" aria-label="Checkbox for following text input">
+                                        History
+                                    </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </nav>
+        <div class="valuelist d-flex align-items-center flex-wrap justify-content-center mt-1 mb-1">
+
+            @if (@ViewBag.SearchCountry != null)
+            {
+                @foreach (var item in ViewBag.SearchCountry)
+                {
+                    <div class="filter-list px-2 ms-2" id=@item.CountryId>
+                        @item.Name
+                        <button class="btn-close" type="button" aria-label="close" id=@item.CountryId onclick="closeCountryfilter(this.id)"></button>
+                    </div>
+
+                }
+
+            }
+            @if (@ViewBag.SearchCity != null)
+            {
+                @foreach (var item in ViewBag.SearchCity)
+                {
+                    <div class="filter-list px-2 ms-2 " id=@item.CityId>
+                        @item.Name
+                        <button class="btn-close" type="button" aria-label="close" id=@item.CityId onclick="closeCityfilter(this.id)"></button>
+                    </div>
+                }
+            }
+            @if (@ViewBag.SearchTheme != null)
+            {
+                @foreach (var item in ViewBag.SearchTheme)
+                {
+                    <div class="filter-list px-2 ms-2" id=@item.MissionThemeId>
+                        @item.Title
+                        <button class="btn-close" type="button" aria-label="close" id=@item.MissionThemeId onclick="closethemefilter(this.id)"></button>
+                    </div>
+                }
+            }
+            @if (@ViewBag.SearchCountry != null || @ViewBag.SearchCity != null || @ViewBag.SearchTheme != null)
+            {
+                <button type="button" class="filter-list border-0 px-2 ms-2" onclick="clearall()">Clear All</button>
+            }
+
+        </div>
+    </div>
+
+
+    <main>
+        @RenderBody()
+    </main>
+    <script>
+        ///filter
+
+
+
+
+        //var checkboxes = document.querySelectorAll(".checkboxf");
+
+
+        //let filtersSection = document.querySelector(".valuelist");
+
+        //var listArray = [];
+
+        //var filterList = document.querySelector(".filter-list");
+
+        //var len = listArray.length;
+
+        //for (var checkbox of checkboxes) {
+        //    checkbox.addEventListener("click", function () {
+        //        if (this.checked == true) {
+        //            addElement(this, this.value);
+        //        }
+        //        else {
+
+        //            removeElement(this.value);
+        //            console.log("unchecked");
+        //        }
+        //    })
+        //}
+
+
+        //function addElement(current, value) {
+        //    let valueList = document.querySelector(".valuelist");
+
+        //    let createdTag = document.createElement('span');
+        //    createdTag.classList.add('filter-list');
+        //    createdTag.classList.add('ps-3');
+        //    createdTag.classList.add('pe-1');
+        //    createdTag.classList.add('me-2');
+        //    createdTag.innerHTML = value;
+
+        //    createdTag.setAttribute('id', value);
+        //    let crossButton = document.createElement('button');
+        //    crossButton.classList.add("filter-close-button");
+        //    let cross = '&times;'
+
+
+
+        //    crossButton.addEventListener('click', function () {
+        //        let elementToBeRemoved = document.getElementById(value);
+
+        //        console.log(elementToBeRemoved);
+        //        console.log(current);
+        //        elementToBeRemoved.remove();
+
+        //        current.checked = false;
+
+
+
+
+        //    })
+
+        //    crossButton.innerHTML = cross;
+
+
+        //     let crossButton = '&times;'
+
+        //    createdTag.appendChild(crossButton);
+        //    valueList.appendChild(createdTag);
+
+        //}
+
+        //function removeElement(value) {
+
+        //    let valueList = document.querySelector(".valuelist");
+
+        //    let elementToBeRemoved = document.getElementById(value);
+        //    valueList.removeChild(elementToBeRemoved);
+
+        //}
+
+
+
+        ///searchbar
+        var debounceTimer;
+
+        function debounce(func, delay) {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(func, delay);
+        }
+        document.getElementById("search-bar").addEventListener("input", function () {
+            debounce(function () {
+                search(document.getElementById("search-bar").value);
+            }, 1500); // adjust the delay time as needed
+        });
+
+        function search(query) {
+            // Get the current URL
+            let url = window.location.href;
+
+            let separator = url.indexOf('?') !== -1 ? '&' : '?';
+
+            // Check if the searchQuery parameter already exists in the URL
+            if (url.includes('searchQuery=')) {
+                // Replace the value of the searchQuery parameter
+                url = url.replace(/searchQuery=([^&]*)/, 'searchQuery=' + query);
+            } else {
+                // Append the parameter to the URL
+                url += separator + 'searchQuery=' + query;
+            }
+
+            // Navigate to the updated URL
+            window.location.href = url;
+
+
+        }
+
+
+        ////FilterFor Country
+        function FilterforCountry() {
+            const country = Array.from(document.querySelectorAll('input[name="country"]:checked')).map(el => el.id);
+            let url = window.location.href;
+            let separator = url.indexOf('?') !== -1 ? '&' : '?';
+            //if (url.includes('fCountries=')) {
+            //    url = url.replace(/fCountries=([^&]*)/, 'fCountries=' + country);
+            //}
+            //else {
+            url += separator + 'fCountries=' + country;
+            //}
+            window.location.href = url;
+
+
+        }
+        function FilterforCity() {
+            const city = Array.from(document.querySelectorAll('input[name="city"]:checked')).map(el => el.id);
+            let url = window.location.href;
+            let separator = url.indexOf('?') !== -1 ? '&' : '?';
+            //if (url.includes('fCitys=')) {
+            //    url = url.replace(/fCitys=([^&]*)/, 'fCitys=' + city);
+            //}
+            //else {
+            url += separator + 'fCitys=' + city;
+            //}
+            window.location.href = url;
+
+
+        }
+        function FilterForTheme() {
+            const theme = Array.from(document.querySelectorAll('input[name="theme"]:checked')).map(el => el.id);
+
+            let url = window.location.href;
+            let separator = url.indexOf('?') !== -1 ? '&' : '?';
+            //if (url.includes('fThemes=')) {
+            //    url = url.replace(/fThemes=([^&]*)/, 'fThemes=' + theme);
+            //}
+            //else {
+            url += separator + 'fThemes=' + theme;
+            //}
+            window.location.href = url;
+
+
+        }
+
+
+        function closeCountryfilter(id) {
+
+            //var A = document.getElementById("closeCountryfilter");
+            //A.style.display = "none";
+            //let url = window.location.href;
+            //country = "";
+            //url = url.replace(/fCountries=([^&]*)/, 'fCountries=' + country);
+            //window.location.href = url
+            let url = window.location.href;
+            const urlParts = url.split('?');
+
+            if (urlParts.length >= 2) {
+                const baseUrl = urlParts.shift();
+                const queryString = urlParts.join('?');
+                const params = new URLSearchParams(queryString);
+
+                const countries = params.getAll('fCountries').filter(country => country !== id);
+
+                if (countries.length > 0) {
+                    params.delete('fCountries');
+                    countries.forEach(country => params.append('fCountries', country));
+                } else {
+                    params.delete('fCountries');
+                }
+
+                const updatedParams = params.toString();
+                if (updatedParams) {
+                    url = `${baseUrl}?${updatedParams}`;
+                } else {
+                    url = baseUrl;
+                }
+
+                window.location.href = url;
+            }
+
+        }
+
+        function closeCityfilter(id) {
+            //var A = document.getElementById("closeCityfilter");
+            //A.style.display = "none";
+            //let url = window.location.href;
+            //city = "";
+            //url = url.replace(/fCitys=([^&]*)/, 'fCitys=' + city);
+            //window.location.href = url
+            let url = window.location.href;
+            const urlParts = url.split('?');
+
+            if (urlParts.length >= 2) {
+                const baseUrl = urlParts.shift();
+                const queryString = urlParts.join('?');
+                const params = new URLSearchParams(queryString);
+
+                const countries = params.getAll('fCitys').filter(city => city !== id);
+
+                if (countries.length > 0) {
+                    params.delete('fCitys');
+                    countries.forEach(city => params.append('fCitys', city));
+                } else {
+                    params.delete('fCitys');
+                }
+
+                const updatedParams = params.toString();
+                if (updatedParams) {
+                    url = `${baseUrl}?${updatedParams}`;
+                } else {
+                    url = baseUrl;
+                }
+
+                window.location.href = url;
+            }
+        }
+        function closethemefilter(id) {
+            //var A = document.getElementById("closethemefilter");
+            //A.style.display = "none";
+            //let url = window.location.href;
+            //theme = "";
+            //url = url.replace(/fThemes=([^&]*)/, 'fThemes=' + theme);
+            //window.location.href = url
+            let url = window.location.href;
+            const urlParts = url.split('?');
+
+            if (urlParts.length >= 2) {
+                const baseUrl = urlParts.shift();
+                const queryString = urlParts.join('?');
+                const params = new URLSearchParams(queryString);
+
+                const countries = params.getAll('fThemes').filter(theme => theme !== id);
+
+                if (countries.length > 0) {
+                    params.delete('fThemes');
+                    countries.forEach(theme => params.append('fThemes', theme));
+                } else {
+                    params.delete('fThemes');
+                }
+
+                const updatedParams = params.toString();
+                if (updatedParams) {
+                    url = `${baseUrl}?${updatedParams}`;
+                } else {
+                    url = baseUrl;
+                }
+
+                window.location.href = url;
+            }
+        }
+        function clearall() {
+            let url = window.location.href;
+            var newurl = url.split("?")[0];
+            window.location.href = newurl
+
+
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+</body>
+</html>

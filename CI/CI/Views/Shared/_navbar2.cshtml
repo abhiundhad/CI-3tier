@@ -1,0 +1,173 @@
+﻿@{
+    var id = Context.Session.GetString("userID");
+    var firstname = Context.Session.GetString("Firstname");
+  
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/navbar.css">
+
+
+
+
+</head>
+<body>
+    <div class=" mainheader fixed-top">
+
+        <nav class="navbar navbar-expand-md navbar-light  header  pb-1" aria-label="Eighth navbar example">
+            <div class="container">
+
+                <button class="btn  hamburger " type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <img src="~/images/list1.png">
+                </button>
+
+
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                     aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header">
+                        <h2 class="mt-2 me-2">CI-PLATFORM</h2>
+                        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body navbar-nav me-auto mb-2 mb-lg-0 align-self-center">
+
+                        @if (id == null)
+                        {
+                            <a class="col-12" href="/Login/Login"><button class="btn btn-primary w-100">Login</button></a>
+                            <a class="mt-2 col-12" href="/User/register"><button class="btn btn-success w-100">Register</button></a>
+
+                        }
+                        else
+                        {
+
+
+                            <div class=" dropdown text-end ">
+                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src="~/images/user-img.png" alt="mdo" width="40" height="40" class="rounded-circle">
+                                    @* <span class="txt text-dark">Evan Donohue</span>*@
+
+
+                                    @firstname
+                                </a>
+                                <ul class="dropdown-menu text-small">
+                                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" asp-controller="Login" asp-action="Login">Sign out</a></li>
+                                </ul>
+                            </div>
+                        }
+
+
+                        @if (id == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" onclick="alertmsg();">Story</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/StoryListing/StoryListing/@ViewBag.UserId">Story</a>
+                            </li>
+                        }
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Policy</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+
+                <h2 class="nav-brand ms-3 me-auto">CI-PLATFORM</h2>
+                <ul class="navbar-nav  navbar1  me-auto mb-2 mb-lg-0 ">
+                    @if (id == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" onclick="alertmsg();">Story</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/StoryListing/StoryListing/@ViewBag.UserId">Story</a>
+                        </li>
+                    }
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Policy</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                @if (id == null)
+                {
+                    <a class="ms-2 d-none d-md-block" href="/Login/Login"><button class="btn btn-primary">Login</button></a>
+                    <a class="ms-2  d-none d-md-block" href="/User/register"><button class="btn btn-success">Register</button></a>
+
+                }
+                else
+                {
+
+                    <div class="dropdown text-end userprofile ">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <img src="~/images/user-img.png" alt="mdo" width="40" height="40" class="rounded-circle">
+                            @*   <span class="txt text-dark">Evan Donohue</span>*@
+
+                            @firstname
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" asp-controller="Login" asp-action="Login">Sign out</a></li>
+                        </ul>
+                    </div>
+                }
+
+            </div>
+        </nav>
+
+
+ 
+
+    </div>
+
+
+    <main>
+        @RenderBody()
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+</body>
+</html>

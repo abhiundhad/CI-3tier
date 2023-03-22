@@ -1,0 +1,28 @@
+A:\TatvaSoft\CI Main\CI\CI Entity\bin\Debug\net6.0\CI Entity.deps.json
+A:\TatvaSoft\CI Main\CI\CI Entity\bin\Debug\net6.0\CI Entity.runtimeconfig.json
+A:\TatvaSoft\CI Main\CI\CI Entity\bin\Debug\net6.0\CI Entity.dll
+A:\TatvaSoft\CI Main\CI\CI Entity\bin\Debug\net6.0\CI Entity.pdb
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.csproj.AssemblyReference.cache
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.GeneratedMSBuildEditorConfig.editorconfig
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.AssemblyInfoInputs.cache
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.AssemblyInfo.cs
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.csproj.CoreCompileInputs.cache
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.dll
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\refint\CI Entity.dll
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.pdb
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\CI Entity.genruntimeconfig.cache
+A:\TatvaSoft\CI Main\CI\CI Entity\obj\Debug\net6.0\ref\CI Entity.dll
+A:\CI\CI\CI Entity\bin\Debug\net6.0\CI Entity.deps.json
+A:\CI\CI\CI Entity\bin\Debug\net6.0\CI Entity.runtimeconfig.json
+A:\CI\CI\CI Entity\bin\Debug\net6.0\CI Entity.dll
+A:\CI\CI\CI Entity\bin\Debug\net6.0\CI Entity.pdb
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.csproj.AssemblyReference.cache
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.GeneratedMSBuildEditorConfig.editorconfig
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.AssemblyInfoInputs.cache
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.AssemblyInfo.cs
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.csproj.CoreCompileInputs.cache
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.dll
+A:\CI\CI\CI Entity\obj\Debug\net6.0\refint\CI Entity.dll
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.pdb
+A:\CI\CI\CI Entity\obj\Debug\net6.0\CI Entity.genruntimeconfig.cache
+A:\CI\CI\CI Entity\obj\Debug\net6.0\ref\CI Entity.dll

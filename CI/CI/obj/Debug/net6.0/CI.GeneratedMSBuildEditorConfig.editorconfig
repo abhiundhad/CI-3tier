@@ -1,0 +1,101 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CI
+build_property.RootNamespace = CI
+build_property.ProjectDir = A:\CI\CI\CI\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = A:\CI\CI\CI
+build_property._RazorSourceGeneratorDebug = 
+
+[A:/CI/CI/CI/Views/Forget/Forget.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ2V0XEZvcmdldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Forget/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ2V0XFJlc2V0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Home/nomission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxub21pc3Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Home/ShareStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGFyZVN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Landingpage/Landingpage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ3BhZ2VcTGFuZGluZ3BhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Landingpage/Landingpage2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ3BhZ2VcTGFuZGluZ3BhZ2UyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/_navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/_navbar2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZiYXIyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/_relatedmission_partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9yZWxhdGVkbWlzc2lvbl9wYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/StoryListing/StoryDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/StoryListing/StoryListing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5TGlzdGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/User/register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxyZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Volunteering/Volunteering.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm9sdW50ZWVyaW5nXFZvbHVudGVlcmluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-2owhm928dv

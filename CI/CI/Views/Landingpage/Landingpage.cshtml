@@ -1,0 +1,890 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_navbar";
+}
+
+        
+    
+    <link rel="stylesheet" href="~/css/landingpage.css">
+
+<div class="container grid-container    ">
+    <div class="row  mb-2">
+
+        <div class="d-flex">
+            <div class="firstdiv  me-auto d-flex">
+                <p class="fs-4 me-2">Explore </p>
+                <h3>72 missions</h3>
+            </div>
+
+            <div class="sortlistgrid  d-flex ">
+
+
+                <div class="dropdown sort me-2 mt-1">
+                    <button class=" btn sort-btn dropdown d-flex " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="sortby me-5 "> Sort By</span>
+                        <img src="~/images/drop-down.png" alt="" class="sortaerrow">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+
+
+                <div class=" me-2 mt-1">
+                    <button onclick="grid()" class="grid "> <img src="~/images/grid.png" alt=""></button>
+                </div>
+                <div class=" mt-1 me-4">
+                    <button onclick="list()" class="list"><img src="~/images/list.png" alt=""></button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row ltg">
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                    <button type="submit" class="applybtn d-flex" >
+                        <span class="applytxt">Apply</span>
+                        <div>
+                            <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                     </div>
+                    </button>
+                   </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                   <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                        <button type="submit" class="applybtn d-flex">
+                            <span class="applytxt">Apply</span>
+                            <div>
+                                <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                            </div>
+                        </button>
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                    <button type="submit" class="applybtn d-flex" >
+                        <span class="applytxt">Apply</span>
+                        <div>
+                            <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                     </div>
+                    </button>
+                   </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                        <button type="submit" class="applybtn d-flex">
+                            <span class="applytxt">Apply</span>
+                            <div>
+                                <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                            </div>
+                        </button>
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="d-flex me-auto col-6 ">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex me-3 col-6">
+                            <img src="~/images/achieved.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <div class="progress mt-2" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar bg-warning" style="width: 25%">25%</div>
+                                </div>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                        <button type="submit" class="applybtn d-flex">
+                            <span class="applytxt">Apply</span>
+                            <div>
+                                <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                            </div>
+                        </button>
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                        <button type="submit" class="applybtn d-flex">
+                            <span class="applytxt">Apply</span>
+                            <div>
+                                <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                            </div>
+                        </button>
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                                      <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                    <button type="submit" class="applybtn d-flex" >
+                        <span class="applytxt">Apply</span>
+                        <div>
+                            <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                     </div>
+                    </button>
+                   </a>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                        <button type="submit" class="applybtn d-flex">
+                            <span class="applytxt">Apply</span>
+                            <div>
+                                <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                            </div>
+                        </button>
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="missioncard col-12 col-md-6 col-lg-4">
+            <div class="card">
+
+
+
+                <div class="img-event">
+                    <img class="card-img-top missionimg"
+                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+
+                    <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> Toronto</div>
+
+                    <div class="landing-page-bottom-right d-flex flex-column">
+                        <button class="mb-2 landing-page-btn-img">
+                            <img src="~/images/heart.png" alt="">
+                        </button><button class="landing-page-btn-img">
+                            <img src="~/images/user.png" alt="">
+                        </button>
+                    </div>
+
+                    <button class="theme-btn ">Environment</button>
+                </div>
+
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Grow Trees-On the path to environment sustainability</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <div class="d-flex">
+                        <p class="me-auto">Tree canada</p>
+                        <div>
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/selected-star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+                            <img src="../HTML/images/star.png" alt="">
+
+                        </div>
+                    </div>
+
+                    <!-- <hr>
+                    <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                    <div class="rule d-flex mt-1">
+                        <hr>
+                        <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                        <hr>
+                    </div>
+
+                    <div class="d-flex ">
+                        <div class="d-flex me-auto  col-6">
+                            <img src="~/images/Seats-left.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>10</fs-2><br>
+                                <fs-5> seats left</fs-5>
+                            </div>
+                        </div>
+                        <div class="d-flex col-6">
+                            <img src="~/images/deadline.png" alt="" class="mt-2">
+                            <div class="ms-2 ">
+                                <fs-2>09/01/2019</fs-2><br>
+                                <fs-5>Deadline</fs-5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="nomission">
+                        <button type="submit" class="applybtn d-flex">
+                            <span class="applytxt">Apply</span>
+                            <div>
+                                <img src="~/images/right-arrow.png" alt="" class=" ms-2 ">
+                            </div>
+                        </button>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item ms-2">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item active ms-2"><a class="page-link" href="#">1</a></li>
+            <li class="page-item ms-2"><a class="page-link" href="#">2</a></li>
+            <li class="page-item ms-2"><a class="page-link" href="#">3</a></li>
+            <li class="page-item ms-2">
+                <a class="page-link" href="#" aria-label="Next">
+                     <span class="sr-only">Next</span>
+                    <span aria-hidden="true">&raquo;</span>
+                   
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+<script>
+    var card = document.getElementsByClassName("missioncard");
+    var cardimg = document.getElementsByClassName("missionimg");
+    var carddisplay = document.getElementsByClassName("card");
+    var theme = document.getElementsByClassName("theme-btn");
+
+
+    function list() {
+        for (i = 0; i < card.length; i++) {
+            card[i].style.width = "100%";
+            card[i].style.marginTop = "1%";
+            carddisplay[i].style.display = "flex";
+            carddisplay[i].style.flexDirection = "row";
+            // cardimg[i].style.width = "40%";
+            cardimg[i].style.height = "100%";
+            theme[i].style.top = "97%";
+            theme[i].style.left = "20%";
+
+
+
+        }
+
+    }
+    function grid() {
+        for (i = 0; i < card.length; i++) {
+
+            if (screen.width > 1023) {
+                card[i].style.width = "33%";
+                carddisplay[i].style.flexDirection = "column";
+                cardimg[i].style.width = "100%";
+                theme[i].style.top = "95%";
+                theme[i].style.left = "35%";
+            }
+            else {
+                card[i].style.width = "50%";
+                carddisplay[i].style.flexDirection = "column";
+                cardimg[i].style.width = "100%";
+                theme[i].style.top = "95%";
+                theme[i].style.left = "35%";
+
+            }
+            // else if (screen.width<768){
+
+            // }
+
+
+
+        }
+
+    }
+
+</script>

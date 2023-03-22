@@ -1,0 +1,156 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_navbar2";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  
+    <link rel="stylesheet" href="~/css/StoryDetail.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container  storycontainer">
+        <div class="row">
+            <div class="leftdiv  col-12 col-lg-6 col-md-12 col-sm-12  ">
+
+                <div class="container  shadow-lg p-0">
+
+                    <!-- Full-width images with number text -->
+                    <div class="mySlides">
+                        @*<div class="numbertext">1 / 6</div>*@
+                        <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        @*<div class="numbertext">2 / 6</div>*@
+                        <img src="~/images/img1.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        @*<div class="numbertext">3 / 6</div>*@
+                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        @*<div class="numbertext">4 / 6</div>*@
+                        <img src="~/images/img11.png" style="width:100%">
+                    </div>
+
+                    @*                    <div class="mySlides">
+                    @*<div class="numbertext">5 / 6</div>
+                    <img src ="~/images/img22.png"  style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                    @*<div class="numbertext">6 / 6</div>*@
+                    @*   <img src="~/images/img.png" style="width:100%">
+                    </div>*@
+
+                    <!-- Next and previous buttons -->
+                    <!-- Thumbnail images -->
+                    <div class="row mt-2  p-0">
+
+                        <a class="prev " onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <div class="column  " style="width:25%">
+                            <img class="demo cursor " src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                        </div>
+                        <div class="column  " style="width:25%">
+                            <img class="demo cursor " src="~/images/img1.png" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                        </div>
+                        <div class="column  " style="width:25%">
+                            <img class="demo cursor  " src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                        </div>
+                        <div class="column  " style="width:25%">
+                            <img class="demo cursor " src="~/images/img11.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                        </div>
+                        @* <div class="column">
+                        <img class="demo cursor" src="~/images/img22.png" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                        </div>
+                        <div class="column">
+                        <img class="demo cursor" src="~/images/img.png" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                        </div>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="rightdiv  col-12 col-lg-6 col-md-12 col-sm-12 mt-4 mt-lg-0" >
+                @foreach (var story in ViewBag.StoryDetail)
+                {
+                    <div class="container ">
+                        <div class="row mt-4 mt-md-2">
+                            <div class="col-3 me-auto  ">
+                                <div class=" d-flex justify-content-center">
+                                    <img src="~/images/volunteer1.png" class="storyuserimg rounded-circle">
+                                </div>
+                                <label class="fs-6 d-flex justify-content-center"> @story.username &nbsp;@story.lastname</label>
+                            </div>
+                            <div class="col-6 col-xl-3 col-md-4 mt-auto ">
+                                <div class="rounded-5 border border-black d-flex justify-content-center w-100">
+                                    Stories views
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 " >
+                                @story.StoryTitle
+
+                            </div>
+                        </div>
+                        <div class="row justify-content-between mt-3" >
+                            <button class="recom col-11 col-xl-6 col-md-5 col-lg-11 rounded-5 d-flex justify-content-center align-items-center bg-white py-2 ms-0 ms-xl-3 ms-lg-0 ms-md-3 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="~/images/add1.png">
+                                <span class="ms-2">Recomanded to Co-Worker</span>
+                            </button>
+                            <a class="col-11 col-xl-5  col-lg-11 col-md-5  bg-white text-decoration-none mt-2  mt-xl-0 mt-lg-2 mt-md-0  mb-2 mb-md-0 p-0" href="/Volunteering/Volunteering/@ViewBag.UserId?missionid=@story.StoryId">
+                                <button class="openmissionbtn    d-flex justify-content-center align-items-cente bg-white  rounded-5  py-2  w-100  ">
+                                <span class="">Open Mission</span>
+                                <img src="~/images/right-arrow.png" class="mt-1 ms-2">
+                            </button>
+                            </a>
+
+                            <div class="modal fade  col-6" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Send Story to Friend</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body overflow-y-auto " style="height:200px;">
+                                            @foreach (var user in ViewBag.allavailuser)
+                                            {
+                                                <div class=" userlistdiv align-items-center d-flex my-3">
+                                                    <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
+                                                    <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
+                                                    <input class="form-check-input me-2 " type="checkbox" value="" id="@user.userEmail" name="email">
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-primary" onclick="sendRecomStory(@story.StoryId,@ViewBag.UserId)">Send Recomandation</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="~/js/StoryDetail.js"></script>
+</body>
+</html>

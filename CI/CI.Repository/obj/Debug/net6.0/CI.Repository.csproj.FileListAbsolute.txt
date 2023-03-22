@@ -1,0 +1,15 @@
+A:\CI\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.deps.json
+A:\CI\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.dll
+A:\CI\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.pdb
+A:\CI\CI\CI.Repository\bin\Debug\net6.0\CI Entity.dll
+A:\CI\CI\CI.Repository\bin\Debug\net6.0\CI Entity.pdb
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.csproj.AssemblyReference.cache
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.GeneratedMSBuildEditorConfig.editorconfig
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.AssemblyInfoInputs.cache
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.AssemblyInfo.cs
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.csproj.CoreCompileInputs.cache
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.csproj.CopyComplete
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.dll
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\refint\CI.Repository.dll
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.pdb
+A:\CI\CI\CI.Repository\obj\Debug\net6.0\ref\CI.Repository.dll
