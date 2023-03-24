@@ -15,9 +15,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+   
     
     <link rel="stylesheet" href="~/css/navbar.css">
-@*    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
 
 
 
@@ -169,7 +172,7 @@
                         <!-- <img src="../HTML/images/search.png" height="22px" width="21px"class="mt-2">? -->
                         <i class="bi bi-search mt-2 "></i>
                         <input class="form-control" type="search" placeholder="Search mission....." aria-label="Search "
-                               value="@ViewBag.Searchinput" class="searchbox" name="searchinput" id="search-bar">
+                               value="@ViewBag.Searchinput" class="searchbox" name="searchinput" id="search-bar" onkeyup="filter()">
                     </form>
                 </div>
 
@@ -182,7 +185,7 @@
 
 
 
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="filteroffcanvasWithBothOptions"
+     @*           <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="filteroffcanvasWithBothOptions"
                      aria-labelledby="offcanvasWithBothOptionsLabel">
                     <div class="offcanvas-header">
 
@@ -281,7 +284,7 @@
                             </ul>
                         </li>
                     </div>
-                </div>
+                </div>*@
 
                 <div class="seconddiv col-lg-6 col-md-7">
                     <ul class="navbar-nav">
@@ -302,7 +305,7 @@
                                     @foreach (var items in ViewBag.Country)
                                     {
                                         <li>
-                                            <input class=" checkboxf form-check-input mt-1 ms-2" name="country" type="checkbox" value="@items.Name" id=@items.CountryId onchange="FilterforCountry()" aria-label="Checkbox for following text input" />
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" name="country" type="checkbox" value="@items.Name" id=@items.CountryId onchange="filter()" aria-label="Checkbox for following text input" />
                                             @items.Name
                                         </li>
 
@@ -326,7 +329,7 @@
                                     @foreach (var items in ViewBag.Cityy)
                                     {
                                         <li>
-                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Name" name="city" onchange="FilterforCity()" id=@items.CityId aria-label="Checkbox for following text input" />
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Name" name="city" onchange="filter()" id=@items.CityId aria-label="Checkbox for following text input" />
                                             @items.Name
                                         </li>
 
@@ -350,7 +353,7 @@
                                     @foreach (var items in ViewBag.Themes)
                                     {
                                         <li>
-                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Title" name="theme" id=@items.MissionThemeId onchange="FilterForTheme()" aria-label="Checkbox for following text input" />
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Title" name="theme" id=@items.MissionThemeId onchange="filter()" aria-label="Checkbox for following text input" />
                                             @items.Title
                                         </li>
 
@@ -433,287 +436,11 @@
     <main>
         @RenderBody()
     </main>
-    <script>
-        ///filter
-
-
-
-
-        //var checkboxes = document.querySelectorAll(".checkboxf");
-
-
-        //let filtersSection = document.querySelector(".valuelist");
-
-        //var listArray = [];
-
-        //var filterList = document.querySelector(".filter-list");
-
-        //var len = listArray.length;
-
-        //for (var checkbox of checkboxes) {
-        //    checkbox.addEventListener("click", function () {
-        //        if (this.checked == true) {
-        //            addElement(this, this.value);
-        //        }
-        //        else {
-
-        //            removeElement(this.value);
-        //            console.log("unchecked");
-        //        }
-        //    })
-        //}
-
-
-        //function addElement(current, value) {
-        //    let valueList = document.querySelector(".valuelist");
-
-        //    let createdTag = document.createElement('span');
-        //    createdTag.classList.add('filter-list');
-        //    createdTag.classList.add('ps-3');
-        //    createdTag.classList.add('pe-1');
-        //    createdTag.classList.add('me-2');
-        //    createdTag.innerHTML = value;
-
-        //    createdTag.setAttribute('id', value);
-        //    let crossButton = document.createElement('button');
-        //    crossButton.classList.add("filter-close-button");
-        //    let cross = '&times;'
-
-
-
-        //    crossButton.addEventListener('click', function () {
-        //        let elementToBeRemoved = document.getElementById(value);
-
-        //        console.log(elementToBeRemoved);
-        //        console.log(current);
-        //        elementToBeRemoved.remove();
-
-        //        current.checked = false;
-
-
-
-
-        //    })
-
-        //    crossButton.innerHTML = cross;
-
-
-        //     let crossButton = '&times;'
-
-        //    createdTag.appendChild(crossButton);
-        //    valueList.appendChild(createdTag);
-
-        //}
-
-        //function removeElement(value) {
-
-        //    let valueList = document.querySelector(".valuelist");
-
-        //    let elementToBeRemoved = document.getElementById(value);
-        //    valueList.removeChild(elementToBeRemoved);
-
-        //}
-
-
-
-        ///searchbar
-        var debounceTimer;
-
-        function debounce(func, delay) {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(func, delay);
-        }
-        document.getElementById("search-bar").addEventListener("input", function () {
-            debounce(function () {
-                search(document.getElementById("search-bar").value);
-            }, 1500); // adjust the delay time as needed
-        });
-
-        function search(query) {
-            // Get the current URL
-            let url = window.location.href;
-
-            let separator = url.indexOf('?') !== -1 ? '&' : '?';
-
-            // Check if the searchQuery parameter already exists in the URL
-            if (url.includes('searchQuery=')) {
-                // Replace the value of the searchQuery parameter
-                url = url.replace(/searchQuery=([^&]*)/, 'searchQuery=' + query);
-            } else {
-                // Append the parameter to the URL
-                url += separator + 'searchQuery=' + query;
-            }
-
-            // Navigate to the updated URL
-            window.location.href = url;
-
-
-        }
-
-
-        ////FilterFor Country
-        function FilterforCountry() {
-            const country = Array.from(document.querySelectorAll('input[name="country"]:checked')).map(el => el.id);
-            let url = window.location.href;
-            let separator = url.indexOf('?') !== -1 ? '&' : '?';
-            //if (url.includes('fCountries=')) {
-            //    url = url.replace(/fCountries=([^&]*)/, 'fCountries=' + country);
-            //}
-            //else {
-            url += separator + 'fCountries=' + country;
-            //}
-            window.location.href = url;
-
-
-        }
-        function FilterforCity() {
-            const city = Array.from(document.querySelectorAll('input[name="city"]:checked')).map(el => el.id);
-            let url = window.location.href;
-            let separator = url.indexOf('?') !== -1 ? '&' : '?';
-            //if (url.includes('fCitys=')) {
-            //    url = url.replace(/fCitys=([^&]*)/, 'fCitys=' + city);
-            //}
-            //else {
-            url += separator + 'fCitys=' + city;
-            //}
-            window.location.href = url;
-
-
-        }
-        function FilterForTheme() {
-            const theme = Array.from(document.querySelectorAll('input[name="theme"]:checked')).map(el => el.id);
-
-            let url = window.location.href;
-            let separator = url.indexOf('?') !== -1 ? '&' : '?';
-            //if (url.includes('fThemes=')) {
-            //    url = url.replace(/fThemes=([^&]*)/, 'fThemes=' + theme);
-            //}
-            //else {
-            url += separator + 'fThemes=' + theme;
-            //}
-            window.location.href = url;
-
-
-        }
-
-
-        function closeCountryfilter(id) {
-
-            //var A = document.getElementById("closeCountryfilter");
-            //A.style.display = "none";
-            //let url = window.location.href;
-            //country = "";
-            //url = url.replace(/fCountries=([^&]*)/, 'fCountries=' + country);
-            //window.location.href = url
-            let url = window.location.href;
-            const urlParts = url.split('?');
-
-            if (urlParts.length >= 2) {
-                const baseUrl = urlParts.shift();
-                const queryString = urlParts.join('?');
-                const params = new URLSearchParams(queryString);
-
-                const countries = params.getAll('fCountries').filter(country => country !== id);
-
-                if (countries.length > 0) {
-                    params.delete('fCountries');
-                    countries.forEach(country => params.append('fCountries', country));
-                } else {
-                    params.delete('fCountries');
-                }
-
-                const updatedParams = params.toString();
-                if (updatedParams) {
-                    url = `${baseUrl}?${updatedParams}`;
-                } else {
-                    url = baseUrl;
-                }
-
-                window.location.href = url;
-            }
-
-        }
-
-        function closeCityfilter(id) {
-            //var A = document.getElementById("closeCityfilter");
-            //A.style.display = "none";
-            //let url = window.location.href;
-            //city = "";
-            //url = url.replace(/fCitys=([^&]*)/, 'fCitys=' + city);
-            //window.location.href = url
-            let url = window.location.href;
-            const urlParts = url.split('?');
-
-            if (urlParts.length >= 2) {
-                const baseUrl = urlParts.shift();
-                const queryString = urlParts.join('?');
-                const params = new URLSearchParams(queryString);
-
-                const countries = params.getAll('fCitys').filter(city => city !== id);
-
-                if (countries.length > 0) {
-                    params.delete('fCitys');
-                    countries.forEach(city => params.append('fCitys', city));
-                } else {
-                    params.delete('fCitys');
-                }
-
-                const updatedParams = params.toString();
-                if (updatedParams) {
-                    url = `${baseUrl}?${updatedParams}`;
-                } else {
-                    url = baseUrl;
-                }
-
-                window.location.href = url;
-            }
-        }
-        function closethemefilter(id) {
-            //var A = document.getElementById("closethemefilter");
-            //A.style.display = "none";
-            //let url = window.location.href;
-            //theme = "";
-            //url = url.replace(/fThemes=([^&]*)/, 'fThemes=' + theme);
-            //window.location.href = url
-            let url = window.location.href;
-            const urlParts = url.split('?');
-
-            if (urlParts.length >= 2) {
-                const baseUrl = urlParts.shift();
-                const queryString = urlParts.join('?');
-                const params = new URLSearchParams(queryString);
-
-                const countries = params.getAll('fThemes').filter(theme => theme !== id);
-
-                if (countries.length > 0) {
-                    params.delete('fThemes');
-                    countries.forEach(theme => params.append('fThemes', theme));
-                } else {
-                    params.delete('fThemes');
-                }
-
-                const updatedParams = params.toString();
-                if (updatedParams) {
-                    url = `${baseUrl}?${updatedParams}`;
-                } else {
-                    url = baseUrl;
-                }
-
-                window.location.href = url;
-            }
-        }
-        function clearall() {
-            let url = window.location.href;
-            var newurl = url.split("?")[0];
-            window.location.href = newurl
-
-
-        }
-
-    </script>
+ 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
+    <script src="~/js/Navbar.js"></script>
 </body>
 </html>

@@ -25,5 +25,7 @@ namespace CI.Repository.Interface
         public MissionRating RatingExist(long Id, long missionId);
         public void ApplyMission(long missionid,long id);
         public Comment comment(long id, long missionid, string comttext);
+        public bool FavMissByUserMissID(long missionid,long id);
+        public List<Mission> RelatedMission(long themeid , long missionid);
     }
 }

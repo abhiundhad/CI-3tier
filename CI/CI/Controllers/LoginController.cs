@@ -79,7 +79,7 @@ namespace CI.Controllers
                         HttpContext.Session.SetString("userID", user.UserId.ToString());
                         HttpContext.Session.SetString("Firstname", user.FirstName);
 
-                        return RedirectToAction("Landingpage2", "Landingpage", new { @id = user.UserId });
+                        return RedirectToAction("Landingpage", "Landingpage", new { @id = user.UserId });
                     }
                     else
                     {

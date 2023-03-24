@@ -1,6 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
+
+@{
+    var id = Context.Session.GetString("userID");
+
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="~/css/_relatedmission_partial.css" />
+    <link rel="stylesheet" href="~/css/_relatedmission_partial.css" asp-append-version="true" />
 </head>
 <body>
 
@@ -19,7 +22,7 @@
             @if (ViewBag.relatedmissioncount == 0)
             {
 
-                <div class=" col-12 mb-5  "> <h1 class=" ">No Mission </h1> </div>
+                <partial name="_Nomission_PartialView" />
 
 
             }
@@ -40,15 +43,51 @@
                             <div class="img-event">
                                 <img class="card-img-top missionimg"
                                      src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+                                @if (id != null)
+                                {
 
+
+                                    <div class="appliedbtn rounded-end" style="@(@items.isApplied?  "display:block;": "display:none;")">Applied</div>
+                                }
+                                <div class="closedbtn rounded-end">closed</div>
                                 <div class="landing-page-top-right"><img src="~/images/pin.png" alt=""> @items.Cityname</div>
 
                                 <div class="landing-page-bottom-right d-flex flex-column">
-                                    <button class="mb-2 landing-page-btn-img">
-                                        <img src="~/images/heart.png" alt="">
-                                    </button><button class="landing-page-btn-img">
+                                    <button class="mb-2 landing-page-btn-img" id="favmissiondiv" onclick="addtofav2(@items.MissionId,@id)">
+
+                                        <i class="bi bi-heart-fill" style="@(items.isFavriout ? "color:#F88634;" : "color:white;")" id="heart-@items.MissionId"></i>
+
+                                    </button>
+
+
+                                    <button class="landing-page-btn-img" type="button" id="@items.MissionId" onclick="addID(this.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <img src="~/images/user.png" alt="">
                                     </button>
+
+                                    <div class="modal fade  col-6" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Send Recomandation to Friend</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body overflow-y-auto " style="height:200px; ">
+                                                    @foreach (var user in ViewBag.allavailuser)
+                                                    {
+                                                        <div class=" userlistdiv align-items-center d-flex my-3">
+                                                            <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
+                                                            <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
+                                                            <input class="form-check-input me-2 " type="checkbox" value="" id="@user.userEmail" name="email">
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-primary" onclick="sendRecom(@id)">Send Recomandation</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <button class="theme-btn ">@items.Themename</button>
@@ -65,17 +104,23 @@
                                 <div class="d-flex">
                                     <p class="me-auto">@items.OrganizationName</p>
                                     <div>
-                                        <img src="../HTML/images/selected-star.png" alt="">
-                                        <img src="../HTML/images/selected-star.png" alt="">
-                                        <img src="../HTML/images/selected-star.png" alt="">
-                                        <img src="../HTML/images/star.png" alt="">
-                                        <img src="../HTML/images/star.png" alt="">
+                                        @if (items.AvrageRating != null)
+                                        {
+                                            for (int i = 0; i < items.AvrageRating; i++)
+                                            {
+                                                <img src="~/images/selected-star.png">
 
+                                            }
+                                            for (int i = items.AvrageRating; i < 5; i++)
+                                            {
+                                                <img src="~/images/star.png">
+
+                                            }
+                                        }
                                     </div>
                                 </div>
 
-                                <!-- <hr>
-                                <button class="btn-time"> From 10/01/2019 until 25/02/2019</button> -->
+                          
                                 @if (items.MissionType == "Time")
                                 {
                                     <div class="rule d-flex mt-1">
@@ -129,7 +174,7 @@
                                 </div>
 
                                 <hr>
-                                <a class="text-decoration-none" href="/Volunteering/Volunteering?missionid=@items.MissionId">
+                                <a class="text-decoration-none" href="/Volunteering/Volunteering/@id?missionId=@items.MissionId">
                                     <button type="submit" class="applybtn d-flex">
                                         <span class="applytxt">Apply</span>
                                         <div>

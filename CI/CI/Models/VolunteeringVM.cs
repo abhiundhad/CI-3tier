@@ -34,7 +34,8 @@
       
 
         public string GoalValue { get; set; } = null!;
-        public int?  AvrageRating { get; set; }
+        public int  AvrageRating { get; set; }
+
         public bool isFavriout { get; set; }
         public bool isApplied { get; set; }
         public string userEmail { get; set; }
@@ -45,6 +46,7 @@
         public long StoryId { get; set; }
         public string? StoryTitle { get; set; }
         public string? StoryDescription { get; set; }
+        public long Givenrating { get; set; }
 
         
     }

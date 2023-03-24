@@ -103,7 +103,27 @@ hr {
     background-color: rgba(0, 0, 0, 0.6);
     font-size: 14px;
 }
+.appliedbtn {
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    padding: 5px 10px;
+    /*border-radius: 30px;*/
+    color: white;
+    background-color: rgba(58, 202, 43, 0.8);
+    font-size: 14px
+}
 
+.closedbtn {
+    position: absolute;
+    bottom: 12px;
+    left: 0px;
+    padding: 5px 10px;
+    /*border-radius: 30px;*/
+    color: white;
+    background-color: rgba(233, 6, 4, 0.8);
+    font-size: 14px
+}
 .landing-page-bottom-right {
     position: absolute;
     bottom: 8px;

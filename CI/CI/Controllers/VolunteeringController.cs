@@ -19,36 +19,36 @@ namespace CI.Controllers
             _db = db;
             _Idb = Idb;
         }
+        #region AppliedMission
         [HttpPost]
-        public async Task<IActionResult> AppliedMission(long missionid, long id) 
-
+        public async Task<IActionResult> AppliedMission(long missionid, long id)
         {
             _Idb.ApplyMission(missionid, id);
-           
             return Json(new { success = true });
         }
+        #endregion
+        #region addComment
         [HttpPost]
-        public async Task<IActionResult> addComment(long id ,long missionid,string comttext)
-
+        public async Task<IActionResult> addComment(long id, long missionid, string comttext)
         {
-         _Idb.comment(id, missionid,comttext);
-          
-            
-            
-            return Json(new { success = true});
+            _Idb.comment(id, missionid, comttext);
+            return RedirectToAction("Volunteering", new { id = id, missionid = missionid });
+
 
 
         }
+        #endregion
+        #region sendRecomndetion of Mission
         [HttpPost]
         public async Task<IActionResult> sendRecom(long Id, long missionid, string[] Email)
         {
             foreach (var email in Email)
             {
-                var user = _db.Users.FirstOrDefault(m=>m.Email==email);
-                var sender = _db.Users.FirstOrDefault(m=>m.UserId== Id);
-                var sendername = sender.FirstName + $" " + sender.LastName ;
+                var user = _Idb.UserExist(email);
+                var sender = _db.Users.FirstOrDefault(m => m.UserId == Id);
+                var sendername = sender.FirstName + $" " + sender.LastName;
                 var userid = user.UserId;
-                var resetLink = Url.Action("Volunteering", "Volunteering", new {  missionid = missionid, id= userid}, Request.Scheme);
+                var resetLink = Url.Action("Volunteering", "Volunteering", new { missionid = missionid, id = userid }, Request.Scheme);
                 // Send email to user with reset password link
                 // ...
                 var fromAddress = new MailAddress("communityempowermentportal@gmail.com", "Community Empowerment Portal");
@@ -72,12 +72,13 @@ namespace CI.Controllers
             }
             return Json(new { success = true });
         }
+        #endregion
+        #region Addrating
         [HttpPost]
         public async Task<IActionResult> Addrating(string rating, long Id, long missionId)
         {
-            //MissionRating ratingExists = await _db.MissionRatings.FirstOrDefaultAsync(fm => fm.UserId == Id && fm.MissionId == missionId);
-            
-            MissionRating ratingExists = _Idb.RatingExist(missionId, Id);
+            //MissionRating ratingExists = _Idb.RatingExist(missionId, Id);
+            var ratingExists = _Idb.missionRatingList().FirstOrDefault(u => u.MissionId == missionId&&u.UserId==Id);
             if (ratingExists != null)
             {
                 ratingExists.Rating = rating;
@@ -96,15 +97,18 @@ namespace CI.Controllers
                 return Json(new { success = true, ratingele, isRated = true });
             }
         }
-
+        #endregion
+        #region AddtoFavrioate
         [HttpPost]
         public async Task<IActionResult> Addfav(long Id, long missionId)
         {
             FavoriteMission fav = await _db.FavoriteMissions.FirstOrDefaultAsync(fm => fm.UserId == Id && fm.MissionId == missionId);
+         
             if (fav != null)
             {
 
                 _db.Remove(fav);
+             
                 _db.SaveChanges();
                 return Json(new { success = true, favmission = "1" });
             }
@@ -119,14 +123,13 @@ namespace CI.Controllers
                 return Json(new { success = true, favmission = "0" });
             }
         }
-
-        public IActionResult Volunteering(long id , long missionid)
+        #endregion
+        #region Volunteering
+        public IActionResult Volunteering(long id, long missionid)
 
         {
-
-            var UserId = HttpContext.Session.GetString("userID");
-               
-            ViewBag.UserId =int.Parse(UserId);
+            var sessionUserId = HttpContext.Session.GetString("userID");
+            ViewBag.UserId = int.Parse(sessionUserId);
             if (ViewBag.UserId != id)
             {
                 TempData["Sessonerrormsg"] = "please login again";
@@ -135,16 +138,16 @@ namespace CI.Controllers
             else
             {
 
-                List<VolunteeringVM> relatedlist = new List<VolunteeringVM>();
 
-                var volmission = _db.Missions.FirstOrDefault(m => m.MissionId == missionid);
-                var theme = _db.MissionThemes.FirstOrDefault(m => m.MissionThemeId == volmission.ThemeId);
-                var City = _db.Cities.FirstOrDefault(m => m.CityId == volmission.CityId);
-                var themeobjective = _db.GoalMissions.FirstOrDefault(m => m.MissionId == missionid);
+                var volmission = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == missionid);
+                var theme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == volmission.ThemeId);
+                var City = _Idb.CityList().FirstOrDefault(m => m.CityId == volmission.CityId);
+                var themeobjective = _Idb.GoalsList().FirstOrDefault(m => m.MissionId == missionid);
                 string[] Startdate = volmission.StartDate.ToString().Split(" ");
                 string[] Enddate = volmission.EndDate.ToString().Split(" ");
-                var favrioute = (id != null) ? _db.FavoriteMissions.Any(u => u.UserId == id && u.MissionId == volmission.MissionId) : false;
-                var Applybtn = (id != null) ? _db.MissionApplications.Any(u => u.MissionId == volmission.MissionId && u.UserId == id) : false;
+                var favrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(sessionUserId) && u.MissionId == volmission.MissionId) : false;
+                var Applybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == volmission.MissionId && u.UserId == Convert.ToInt64(sessionUserId)) : false;
+                var givrat = _Idb.missionRatingList().FirstOrDefault(u => u.MissionId == volmission.MissionId&&u.UserId== Convert.ToInt64(sessionUserId));
                 VolunteeringVM volunteeringVM = new VolunteeringVM();
                 volunteeringVM.MissionId = missionid;
                 volunteeringVM.Title = volmission.Title;
@@ -161,18 +164,38 @@ namespace CI.Controllers
                 volunteeringVM.GoalObjectiveText = themeobjective.GoalObjectiveText;
                 volunteeringVM.isFavriout = favrioute;
                 volunteeringVM.isApplied = Applybtn;
+                volunteeringVM.Givenrating = Convert.ToInt64(givrat.Rating);
+                volunteeringVM.UserId = Convert.ToInt64(sessionUserId);
+                
+
                 ViewBag.Missiondetail = volunteeringVM;
 
-
-                var relatedmission = _db.Missions.Where(m => m.ThemeId == volmission.ThemeId && m.MissionId != missionid).ToList();
+                List<VolunteeringVM> relatedlist = new List<VolunteeringVM>();
+                var relatedmission = _Idb.RelatedMission(volmission.ThemeId, missionid);
                 foreach (var item in relatedmission.Take(3))
                 {
 
-                    var relcity = _db.Cities.FirstOrDefault(m => m.CityId == item.CityId);
-                    var reltheme = _db.MissionThemes.FirstOrDefault(m => m.MissionThemeId == item.ThemeId);
-                    var relgoalobj = _db.GoalMissions.FirstOrDefault(m => m.MissionId == item.MissionId);
+                    var relcity = _Idb.CityList().FirstOrDefault(m => m.CityId == item.CityId);
+                    var reltheme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == item.ThemeId);
+                    var relgoalobj = _Idb.GoalsList().FirstOrDefault(m => m.MissionId == item.MissionId);
                     string[] Startdate1 = item.StartDate.ToString().Split(" ");
                     string[] Enddate2 = item.EndDate.ToString().Split(" ");
+                    var relfavrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(sessionUserId) && u.MissionId == item.MissionId) : false;
+                    var relApplybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(sessionUserId)) : false;
+                    var rat = _Idb.missionRatingList().Where(u => u.MissionId == item.MissionId).ToList();
+                    int finalrat = 0;
+                    if (rat.Count > 0)
+                    {
+                        int rating = 0;
+                        foreach (var items in rat)
+                        {
+
+                            rating = rating + int.Parse(items.Rating);
+
+                        }
+                        finalrat = rating / rat.Count();
+
+                    }
 
 
 
@@ -189,14 +212,15 @@ namespace CI.Controllers
                         OrganizationName = item.OrganizationName,
                         GoalObjectiveText = relgoalobj.GoalObjectiveText,
                         MissionType = item.MissionType,
-
-
+                        isFavriout = relfavrioute,
+                        isApplied = relApplybtn,
+                        AvrageRating = finalrat,
                     }
                     );
 
                 }
                 ViewBag.relatedmission = relatedlist.Take(3);
-                ViewBag.relatedmissioncount=relatedlist.Count();
+                ViewBag.relatedmissioncount = relatedlist.Count();
 
                 List<VolunteeringVM> recentvolunteredlist = new List<VolunteeringVM>();
                 //var recentvolunttered = from U in CID.Users join MA in CiMainContext.MissionApplications on U.UserId equals MA.UserId where MA.MissionId == mission.MissionId select U;
@@ -230,19 +254,19 @@ namespace CI.Controllers
                 ViewBag.allavailuser = allavailuser;
 
                 List<VolunteeringVM> misComment = new List<VolunteeringVM>();
-                var missioncomment =_db.Comments.Where(c=>c.MissionId== missionid).ToList();
-                foreach(var comment in missioncomment)
+                var missioncomment = _db.Comments.Where(c => c.MissionId == missionid).ToList();
+                foreach (var comment in missioncomment)
                 {
-                    var cmtuser=_db.Users.FirstOrDefault(u=>u.UserId==comment.UserId);
+                    var cmtuser = _db.Users.FirstOrDefault(u => u.UserId == comment.UserId);
                     misComment.Add(new VolunteeringVM
 
                     {
 
-                        Commenttext=comment.MissionTxt,
-                        username=cmtuser.FirstName,
-                        lastname=cmtuser.LastName,
-                        CreatedDate= comment.CreatedAt,
-                        Day=comment.CreatedAt.Day.ToString(),
+                        Commenttext = comment.MissionTxt,
+                        username = cmtuser.FirstName,
+                        lastname = cmtuser.LastName,
+                        CreatedDate = comment.CreatedAt,
+                        Day = comment.CreatedAt.Day.ToString(),
 
                     });
                 }
@@ -253,5 +277,6 @@ namespace CI.Controllers
             }
 
         }
+        #endregion
     }
 }

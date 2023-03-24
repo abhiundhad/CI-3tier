@@ -103,5 +103,14 @@ namespace CI.Repository.Repository
             _db.SaveChanges();
             return newcmt;
         }
+
+        public bool FavMissByUserMissID(long missionid, long id)
+        {
+            return  _db.FavoriteMissions.Any(u => u.UserId == id && u.MissionId == missionid);
+        }
+        public List<Mission> RelatedMission(long themeid, long missionid)
+        {
+            return _db.Missions.Where(m=>m.ThemeId==themeid && m.MissionId!=missionid).ToList();
+        }
     }
 }

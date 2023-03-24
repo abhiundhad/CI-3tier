@@ -96,6 +96,7 @@ function sendRecom(missionid, Id) {
             url: '/Volunteering/sendRecom',
             type: 'POST',
             data: { missionid: missionid, Id: Id, Email: Email },
+         
             success: function (result)
             {
                 alert("Recomendations sent successfully!");
@@ -132,4 +133,24 @@ function missionapplied(missionid, id)
             }
         });
 
+}
+
+function AddPost(missionid, id) {
+    var comttext = document.getElementById("floatingTextarea2").value;
+    $.ajax
+        ({
+            url: '/Volunteering/addComment',
+            type: 'POST',
+            data: { missionid: missionid, id: id, comttext: comttext },
+            success: function (result) {
+                $('.commentdiv').html($(result).find('.commentdiv').html());
+
+             
+
+            },
+            error: function () {
+                // Handle error response from the server, e.g. show an error message to the user
+                alert('Error: Could not recommend mission.');
+            }
+        });
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wrQ9UfPjzwcyb86jR00M9ahrCi0rbPXbcSiM9lRX+GM=",
+  "Hash": "JKadQyq9pPOutNU5gYQP00eLIAMgVALCoteJcQry/wo=",
   "Source": "CI",
   "BasePath": "_content/CI",
   "Mode": "Default",
@@ -2125,6 +2125,40 @@
       "OriginalItemSpec": "wwwroot\\images\\xlsx.png"
     },
     {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\_RelatedMission.js",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "js/_RelatedMission.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\_RelatedMission.js"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\Missioncards.js",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "js/Missioncards.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Missioncards.js"
+    },
+    {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\Missionpage.js",
       "SourceId": "CI",
       "SourceType": "Discovered",
@@ -2140,6 +2174,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Missionpage.js"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\Navbar.js",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "js/Navbar.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Navbar.js"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\site.js",

@@ -72,12 +72,7 @@
                         <div class="column ps-0 " style="width:25%">
                             <img class="demo cursor " src="~/images/img11.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
                         </div>
-                        @* <div class="column">
-                        <img class="demo cursor" src="~/images/img22.png" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
-                        </div>
-                        <div class="column">
-                        <img class="demo cursor" src="~/images/img.png" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
-                        </div>*@
+                     
                     </div>
                 </div>
 
@@ -88,9 +83,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> @ViewBag.Missiondetail.Title</h5>
                         <h6 class="card-subtitle mb-2 text-muted">@ViewBag.Missiondetail.ShortDescription</h6>
-                        @*  <p class="card-text"></p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>*@
+                  
 
                         @if (@ViewBag.Missiondetail.MissionType == "Time")
                         {
@@ -195,12 +188,30 @@
                         <div class=" row mt-1">
                             <div class="col-12 Ratting d-flex">
                                 <hr class="trees" />
-                                <i class="bi bi-star-fill" id="1" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                <i class="bi bi-star-fill" id="2" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                <i class="bi bi-star-fill" id="3" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                <i class="bi bi-star-fill" id="4" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                <i class="bi bi-star-fill" id="5" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                @if (@ViewBag.Missiondetail.Givenrating != null)
 
+                                {
+                                    for (long i = 0; i < @ViewBag.Missiondetail.Givenrating; i++)
+                                    {
+                                        <i class="bi bi-star-fill" id="1" style="color:#F88634" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                    }
+                                    for (long i= @ViewBag.Missiondetail.Givenrating; i<5; i++)
+                                    {
+                                        <i class="bi bi-star-fill" id="1" style="color:whit; border-color:black" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                    }
+
+                                    
+                                }
+                                else
+                                {
+                                    <i class="bi bi-star-fill" id="1" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                    <i class="bi bi-star-fill" id="2" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                    <i class="bi bi-star-fill" id="3" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                    <i class="bi bi-star-fill" id="4" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                    <i class="bi bi-star-fill" id="5" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+
+                                }
+                              
                                 <hr class="trees" />
                             </div>
 
@@ -348,7 +359,7 @@
                         <p>@ViewBag.Missiondetail.OrganizationDetail</p>
 
                     </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade commentdiv" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
                         <div class="form-floating  mt-2">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="comment"></textarea>
@@ -463,29 +474,7 @@
     </div>
 
 
-    <script>
-
-        function AddPost(missionid, id) {
-            var comttext = document.getElementById("floatingTextarea2").value;
-            $.ajax
-                ({
-                    url: '/Volunteering/addComment',
-                    type: 'POST',
-                    data: { missionid: missionid, id: id, comttext: comttext },
-                    success: function (result) {
-
-
-                        alert("comment added");
-                        location.reload();
-                    },
-                    error: function () {
-                        // Handle error response from the server, e.g. show an error message to the user
-                        alert('Error: Could not recommend mission.');
-                    }
-                });
-        }
-
-    </script>
+   
     <script src="~/js/Missionpage.js"></script>
 
 

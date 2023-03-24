@@ -493,12 +493,24 @@
       "PackagePath": "staticwebassets\\images\\xlsx.png"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Missioncards.js",
+      "PackagePath": "staticwebassets\\js\\Missioncards.js"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Missionpage.js",
       "PackagePath": "staticwebassets\\js\\Missionpage.js"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Navbar.js",
+      "PackagePath": "staticwebassets\\js\\Navbar.js"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\StoryDetail.js",
       "PackagePath": "staticwebassets\\js\\StoryDetail.js"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\_RelatedMission.js",
+      "PackagePath": "staticwebassets\\js\\_RelatedMission.js"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\site.js",
