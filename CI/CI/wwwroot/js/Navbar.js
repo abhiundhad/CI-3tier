@@ -6,18 +6,18 @@ $(document).ready(function () {
 function filter( pg,sortValue ) {
 
     var Search = $("input[name='searchinput']").val();
-    //if (Search == '')
-    //    Search = '';
+
     console.log(Search)
 
 
     var country = [];
+ 
 
-    //$('#countryDropdown').find("input:checked").each(function (i, ob) {
-    //    country.push($(ob).val());
-    //});
+  
+     
     $("input[type='checkbox'][name='country']:checked").each(function () {
         country.push($(this).val());
+      
     });
     console.log(country)
 
@@ -37,7 +37,7 @@ function filter( pg,sortValue ) {
     $.ajax({
         url: "/Landingpage/Filters",
         type: "POST",
-        data: { 'search': Search, 'sortValue': sortValue, 'country': country, 'city': city, 'theme': theme, 'pg':pg },
+        data: { 'search': Search, 'sortValue': sortValue, 'country': country, 'city': city, 'theme': theme, 'pg': pg },
 
         success: function (res) {
             $("#missions").html('');

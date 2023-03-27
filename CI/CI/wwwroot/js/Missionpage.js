@@ -1,4 +1,10 @@
-﻿/**mission couresel js*/
+﻿
+
+
+
+
+
+/**mission couresel js*/
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -35,28 +41,10 @@ function  addRating(starId, missionId, Id) {
         type: 'POST',
         data: { missionId: missionId, Id: Id, rating: starId },
         success: function (result) {
-            if (parseInt(result.ratingExists.rating, 10)) {
-                for (i = 1; i <= parseInt(result.ratingExists.rating, 10); i++) {
-                    var starbtn = document.getElementById(String(i));
+         
+            $('#Ratting').html($(result).find('#Ratting').html());
+            $('#avgrat').html($(result).find('#avgrat').html());
 
-                    starbtn.style.color = "#F88634";
-                }
-                for (i = parseInt(result.ratingExists.rating, 10) + 1; i <= 5; i++) {
-                    var starbtn = document.getElementById(String(i));
-
-
-                    starbtn.style.color = "black";
-                }
-                $('.avgrat').html($(result).find('.avgrat').html());
-            }
-            else {
-                for (i = 1; i <= parseInt(result.newRating.rating, 10); i++) {
-                    var starbtn = document.getElementById(String(i));
-
-                    starbtn.style.backgroundColor = "#F88634";
-                }
-                $('.avgrat').html($(result).find('.avgrat').html());
-            }
         },
         error: function () {
             alert("could not like mission");
@@ -165,4 +153,29 @@ function AddPost(missionid, id) {
                 alert('Error: Could not recommend mission.');
             }
         });
+}
+
+
+
+function recentvol(pg, missionid,id) {
+
+
+    //var missionid = $("input[name='theme']").val();
+
+
+    $.ajax({
+        url: "/Volunteering/Volunteering",
+        type: "POST",
+        data: { 'pg': pg, 'missionid': missionid,'id':id },
+
+        success: function (res) {
+            //$("#recentvolunteering").html('');
+            //$("#recentvolunteering").html(res);
+            $('#recent').html($(res).find('#recent').html());
+
+        },
+        error: function () {
+            alert("recentvolunteering error");
+        }
+    })
 }
