@@ -124,3 +124,9 @@ function sendRecom(Id) {
         });
 
 }
+function alertmsg() {
+    alert("please login/register First");
+}
+function pagination(page) {
+
+}

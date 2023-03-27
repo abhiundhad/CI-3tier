@@ -13,12 +13,11 @@ namespace CI.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly CiPlatformContext _db;
         private readonly IUserRepository _Idb;
         
-        public LoginController(CiPlatformContext db, IUserRepository Idb)
+        public LoginController( IUserRepository Idb)
         {
-            _db = db;
+       
 
             _Idb = Idb;
         }

@@ -47,6 +47,7 @@ function  addRating(starId, missionId, Id) {
 
                     starbtn.style.color = "black";
                 }
+                $('.avgrat').html($(result).find('.avgrat').html());
             }
             else {
                 for (i = 1; i <= parseInt(result.newRating.rating, 10); i++) {
@@ -54,7 +55,7 @@ function  addRating(starId, missionId, Id) {
 
                     starbtn.style.backgroundColor = "#F88634";
                 }
-
+                $('.avgrat').html($(result).find('.avgrat').html());
             }
         },
         error: function () {
@@ -75,6 +76,7 @@ function addtofav1(missionId, Id) {
                 var heartbtn = document.getElementById("heart");
                 heartbtn.style.color = "#F88634";
                 favbtn.style.color = "orange"
+                favbtn.innerHTML="Remove From Favourite"
 
             }
             else {
@@ -83,6 +85,7 @@ function addtofav1(missionId, Id) {
                 var heartbtn = document.getElementById("heart");
                 heartbtn.style.color = "black";
                 favbtn.style.color = "black"
+                favbtn.innerHTML = "Add to Favourite"
 
             }
         }
@@ -91,6 +94,8 @@ function addtofav1(missionId, Id) {
 function sendRecom(missionid, Id) {
 
     var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
+    var sendbtn = document.getElementById("sendbutton");
+    sendbtn.innerHTML = "Sending...";
     $.ajax
         ({
             url: '/Volunteering/sendRecom',
@@ -99,11 +104,18 @@ function sendRecom(missionid, Id) {
          
             success: function (result)
             {
-                alert("Recomendations sent successfully!");
+          
                 const checkboxes = document.querySelectorAll('input[name="email"]:checked');
                 checkboxes.forEach((checkbox) => {
                     checkbox.checked = false;
                 });
+                sendbtn.innerHTML = "Send successfully";
+                setTimeout(() => {
+
+
+                    sendbtn.innerHTML = "Send Recommandation";
+
+                }, 2000);
             },
             error: function ()
             {

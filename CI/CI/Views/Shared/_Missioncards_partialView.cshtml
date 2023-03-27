@@ -7,6 +7,17 @@
     var id = Context.Session.GetString("userID");
 
 }
+@{
+    PaginationModel pagination = new PaginationModel();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pagination != null)
+    {
+        pagination = ViewBag.Pagination;
+        pageNo = pagination.CurrentPage;
+    }
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +42,7 @@
                     <div class="firstdiv  me-auto d-flex">
                         <p class="fs-4 me-2">Explore </p>
 
-                        <h3>@ViewBag.TotalMission Missions</h3>
+                        <h3>@ViewBag.totalcount Missions</h3>
                     </div>
 
                     <div class="sortlistgrid  d-flex ">
@@ -43,12 +54,12 @@
                                 <img src="~/images/drop-down.png" alt="" class="sortaerrow">
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" onclick="filter('Newest' )">Newest</a></li>
-                                <li><a class="dropdown-item" onclick="filter('Oldest' )">Oldest  </a></li>
-                                <li><a class="dropdown-item" onclick="filter('Lowest seats')">Lowest available seats  </a></li>
-                                <li><a class="dropdown-item" onclick="filter('Highest seats')"> Highest available seats </a></li>
-                                <li><a class="dropdown-item" onclick="filter('My favourites')"> My favourites </a></li>
-                                <li><a class="dropdown-item" onclick="filter('Registration deadline')"> Registration deadline  </a></li>
+                                <li><a class="dropdown-item" onclick="filter(' ','Newest' )">Newest</a></li>
+                                <li><a class="dropdown-item" onclick="filter(' ','Oldest' )">Oldest  </a></li>
+                                <li><a class="dropdown-item" onclick="filter(' ','Lowest seats')">Lowest available seats  </a></li>
+                                <li><a class="dropdown-item" onclick="filter(' ','Highest seats')"> Highest available seats </a></li>
+                                <li><a class="dropdown-item" onclick="filter(' ','My favourites')"> My favourites </a></li>
+                                <li><a class="dropdown-item" onclick="filter(' ','Registration deadline')"> Registration deadline  </a></li>
                             </ul>
                         </div>
 
@@ -134,7 +145,7 @@
                                                     </div>
                                                     <div class="modal-footer">
 
-                                                        <button type="button" class="btn" style="background-color:#F88634" id="sendbutton" onclick="sendRecom(@id)">Send Recomandation</button>
+                                                        <button type="button" class="btn" style="background-color:#F88634;border-color:#F88634 " id="sendbutton" onclick="sendRecom(@id)">Send Recomandation</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,6 +282,41 @@
 
 
         </div>
+        <div class="container-fluid mt-3">
+            @if (pagination.TotalPages > 0)
+            {
+                <ul class="pagination justify-content-center">
+                    @if (pagination.CurrentPage > pagination.StartPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" onclick="filter(@pagination.StartPage,' ')">First</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" onclick="filter(@pagination.CurrentPage - 1,' ')">Previous</a>
+                        </li>
+
+                    }
+
+                    @for (var pg = pagination.StartPage; pg <= pagination.EndPage; pg++)
+                    {
+                        <li class="page-item @(pg == pagination.CurrentPage ? " active" : "" )">
+                            <a class="page-link" onclick="filter(@pg,' ')">@pg</a>
+                        </li>
+                    }
+
+                    @if (pagination.CurrentPage < pagination.TotalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" onclick="filter(@pagination.CurrentPage + 1,' ')">Next</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" onclick="filter(@pagination.TotalPages,' ')">Last</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+
     }
     else
     {
@@ -278,6 +324,7 @@
         
     }
 
+    
 
     <script src="~/js/Missioncards.js" asp-append-version="true"></script>
 </body>

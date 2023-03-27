@@ -3,7 +3,7 @@ $(document).ready(function () {
     filter();
     
 });
-function filter(sortValue) {
+function filter( pg,sortValue ) {
 
     var Search = $("input[name='searchinput']").val();
     //if (Search == '')
@@ -37,11 +37,12 @@ function filter(sortValue) {
     $.ajax({
         url: "/Landingpage/Filters",
         type: "POST",
-        data: { 'search': Search, 'sortValue': sortValue, 'country': country, 'city': city, 'theme': theme },
+        data: { 'search': Search, 'sortValue': sortValue, 'country': country, 'city': city, 'theme': theme, 'pg':pg },
 
         success: function (res) {
             $("#missions").html('');
             $("#missions").html(res);
+           
         },
         error: function () {
             alert("some Error");

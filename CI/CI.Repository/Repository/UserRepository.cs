@@ -112,5 +112,12 @@ namespace CI.Repository.Repository
         {
             return _db.Missions.Where(m=>m.ThemeId==themeid && m.MissionId!=missionid).ToList();
         }
+        public List<User> Adduser(User user)
+        {
+            _db.Users.Add(user);
+            _db.SaveChanges();
+
+            return null;
+        }
     }
 }

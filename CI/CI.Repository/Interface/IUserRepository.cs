@@ -27,5 +27,7 @@ namespace CI.Repository.Interface
         public Comment comment(long id, long missionid, string comttext);
         public bool FavMissByUserMissID(long missionid,long id);
         public List<Mission> RelatedMission(long themeid , long missionid);
+        //public void Adduser(string user);
+        public List<User> Adduser(User user);
     }
 }

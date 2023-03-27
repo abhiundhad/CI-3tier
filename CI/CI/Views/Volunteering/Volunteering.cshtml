@@ -147,7 +147,18 @@
                         <div class="row p-1 mx-auto">
                             <div class="col  col-11  col-xl-5 col-lg-11 col-md-5 col   me-xl-4  me-md-4 rounded-5 d-flex   Addfavourite   justify-content-center" onclick="addtofav1(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">
                                 <i class="bi bi-heart-fill" id="heart" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")"></i>
-                                <label class="ms-2" id="favmissiondiv" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")">ADD to Favourite</label>
+                                
+                                    @if (@ViewBag.Missiondetail.isFavriout == true)
+                                    {
+                                        <label class="ms-2" id="favmissiondiv" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")"> 
+                                        Remove from Favourite </label>
+                                    }
+                                    else{
+                                            <label class="ms-2" id="favmissiondiv" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")">
+                                            ADD to Favourite
+                                        </label>
+                                    }
+                     
 
                             </div>
                             <button class="col col-11 col-xl-6 col-lg-11  col-md-6 col-sm-11 rounded-5 d-flex bg-white  mt-2 mt-xl-0 mt-lg-2 mt-md-0  Addfavourite   justify-content-center align-items-center" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -178,7 +189,7 @@
                                         </div>
                                         <div class="modal-footer">
 
-                                            <button type="button" class="btn btn-primary" onclick="sendRecom(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">Send Recomandation</button>
+                                            <button type="button" class="btn " style="background-color:#F88634;border-color:#F88634 " id="sendbutton" onclick="sendRecom(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">Send Recomandation</button>
                                         </div>
                                     </div>
                                 </div>
@@ -188,29 +199,31 @@
                         <div class=" row mt-1">
                             <div class="col-12 Ratting d-flex">
                                 <hr class="trees" />
-                                @if (@ViewBag.Missiondetail.Givenrating != null)
+                             @*   @if (@ViewBag.Missiondetail.Givenrating != null)
 
                                 {
                                     for (long i = 0; i < @ViewBag.Missiondetail.Givenrating; i++)
                                     {
-                                        <i class="bi bi-star-fill" id="1" style="color:#F88634" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                        var k = i+1;
+                                        <i class="bi bi-star-fill" id="@k" style="color:#F88634; " onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     }
                                     for (long i= @ViewBag.Missiondetail.Givenrating; i<5; i++)
                                     {
-                                        <i class="bi bi-star-fill" id="1" style="color:whit; border-color:black" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                        var k = i+1;
+                                        <i class="bi bi-star-fill" id="@k" style=" "; border-color:black" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     }
 
                                     
                                 }
                                 else
-                                {
+                                {*@
                                     <i class="bi bi-star-fill" id="1" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     <i class="bi bi-star-fill" id="2" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     <i class="bi bi-star-fill" id="3" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     <i class="bi bi-star-fill" id="4" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     <i class="bi bi-star-fill" id="5" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
 
-                                }
+                            @*    }*@
                               
                                 <hr class="trees" />
                             </div>
@@ -250,7 +263,7 @@
                         {
                             <div class="row justify-content-center ">
 
-                                <button class="aply  col-8 col-xl-4 d-xl-block d-lg-none  col-md-4  mt-3   d-flex rounded-5 bg-white px-4 py-2 justify-content-center " style="@(ViewBag.Missiondetail.isApplied ? "display:none;":"display:block;")" onclick="missionapplied(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">
+                                <button class="aply  col-8 col-xl-4 d-xl-block d-lg-none  col-md-4  mt-3   d-flex rounded-5 bg-white px-4 py-2 justify-content-center "  onclick="missionapplied(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">
                                     <a class="aplys text-decoration-none">
                                         Apply Now
                                         <img src="~/images/right-arrow.png" class="mt-0 ms-2" />
@@ -258,6 +271,21 @@
                                 </button>
                             </div>
 
+                        }
+                        else
+                        {
+
+
+                            <div class="row justify-content-center ">
+
+                                <button class="aply  col-8 col-xl-4 d-xl-block d-lg-none  col-md-4  mt-3   d-flex rounded-5 bg-white px-4 py-2 justify-content-center " >
+                                    <a class="aplys text-decoration-none">
+                                        Alredy Aplied
+                                     
+                                    </a>
+                                </button>
+                            </div>
+                          
                         }
 
                     </div>
@@ -309,6 +337,19 @@
                     </button>
 
                 </div>
+            }
+            else
+            {
+                <div class="col d-xl-none d-lg-block col-lg-3 d-none me-2   ">
+                    <button class="aply   mt-4 ms-4   d-flex rounded-5 bg-white px-4 py-2 justify-content-center " >
+                        <a class="aplys text-decoration-none">
+                            Alredy Aplied
+                         
+                        </a>
+                    </button>
+
+                </div>
+                
             }
 
 
@@ -375,7 +416,8 @@
                             }
                             else
                             {
-                                @foreach (var comment in ViewBag.missioncomment)
+                               
+                                @foreach (var comment in @ViewBag.missioncomment)
                                 {
                                     <div class="col-12 d-flex bg-white mt-3  align-items-center">
                                         <img src="~/images/volunteer3.png" class="comtuserimg ">
@@ -427,12 +469,19 @@
                             Rating
                         </div>
 
-                        <div class="overflow-auto   ms-5">
-                            <img src="~/images/selected-star.png" alt="" />
-                            <img src="~/images/selected-star.png" alt="" />
-                            <img src="~/images/selected-star.png" alt="" />
-                            <img src="~/images/selected-star.png" alt="" />
-                            <img src="~/images/selected-star.png" alt="" />
+                        <div class="overflow-auto avgrat   ms-5">
+                            @if (ViewBag.Missiondetail.AvrageRating != 0)
+                            {
+                                for(int i=0; i < @ViewBag.Missiondetail.AvrageRating; i++)
+                                {
+                                    <img src="~/images/selected-star.png" alt="" />
+                                }
+                                for(int i=@ViewBag.Missiondetail.AvrageRating; i<5; i++)
+                                {
+                                    <img src="~/images/star.png" alt="" />
+                                }
+                            }
+                        
                             <div class="mt-1">
                                 ( by 125 volunteers)
                             </div>
@@ -475,7 +524,7 @@
 
 
    
-    <script src="~/js/Missionpage.js"></script>
+    <script src="~/js/Missionpage.js" asp-append-version="true"></script>
 
 
 </body>

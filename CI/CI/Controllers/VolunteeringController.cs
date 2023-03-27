@@ -77,7 +77,6 @@ namespace CI.Controllers
         [HttpPost]
         public async Task<IActionResult> Addrating(string rating, long Id, long missionId)
         {
-            //MissionRating ratingExists = _Idb.RatingExist(missionId, Id);
             var ratingExists = _Idb.missionRatingList().FirstOrDefault(u => u.MissionId == missionId&&u.UserId==Id);
             if (ratingExists != null)
             {
@@ -95,6 +94,7 @@ namespace CI.Controllers
                 _db.Add(ratingele);
                 _db.SaveChanges();
                 return Json(new { success = true, ratingele, isRated = true });
+                return RedirectToAction("Volunteering", new { id = Id, missionid = missionId });
             }
         }
         #endregion
@@ -125,7 +125,7 @@ namespace CI.Controllers
         }
         #endregion
         #region Volunteering
-        public IActionResult Volunteering(long id, long missionid)
+        public   IActionResult Volunteering(long id, long missionid)
 
         {
             var sessionUserId = HttpContext.Session.GetString("userID");
@@ -138,7 +138,7 @@ namespace CI.Controllers
             else
             {
 
-
+               
                 var volmission = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == missionid);
                 var theme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == volmission.ThemeId);
                 var City = _Idb.CityList().FirstOrDefault(m => m.CityId == volmission.CityId);
@@ -147,7 +147,23 @@ namespace CI.Controllers
                 string[] Enddate = volmission.EndDate.ToString().Split(" ");
                 var favrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(sessionUserId) && u.MissionId == volmission.MissionId) : false;
                 var Applybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == volmission.MissionId && u.UserId == Convert.ToInt64(sessionUserId)) : false;
-                var givrat = _Idb.missionRatingList().FirstOrDefault(u => u.MissionId == volmission.MissionId&&u.UserId== Convert.ToInt64(sessionUserId));
+                //var  givrat =    _Idb.missionRatingList().Where(u => u.MissionId == volmission.MissionId&&u.UserId== Convert.ToInt64(sessionUserId)).FirstOrDefault();
+                var rat = _Idb.missionRatingList().Where(u => u.MissionId == volmission.MissionId).ToList();
+                int finalrat = 0;
+                if (rat.Count > 0)
+                {
+                    int rating = 0;
+                    foreach (var items in rat)
+                    {
+
+                        rating = rating + int.Parse(items.Rating);
+
+                    }
+                    finalrat = rating / rat.Count();
+
+                }
+
+
                 VolunteeringVM volunteeringVM = new VolunteeringVM();
                 volunteeringVM.MissionId = missionid;
                 volunteeringVM.Title = volmission.Title;
@@ -164,7 +180,8 @@ namespace CI.Controllers
                 volunteeringVM.GoalObjectiveText = themeobjective.GoalObjectiveText;
                 volunteeringVM.isFavriout = favrioute;
                 volunteeringVM.isApplied = Applybtn;
-                volunteeringVM.Givenrating = Convert.ToInt64(givrat.Rating);
+                //volunteeringVM.Givenrating = givrat.Rating;
+                volunteeringVM.AvrageRating = finalrat;
                 volunteeringVM.UserId = Convert.ToInt64(sessionUserId);
                 
 
@@ -182,18 +199,19 @@ namespace CI.Controllers
                     string[] Enddate2 = item.EndDate.ToString().Split(" ");
                     var relfavrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(sessionUserId) && u.MissionId == item.MissionId) : false;
                     var relApplybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(sessionUserId)) : false;
-                    var rat = _Idb.missionRatingList().Where(u => u.MissionId == item.MissionId).ToList();
-                    int finalrat = 0;
-                    if (rat.Count > 0)
+                    var relrat = _Idb.missionRatingList().Where(u => u.MissionId == item.MissionId).ToList();
+                    var c = relrat.Count();
+                    int relfinalrat = 0;
+                    if (relrat.Count > 0)
                     {
                         int rating = 0;
-                        foreach (var items in rat)
+                        foreach (var items in relrat)
                         {
 
                             rating = rating + int.Parse(items.Rating);
 
                         }
-                        finalrat = rating / rat.Count();
+                        relfinalrat = rating / c;
 
                     }
 
@@ -214,7 +232,7 @@ namespace CI.Controllers
                         MissionType = item.MissionType,
                         isFavriout = relfavrioute,
                         isApplied = relApplybtn,
-                        AvrageRating = finalrat,
+                        AvrageRating = relfinalrat,
                     }
                     );
 
@@ -270,8 +288,10 @@ namespace CI.Controllers
 
                     });
                 }
-                ViewBag.missioncomment = misComment;
 
+                 misComment.Reverse();
+                ViewBag.missioncomment = misComment;
+            
 
                 return View();
             }

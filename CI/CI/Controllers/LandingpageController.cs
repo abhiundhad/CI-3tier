@@ -10,14 +10,14 @@ namespace CI.Controllers
 {
     public class LandingpageController : Controller
     {
-        private readonly CiPlatformContext _db;
+ 
         private readonly IUserRepository _Idb;
         private int? pageIndex;
 
-        public LandingpageController(CiPlatformContext db, IUserRepository Idb)
+        public LandingpageController( IUserRepository Idb)
         { 
             _Idb = Idb;
-            _db = db;
+            
 
 
         }
@@ -34,7 +34,7 @@ namespace CI.Controllers
         #endregion
 
         #region Filters
-        public IActionResult Filters(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme)
+        public IActionResult Filters(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme, int pg)
         {
             var SessionUserId = HttpContext.Session.GetString("userID");
 
@@ -155,19 +155,29 @@ namespace CI.Controllers
                 Missions = Missions.Where(s => theme.Contains(s.Themename)).ToList();
             }
 
-            //Pagination
-            //int pageSize = 6;
-            //int skip = (pageIndex ?? 0) * pageSize;
-            //var Missionss = Missions.Skip(skip).Take(pageSize).ToList();
-            //int totalMissions = mission.Count();
+       
 
-            //ViewBag.TotalMission = totalMissions;
-            //ViewBag.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-            //ViewBag.CurrentPage = pageIndex ?? 0;
-            var missionfinal = Missions;
+            const int pageSize = 6;
+            if (pg < 1)
+            {
+                pg = 1;
+            }
+
+            int missionCount = Missions.Count();
+
+            var PaginationModel = new PaginationModel(missionCount, pg, pageSize);
+
+            int missionSkip = (pg - 1) * pageSize;
+            ViewBag.Pagination = PaginationModel;
+
+            var FinalMissions = Missions.Skip(missionSkip).Take(PaginationModel.PageSize).ToList();
 
 
-            return PartialView("_Missioncards_partialView", missionfinal);
+
+            int totalCount = Missions.Count();
+            ViewBag.totalcount= totalCount;
+
+            return PartialView("_Missioncards_partialView", FinalMissions);
         }
 
 

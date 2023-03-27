@@ -3,7 +3,7 @@ var missionid1 = 0;
 function addID(missionid) {
     missionid1 = missionid
 }
-function addtofav2(missionId, Id, callId) {
+function addtofav(missionId, Id, callId) {
     console.log(callId)
     $.ajax({
         url: '/Volunteering/Addfav',
