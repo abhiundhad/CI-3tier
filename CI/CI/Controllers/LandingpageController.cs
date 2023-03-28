@@ -69,8 +69,11 @@ namespace CI.Controllers
                 string[] Enddate2 = item.EndDate.ToString().Split(" ");
                 var favrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(SessionUserId) && u.MissionId == item.MissionId) : false;
                 var Applybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(SessionUserId)) : false;
+                int Applycunt=_Idb.missionApplications().Where(m=>m.MissionId==item.MissionId).ToList().Count();
                 var colsed = (id != null) ? _Idb.MissionsList().Any(u => u.StartDate<DateTime.Now) : false;
                 ViewBag.FavoriteMissions = favrioute;
+                int seatleft = Convert.ToInt32(item.Availability) - Applycunt;
+                var missionpath = _Idb.MissionMediaList().FirstOrDefault(m=>m.MissionId==item.MissionId);
                 var rat = _Idb.missionRatingList().Where(u => u.MissionId == item.MissionId).ToList();
                 int finalrat = 0;
                 if (rat.Count > 0)
@@ -99,14 +102,15 @@ namespace CI.Controllers
                     ShortDescription = item.ShortDescription,
                     StartDate = Startdate1[0],
                     EndDate = Enddate2[0],
-                    Availability = item.Availability,
+                    Availability =seatleft,
                     OrganizationName = item.OrganizationName,
-                    GoalObjectiveText = goalobj.GoalObjectiveText,
+                    GoalObjectiveText = goalobj !=null ? goalobj.GoalObjectiveText :"Null",
                     MissionType = item.MissionType,
                     AvrageRating = finalrat,
                     isFavriout = favrioute,
                     isApplied = Applybtn,
                     isclosed = colsed,
+                    missionmediapath= missionpath!=null ? missionpath.MediaPath :"",
                      UserId = Convert.ToInt64(SessionUserId),
                 });
             }
@@ -135,10 +139,10 @@ namespace CI.Controllers
                     ViewBag.sortby = "Oldest";
                     break;
                 case "Lowest seats":
-                    Missions = Missions.OrderBy(m => int.Parse(m.Availability)).ToList();
+                    Missions = Missions.OrderBy(m => m.Availability).ToList();
                     break;
                 case "Highest seats":
-                    Missions = Missions.OrderByDescending(m => int.Parse(m.Availability)).ToList();
+                    Missions = Missions.OrderByDescending(m => m.Availability).ToList();
                     break;
                 case "My favourites":
                     Missions = Missions.Where(m =>m.isFavriout==true).ToList();

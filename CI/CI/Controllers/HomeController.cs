@@ -42,11 +42,7 @@ namespace CI.Controllers
         {
             return View();
         } 
-        public IActionResult ShareStory()
-        {
-            return View();
-        }
-    
+ 
        
     
         public IActionResult nomission(long ID)

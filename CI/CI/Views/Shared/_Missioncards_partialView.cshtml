@@ -88,8 +88,18 @@
 
 
                             <div class="img-event">
-                                <img class="card-img-top missionimg"
-                                     src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+                                @if (item.missionmediapath != "")
+                                {
+                                    <img class="card-img-top missionimg"
+                                         src="@item.missionmediapath" alt="Card image cap">
+                                    
+                                }
+                                else
+                                {
+                                    <img class="card-img-top missionimg"
+                                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image top">
+                                }
+                               
                                 @if (id != null)
                                 {
 
@@ -289,29 +299,50 @@
                 <ul class="pagination justify-content-center">
                     @if (pagination.CurrentPage > pagination.StartPage)
                     {
-                        <li class="page-item">
-                            <a class="page-link" onclick="filter(@pagination.StartPage,' ')">First</a>
+                        <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                            <a class="page-link" style="color:#F88634" onclick="filter(@pagination.StartPage,' ')">First</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" onclick="filter(@pagination.CurrentPage - 1,' ')">Previous</a>
+                        <li class="page-item ms-2">
+                            <a class="page-link" style="color:#F88634" onclick="filter(@pagination.CurrentPage - 1,' ')">  &laquo;</a>
                         </li>
 
+                    }else
+
+                    {
+                        <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                            <a class="page-link" >First</a>
+                        </li>
+                        <li class="page-item ms-2">
+                            <a class="page-link" >
+                                
+                                &laquo;
+                                </a>
+                        </li>
                     }
 
                     @for (var pg = pagination.StartPage; pg <= pagination.EndPage; pg++)
                     {
-                        <li class="page-item @(pg == pagination.CurrentPage ? " active" : "" )">
-                            <a class="page-link" onclick="filter(@pg,' ')">@pg</a>
+                        <li class="page-item @(pg == pagination.CurrentPage ? " active" : "" ) ms-2">
+                            <a class="page-link" style="@(pg==pagination.CurrentPage ? "color:white":"color:#F88634")" onclick="filter(@pg,' ')">@pg</a>
                         </li>
                     }
 
                     @if (pagination.CurrentPage < pagination.TotalPages)
                     {
-                        <li class="page-item">
-                            <a class="page-link" onclick="filter(@pagination.CurrentPage + 1,' ')">Next</a>
+                        <li class="page-item ms-2 ">
+                            <a class="page-link" style="color:#F88634" onclick="filter(@pagination.CurrentPage + 1,' ')">&raquo;</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" onclick="filter(@pagination.TotalPages,' ')">Last</a>
+                        <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                            <a class="page-link" style="color:#F88634" onclick="filter(@pagination.TotalPages,' ')">Last</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item ms-2 ">
+                            <a class="page-link" >&raquo</a>
+                        </li>
+                        <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                            <a class="page-link" >Last</a>
                         </li>
                     }
                 </ul>

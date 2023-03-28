@@ -119,5 +119,22 @@ namespace CI.Repository.Repository
 
             return null;
         }
+
+        public void addstory(long MissionId, string title, DateTime date, string discription, long id)
+        {
+            var newstory = new Story();
+           newstory.MissionId = MissionId;
+            newstory.Title = title;
+            newstory.Description = discription;
+            newstory.Status = "1";
+            newstory.CreatedAt = date;
+            newstory.UserId = id;
+            _db.Add(newstory);
+            _db.SaveChanges();
+        }
+        public List<MissionMedium> MissionMediaList( )
+        {
+           return _db.MissionMedia.ToList();
+        }
     }
 }

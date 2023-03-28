@@ -61,8 +61,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\404-Page-image.png",
-      "PackagePath": "staticwebassets\\images\\404-Page-image.png"
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\404.png",
+      "PackagePath": "staticwebassets\\images\\404.png"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Abhi.jpg",
+      "PackagePath": "staticwebassets\\images\\Abhi.jpg"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Abhi2.jpg",
+      "PackagePath": "staticwebassets\\images\\Abhi2.jpg"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Ajjubhai.jpg",
+      "PackagePath": "staticwebassets\\images\\Ajjubhai.jpg"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Already-volunteered.png",
@@ -105,6 +117,10 @@
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Dharmik.jpg",
+      "PackagePath": "staticwebassets\\images\\Dharmik.jpg"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "PackagePath": "staticwebassets\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png"
     },
@@ -145,6 +161,10 @@
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Keval.jpg",
+      "PackagePath": "staticwebassets\\images\\Keval.jpg"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Nourish-the-Children-in--African-country-1.png",
       "PackagePath": "staticwebassets\\images\\Nourish-the-Children-in--African-country-1.png"
     },
@@ -167,6 +187,14 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Seats-left.png",
       "PackagePath": "staticwebassets\\images\\Seats-left.png"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Shubh.jpg",
+      "PackagePath": "staticwebassets\\images\\Shubh.jpg"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Vedant.jpg",
+      "PackagePath": "staticwebassets\\images\\Vedant.jpg"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\Volunteering-Rank.png",
@@ -507,6 +535,10 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\StoryDetail.js",
       "PackagePath": "staticwebassets\\js\\StoryDetail.js"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\StoryListing.js",
+      "PackagePath": "staticwebassets\\js\\StoryListing.js"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\_RelatedMission.js",

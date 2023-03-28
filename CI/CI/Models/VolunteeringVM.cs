@@ -29,7 +29,7 @@
 
         public string? OrganizationDetail { get; set; }
 
-        public string? Availability { get; set; }
+        public int? Availability { get; set; }
         public string? GoalObjectiveText { get; set; }
       
 
@@ -48,6 +48,8 @@
         public string? StoryDescription { get; set; }
         public long? Givenrating { get; set; }
         public bool isclosed { get; set; }
+        public string missionmediapath { get; set; }
+        public string Useravtar {get; set; }    
 
 
 

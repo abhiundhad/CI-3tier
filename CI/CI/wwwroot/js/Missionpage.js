@@ -125,8 +125,18 @@ function missionapplied(missionid, id)
             data: { missionid: missionid, id: id },
             success: function (result)
             {
+               
+                $('.Appleddiv').html($(result).find('.Appleddiv').html());
+                $('#seatleft').html($(result).find('#seatleft').html());
+                $('#recentvolunteer').html($(result).find('#recentvolunteer').html());
 
-                alert("Applied successfully");
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successfully Applied',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
             },
             error: function () {
                 alert('Error: Could not recommend mission.');

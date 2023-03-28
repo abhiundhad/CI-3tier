@@ -43,6 +43,7 @@ namespace CI.Controllers
                 {
                     HttpContext.Session.SetString("userID", user.UserId.ToString());
                     HttpContext.Session.SetString("Firstname", user.FirstName);
+                    HttpContext.Session.SetString("useravtar", user.Avatar);
                     return RedirectToAction("Volunteering", "Volunteering", new { @id = user.UserId, missionid = model.MissionId });
 
                 }
@@ -60,6 +61,7 @@ namespace CI.Controllers
                 {
                     HttpContext.Session.SetString("userID", user.UserId.ToString());
                     HttpContext.Session.SetString("Firstname", user.FirstName);
+                    HttpContext.Session.SetString("useravtar", user.Avatar);
                     return RedirectToAction("StoryDetail", "StoryListing", new { @id = user.UserId, StoryId = model.StoryId });
 
                 }
@@ -82,6 +84,7 @@ namespace CI.Controllers
                     {
                         HttpContext.Session.SetString("userID", user.UserId.ToString());
                         HttpContext.Session.SetString("Firstname", user.FirstName);
+                        HttpContext.Session.SetString("useravtar", user.Avatar);
 
                         return RedirectToAction("Landingpage", "Landingpage", new { @id = user.UserId });
                     }

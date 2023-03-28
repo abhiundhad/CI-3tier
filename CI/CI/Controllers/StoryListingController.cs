@@ -5,20 +5,21 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Mail;
 using System.Net;
 using System.Web;
+using CI.Repository.Interface;
+using System.Reflection;
 
 namespace CI.Controllers
 {
     public class StoryListingController : Controller
     {
         private readonly CiPlatformContext _db;
-
-        public StoryListingController(CiPlatformContext db)
+        private readonly IUserRepository _Idb;
+        public StoryListingController(CiPlatformContext db, IUserRepository Idb)
         {
             _db = db;
-
-
+            _Idb = Idb;
         }
-        public IActionResult StoryListing(long id, int? pageIndex)
+        public IActionResult StoryListing(long id, int? pageIndex,int pg)
 
         {
             var userId = HttpContext.Session.GetString("userID");
@@ -27,54 +28,48 @@ namespace CI.Controllers
             List<Story> storylist = _db.Stories.ToList(); 
            List<VolunteeringVM> StoryList = new List<VolunteeringVM>();
             foreach(var story in storylist) 
-            { var storyuser=_db.Users.FirstOrDefault(x => x.UserId == story.UserId);    
+            { var storyuser=_db.Users.FirstOrDefault(x => x.UserId == story.UserId);  
+                var missiontheme=_Idb.MissionsList().FirstOrDefault(m=>m.MissionId == story.MissionId).ThemeId;
+                var storytheme=_Idb.ThemeList().FirstOrDefault(m=>m.MissionThemeId == missiontheme).Title;
                 StoryList.Add(new VolunteeringVM
                 {
-                    StoryId=story.StoryId,
-                    MissionId=story.MissionId,
-                    UserId=story.UserId,
-                    StoryTitle=story.Title,
-                     ShortDescription=story.Description,
-                     username=storyuser.FirstName,
-                     lastname=storyuser.LastName,
+                    StoryId = story.StoryId,
+                    MissionId = story.MissionId,
+                    UserId = story.UserId,
+                    StoryTitle = story.Title,
+                    Themename = storytheme,
+                     ShortDescription = HttpUtility.HtmlDecode(story.Description),
+                    username = storyuser.FirstName,
+                    lastname = storyuser.LastName,
 
-                });
+                }) ;
 
             }
+            var Storys = StoryList.OrderByDescending(m => m.CreatedDate).ToList(); ;
             ViewBag.StoryList = StoryList;
 
-            //pagination
-            int pageSize = 9;
-            int skip = (pageIndex ?? 0) * pageSize;
 
-            var Storycards = StoryList.Skip(skip).Take(pageSize).ToList();
-
-            //if (mission.Count() == 0)
-            //{
-            //    return RedirectToAction("NoMissionFound", new { });
-            //}
-            int totalMissions = StoryList.Count();
-            ViewBag.TotalMission = totalMissions;
-            ViewBag.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-            ViewBag.CurrentPage = pageIndex ?? 0;
-
-            UriBuilder uriBuilder = new UriBuilder(Request.Scheme, Request.Host.Host);
-            if (Request.Host.Port.HasValue)
+            const int pageSize = 6;
+            if (pg < 1)
             {
-                uriBuilder.Port = Request.Host.Port.Value;
+                pg = 1;
             }
-            uriBuilder.Path = Request.Path;
 
-            // Remove the query parameter you want to exclude
-            var query = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            query.Remove("pageIndex");
-            uriBuilder.Query = query.ToString();
+            int missionCount = Storys.Count();
+
+            var PaginationModel = new PaginationModel(missionCount, pg, pageSize);
+
+            int missionSkip = (pg - 1) * pageSize;
+            ViewBag.Pagination = PaginationModel;
+
+            var Finalstorys = Storys.Skip(missionSkip).Take(PaginationModel.PageSize).ToList();
 
 
+          
+            int totalCount = Storys.Count();
+            ViewBag.totalcount = totalCount;
 
-            ViewBag.currentUrl = uriBuilder.ToString();
-
-            return View(Storycards);
+            return View(Finalstorys);
         }
 
         public IActionResult StoryDetail(long id,int StoryId)
@@ -159,5 +154,27 @@ namespace CI.Controllers
             }
             return Json(new { success = true });
         }
+        public IActionResult ShareStory(int id)
+        {
+            var ShareStoryData = new ShareStoryViewModel();
+            ShareStoryData.Missions = _Idb.MissionsList();
+            ShareStoryData.MissionApplications=_Idb.missionApplications().Where(m=>m.UserId==id).ToList();
+
+            return View(ShareStoryData);
+        }
+        #region AddStory
+        [HttpPost]
+        public IActionResult AddStory(ShareStoryViewModel model)
+        {
+                var id = HttpContext.Session.GetString("userID");
+            long userid = Convert.ToInt64(id);
+
+            _Idb.addstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid);
+            return RedirectToAction("ShareStory", "StoryListing");
+            
+
+        }
+        #endregion
+
     }
 }

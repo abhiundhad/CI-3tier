@@ -1,6 +1,6 @@
 ﻿
 .missioncontainer{
-    margin-top:110px;
+    margin-top:70px;
 }
 
 /*mission corusel css*/
@@ -149,20 +149,24 @@ hr {
 
 .aplys{
     color: #F88634 !important;
+
     
 }
 .involveduserprofile {
     border-radius: 50px;
-    height: 55%;
-    width: 90%;
+    height: 80px;
+    width: 80px;
+   
+    border: 4px solid #F88634;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     border-bottom: 3px solid #F88634;
 }
-.aviluser{
-    border-radius:50px;
-    width:52px;
-    heid:52px;
+.aviluser {
+    border-radius: 50px;
+    width: 52px;
+    height: 52px;
+    border: 4px solid #F88634;
 }
 .userlistdiv{
     background-color:lightgray;
@@ -179,4 +183,5 @@ hr {
     height: 52px;
     width: 52px;
     border-radius: 50px;
+    border: 4px solid #F88634;
 }

@@ -1,0 +1,114 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model CI.Models.ShareStoryViewModel
+
+@{
+    Layout = "_navbar";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+    <link rel="stylesheet" href="~/css/ShareStory.css" asp-append-version="true" />
+</head>
+<body>
+    <div class=" sharestory container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-sm-12">
+                <lable class="fs-2"> Share Your Story</lable>
+            </div>
+        </div>
+        <form asp-controller="StoryListing" asp-action="AddStory" method="post">
+            
+            <div class="row ">
+                <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
+                    <lable class="fs-6">Select Mission</lable>
+
+                    <select asp-for="MissionId" class="form-select" aria-label="Default select example">
+                        @foreach(var item in Model.MissionApplications)
+                        {
+                            
+                        <option value="@item.Mission.MissionId" >@item.Mission.Title</option>
+                        }
+                  
+                    </select>
+                </div>
+                <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2 ">
+                    <lable class="fs-6">My Story Title </lable>
+                     
+                    <input type="text" asp-for="StoryTitle" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray">
+
+                    </input>
+                  @*  <input type="text" class=" col-12 border-1" style="border-color:grey heigh"/>*@
+                </div>
+                <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
+                    <lable class="fs-6">Date </lable>
+
+                    <input type="datetime-local" asp-for="date" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray">
+
+                    </input>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <label class="fs-5 ">My Story</label>
+
+                <div class="col-12 mt-2">
+                    <textarea class="" name="editor1" asp-for="editor1"></textarea>
+                </div>
+
+            </div>
+
+            <div class="row mt-4">
+                <label class="fs-5">Enter Video URL</label>
+
+                <input type="text"  placeholder="Enter your URL" class="col-12 border-1 border-black  mt-1 mb-2" style="height:40px; border-radius:5px" />
+
+
+
+            </div>
+
+    
+
+            <output></output>
+
+            <div class="row mt-4">
+                <label class=" fs-5"> Upload Your Photos</label>
+                <div class="col-12 mb-2 mt-2    d-flex justify-content-center align-items-center inputdiv">
+                    <p>Drag & drop photos here or <strong>Browse</strong></p>
+                    <input type="file" class="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+               
+                </div>
+            </div>
+            <div class="row">
+                <span>
+
+
+                </span>
+            </div>
+    
+            <div class="row flex-column flex-md-row mt-4 mb-2" >
+                <div class="col-12 col-md-2 me-auto">
+                    <button class="w-100 bg-white rounded-5 py-2" >cancel</button>
+                </div> 
+                <div class=" col-12 col-md-2 mt-2 mt-md-0 ">
+                    <button class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn">Save</button>
+                </div> 
+                <div class=" col-12 col-md-2 mt-2 mt-md-0">
+                    <button  type="submit" class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+</body>
+</html>

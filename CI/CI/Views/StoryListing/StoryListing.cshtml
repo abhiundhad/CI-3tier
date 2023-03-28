@@ -2,8 +2,25 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Layout = "_navbar";
+    var id = Context.Session.GetString("userID");
+
+
 }
+@{
+    PaginationModel pagination = new PaginationModel();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pagination != null)
+    {
+        pagination = ViewBag.Pagination;
+        pageNo = pagination.CurrentPage;
+    }
+}
+@{
+    Layout = "_navbar2";
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +40,7 @@
                 <p style="width:75vw; " class="ms-auto me-auto mb-3">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, fugiat deleniti! Aut nam incidunt vel nisi, placeat reiciendis, eos vitae accusantium a quasi tempora maiores voluptatem, voluptas optio deleniti veritatis.
                 </p>
-                <a class=" storyheaderbtn rounded-5 p-1 px-4  " asp-action="ShareStory" asp-controller="Home"  >
+                <a class=" storyheaderbtn rounded-5 p-1 px-4  " href="/StoryListing/ShareStory/@id">
                     Share your Story
                     <i class="bi bi-arrow-right  "></i>
                 </a>
@@ -34,7 +51,7 @@
 
        
     </div>
-    <div class="album py-5 bg-light">
+    <div class="album py-5 bg-light" id="storycards">
         <div class="container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -54,13 +71,13 @@
 
                                     </a>
                                 </div>
-                                <button class="theme-btn position-absolute top-100 start-50 translate-middle ">Environment</button>
+                                <button class="theme-btn position-absolute top-100 start-50 translate-middle ">@story.Themename</button>
                             </div>
                             <div class="card-body">
                                 <div class=" col-12">
                                     <h5 class="card-title demo-1  mt-3">@story.StoryTitle</h5>
                                     <p class="card-text demo-2">
-                                        @story.ShortDescription
+                                        @Html.Raw(story.ShortDescription)
                                     </p>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -78,52 +95,66 @@
 
                 
                 </div>
-            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                <ul class="pagination">
-                    @if (@ViewBag.currentUrl.Contains('?'))
-                    {
-                        <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
-                            <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        @for (int i = 0; i < ViewBag.TotalPages; i++)
+            <div class="container-fluid mt-3">
+                @if (pagination.TotalPages > 0)
+                {
+                    <ul class="pagination justify-content-center">
+                        @if (pagination.CurrentPage > pagination.StartPage)
                         {
-                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                                <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@i">@((i + 1).ToString())</a>
+                            <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                                <a class="page-link" style="color:#F88634" onclick="storyfilter(@pagination.StartPage)">First</a>
+                            </li>
+                            <li class="page-item ms-2">
+                                <a class="page-link" style="color:#F88634" onclick="storyfilter(@pagination.CurrentPage - 1)">  &laquo;</a>
+                            </li>
+
+                        }
+                        else
+
+                        {
+                            <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                                <a class="page-link">First</a>
+                            </li>
+                            <li class="page-item ms-2">
+                                <a class="page-link">
+
+                                    &laquo;
+                                </a>
                             </li>
                         }
-                        <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
-                            <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
-                            <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        @for (int i = 0; i < ViewBag.TotalPages; i++)
+
+                        @for (var pg = pagination.StartPage; pg <= pagination.EndPage; pg++)
                         {
-                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                                <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@i">@((i + 1).ToString())</a>
+                            <li class="page-item @(pg == pagination.CurrentPage ? " active" : "" ) ms-2">
+                                <a class="page-link" style="@(pg==pagination.CurrentPage ? "color:white":"color:#F88634")" onclick="storyfilter(@pg)">@pg</a>
                             </li>
                         }
-                        <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
-                            <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    }
-                </ul>
-            </nav>
+
+                        @if (pagination.CurrentPage < pagination.TotalPages)
+                        {
+                            <li class="page-item ms-2 ">
+                                <a class="page-link" style="color:#F88634" onclick="storyfilter(@pagination.CurrentPage + 1)">&raquo;</a>
+                            </li>
+                            <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                                <a class="page-link" style="color:#F88634" onclick="storyfilter(@pagination.TotalPages)">Last</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item ms-2 ">
+                                <a class="page-link">&raquo</a>
+                            </li>
+                            <li class="page-item ms-2 d-none d-xl-block d-sm-block">
+                                <a class="page-link">Last</a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
           
             </div>
         </div>
-   
+   <script src="~/js/StoryListing.js"></script>
     
 
 </body>

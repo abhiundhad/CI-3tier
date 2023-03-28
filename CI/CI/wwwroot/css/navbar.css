@@ -123,3 +123,6 @@ p {
 .custom-tooltip {
     --bs-tooltip-bg: var(--bs-primary);
 }
+.loginimg {
+    border: 2px solid #F88634;
+}

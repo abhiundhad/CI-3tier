@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JKadQyq9pPOutNU5gYQP00eLIAMgVALCoteJcQry/wo=",
+  "Hash": "BDw8RCN7gc6MYvqdntOH5ESqP9qVvirjyD7Dyaappgc=",
   "Source": "CI",
   "BasePath": "_content/CI",
   "Mode": "Default",
@@ -289,12 +289,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\404-Page-image.png",
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\404.png",
       "SourceId": "CI",
       "SourceType": "Discovered",
       "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
       "BasePath": "_content/CI",
-      "RelativePath": "images/404-Page-image.png",
+      "RelativePath": "images/404.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -303,7 +303,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\404-Page-image.png"
+      "OriginalItemSpec": "wwwroot\\images\\404.png"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Abhi.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/Abhi.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Abhi.jpg"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Abhi2.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/Abhi2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Abhi2.jpg"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\achieved.png",
@@ -355,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\add1.png"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Ajjubhai.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/Ajjubhai.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Ajjubhai.jpg"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Already-volunteered.png",
@@ -695,6 +746,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\deadline.png"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Dharmik.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/Dharmik.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Dharmik.jpg"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\doc.png",
@@ -1275,6 +1343,23 @@
       "OriginalItemSpec": "wwwroot\\images\\info.png"
     },
     {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Keval.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/Keval.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Keval.jpg"
+    },
+    {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\left.png",
       "SourceId": "CI",
       "SourceType": "Discovered",
@@ -1768,6 +1853,23 @@
       "OriginalItemSpec": "wwwroot\\images\\settings.png"
     },
     {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Shubh.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/Shubh.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Shubh.jpg"
+    },
+    {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\star.png",
       "SourceId": "CI",
       "SourceType": "Discovered",
@@ -1902,6 +2004,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\user-img-large.png"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\Vedant.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/Vedant.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Vedant.jpg"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\volunteer1.png",
@@ -2225,6 +2344,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\StoryDetail.js"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\StoryListing.js",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "js/StoryListing.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\StoryListing.js"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

@@ -41,8 +41,19 @@
 
 
                             <div class="img-event">
+                                @if (items.missionmediapath != "")
+                                {
                                 <img class="card-img-top missionimg"
-                                     src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+                                    src="@items.missionmediapath" alt="Card image cap">
+                                }
+                                else
+                                {
+
+                                    <img class="card-img-top missionimg"
+                                         src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
+                                }
+
+                              
                                 @if (id != null)
                                 {
 

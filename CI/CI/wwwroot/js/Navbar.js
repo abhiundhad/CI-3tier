@@ -42,11 +42,11 @@ function filter( pg,sortValue ) {
         success: function (res) {
             $("#missions").html('');
             $("#missions").html(res);
-           
+
         },
         error: function () {
             alert("some Error");
         }
-    })
+    });
 }
 

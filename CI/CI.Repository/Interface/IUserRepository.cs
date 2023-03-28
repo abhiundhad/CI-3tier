@@ -29,5 +29,8 @@ namespace CI.Repository.Interface
         public List<Mission> RelatedMission(long themeid , long missionid);
         //public void Adduser(string user);
         public List<User> Adduser(User user);
+        public void addstory(long MissionId, string title, DateTime date, string discription, long id);
+        public List<MissionMedium> MissionMediaList( );
+
     }
 }
