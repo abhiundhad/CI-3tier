@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using System.Net.Mail;
 using System.Net;
 using CI.Repository.Interface;
+using System.Reflection;
 
 namespace CI.Controllers
 {
@@ -83,7 +84,7 @@ namespace CI.Controllers
                 ratingExists.Rating = rating;
                 _db.Update(ratingExists);
                 _db.SaveChanges();
-                return Json(new { success = true, ratingExists, isRated = true });
+                //return Json(new { success = true, ratingExists, isRated = true });
             }
             else
             {
@@ -93,9 +94,9 @@ namespace CI.Controllers
                 ratingele.MissionId = missionId;
                 _db.Add(ratingele);
                 _db.SaveChanges();
-                return Json(new { success = true, ratingele, isRated = true });
-                return RedirectToAction("Volunteering", new { id = Id, missionid = missionId });
+                //return Json(new { success = true, ratingele, isRated = true });
             }
+                return RedirectToAction("Volunteering", new { id = Id, missionid = missionId });
         }
         #endregion
         #region AddtoFavrioate
@@ -125,7 +126,7 @@ namespace CI.Controllers
         }
         #endregion
         #region Volunteering
-        public   IActionResult Volunteering(long id, long missionid)
+        public   IActionResult Volunteering(long id, long missionid,int pg)
 
         {
             var sessionUserId = HttpContext.Session.GetString("userID");
@@ -137,8 +138,7 @@ namespace CI.Controllers
             }
             else
             {
-
-               
+         
                 var volmission = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == missionid);
                 var theme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == volmission.ThemeId);
                 var City = _Idb.CityList().FirstOrDefault(m => m.CityId == volmission.CityId);
@@ -147,8 +147,10 @@ namespace CI.Controllers
                 string[] Enddate = volmission.EndDate.ToString().Split(" ");
                 var favrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(sessionUserId) && u.MissionId == volmission.MissionId) : false;
                 var Applybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == volmission.MissionId && u.UserId == Convert.ToInt64(sessionUserId)) : false;
-                //var  givrat =    _Idb.missionRatingList().Where(u => u.MissionId == volmission.MissionId&&u.UserId== Convert.ToInt64(sessionUserId)).FirstOrDefault();
+               var givrats =_Idb.missionRatingList().FirstOrDefault(u => u.MissionId == volmission.MissionId && u.UserId == Convert.ToInt64(sessionUserId));
+          
                 var rat = _Idb.missionRatingList().Where(u => u.MissionId == volmission.MissionId).ToList();
+                ViewBag.ratusercouny=rat.Count();
                 int finalrat = 0;
                 if (rat.Count > 0)
                 {
@@ -180,7 +182,7 @@ namespace CI.Controllers
                 volunteeringVM.GoalObjectiveText = themeobjective.GoalObjectiveText;
                 volunteeringVM.isFavriout = favrioute;
                 volunteeringVM.isApplied = Applybtn;
-                //volunteeringVM.Givenrating = givrat.Rating;
+               volunteeringVM.Givenrating = givrats != null?Convert.ToInt64( givrats.Rating) : 0;
                 volunteeringVM.AvrageRating = finalrat;
                 volunteeringVM.UserId = Convert.ToInt64(sessionUserId);
                 
@@ -240,6 +242,7 @@ namespace CI.Controllers
                 ViewBag.relatedmission = relatedlist.Take(3);
                 ViewBag.relatedmissioncount = relatedlist.Count();
 
+
                 List<VolunteeringVM> recentvolunteredlist = new List<VolunteeringVM>();
                 //var recentvolunttered = from U in CID.Users join MA in CiMainContext.MissionApplications on U.UserId equals MA.UserId where MA.MissionId == mission.MissionId select U;
                 var recentvoluntered = from U in _db.Users join MA in _db.MissionApplications on U.UserId equals MA.UserId where MA.MissionId == missionid select U;
@@ -254,7 +257,28 @@ namespace CI.Controllers
                     });
 
                 }
-                ViewBag.recentvolunteered = recentvolunteredlist;
+                var rcentvolunteering = recentvolunteredlist;
+          
+                const int pageSize = 6;
+                if (pg < 1)
+                {
+                    pg = 1;
+                }
+
+                int missionCount = rcentvolunteering.Count();
+
+                var PaginationModel = new PaginationModel(missionCount, pg, pageSize);
+
+                int missionSkip = (pg - 1) * pageSize;
+                ViewBag.Pagination = PaginationModel;
+
+                var FinalMissions = rcentvolunteering.Skip(missionSkip).Take(PaginationModel.PageSize).ToList();
+
+
+                ViewBag.recentvolunteered = FinalMissions;
+                int totalCount = rcentvolunteering.Count();
+                ViewBag.totalcount = totalCount;
+                
 
                 List<User> alluser = _db.Users.ToList();
                 List<VolunteeringVM> allavailuser = new List<VolunteeringVM>();
@@ -290,13 +314,14 @@ namespace CI.Controllers
                 }
 
                  misComment.Reverse();
-                ViewBag.missioncomment = misComment;
-            
+                ViewBag.missioncomment = misComment.OrderByDescending(m=>m.CreatedDate).ToList();
 
-                return View();
+             
+                return View(new {sucess=true});
             }
 
         }
         #endregion
+    
     }
 }

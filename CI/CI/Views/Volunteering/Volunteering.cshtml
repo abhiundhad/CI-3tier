@@ -2,6 +2,17 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    PaginationModel pagination = new PaginationModel();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pagination != null)
+    {
+        pagination = ViewBag.Pagination;
+        pageNo = pagination.CurrentPage;
+    }
+}
+@{
     Layout = "_navbar";
 }
 <!DOCTYPE html>
@@ -72,7 +83,7 @@
                         <div class="column ps-0 " style="width:25%">
                             <img class="demo cursor " src="~/images/img11.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
                         </div>
-                     
+
                     </div>
                 </div>
 
@@ -83,7 +94,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> @ViewBag.Missiondetail.Title</h5>
                         <h6 class="card-subtitle mb-2 text-muted">@ViewBag.Missiondetail.ShortDescription</h6>
-                  
+
 
                         @if (@ViewBag.Missiondetail.MissionType == "Time")
                         {
@@ -147,18 +158,20 @@
                         <div class="row p-1 mx-auto">
                             <div class="col  col-11  col-xl-5 col-lg-11 col-md-5 col   me-xl-4  me-md-4 rounded-5 d-flex   Addfavourite   justify-content-center" onclick="addtofav1(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">
                                 <i class="bi bi-heart-fill" id="heart" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")"></i>
-                                
-                                    @if (@ViewBag.Missiondetail.isFavriout == true)
-                                    {
-                                        <label class="ms-2" id="favmissiondiv" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")"> 
-                                        Remove from Favourite </label>
-                                    }
-                                    else{
-                                            <label class="ms-2" id="favmissiondiv" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")">
-                                            ADD to Favourite
-                                        </label>
-                                    }
-                     
+
+                                @if (@ViewBag.Missiondetail.isFavriout == true)
+                                {
+                                    <label class="ms-2" id="favmissiondiv" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")">
+                                        Remove from Favourite
+                                    </label>
+                                }
+                                else
+                                {
+                                    <label class="ms-2" id="favmissiondiv" style="@(@ViewBag.Missiondetail.isFavriout ? "color:#F88634;" : "color:black;")">
+                                        ADD to Favourite
+                                    </label>
+                                }
+
 
                             </div>
                             <button class="col col-11 col-xl-6 col-lg-11  col-md-6 col-sm-11 rounded-5 d-flex bg-white  mt-2 mt-xl-0 mt-lg-2 mt-md-0  Addfavourite   justify-content-center align-items-center" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -197,34 +210,26 @@
 
                         </div>
                         <div class=" row mt-1">
-                            <div class="col-12 Ratting d-flex">
+                            <div class="col-12 Ratting d-flex" id="Ratting">
                                 <hr class="trees" />
-                             @*   @if (@ViewBag.Missiondetail.Givenrating != null)
+                                @if (@ViewBag.Missiondetail.Givenrating != null)
 
                                 {
                                     for (long i = 0; i < @ViewBag.Missiondetail.Givenrating; i++)
                                     {
-                                        var k = i+1;
+                                        var k = i + 1;
                                         <i class="bi bi-star-fill" id="@k" style="color:#F88634; " onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     }
-                                    for (long i= @ViewBag.Missiondetail.Givenrating; i<5; i++)
+                                    for (long i = @ViewBag.Missiondetail.Givenrating; i < 5; i++)
                                     {
-                                        var k = i+1;
-                                        <i class="bi bi-star-fill" id="@k" style=" "; border-color:black" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
+                                        var k = i + 1;
+                                        <i class="bi bi-star-fill" id="@k" style=" " ; border-color:black" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
                                     }
 
-                                    
-                                }
-                                else
-                                {*@
-                                    <i class="bi bi-star-fill" id="1" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                    <i class="bi bi-star-fill" id="2" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                    <i class="bi bi-star-fill" id="3" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                    <i class="bi bi-star-fill" id="4" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
-                                    <i class="bi bi-star-fill" id="5" onclick="addRating(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)"></i>
 
-                            @*    }*@
-                              
+                                }
+
+
                                 <hr class="trees" />
                             </div>
 
@@ -263,7 +268,7 @@
                         {
                             <div class="row justify-content-center ">
 
-                                <button class="aply  col-8 col-xl-4 d-xl-block d-lg-none  col-md-4  mt-3   d-flex rounded-5 bg-white px-4 py-2 justify-content-center "  onclick="missionapplied(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">
+                                <button class="aply  col-8 col-xl-4 d-xl-block d-lg-none  col-md-4  mt-3   d-flex rounded-5 bg-white px-4 py-2 justify-content-center " onclick="missionapplied(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">
                                     <a class="aplys text-decoration-none">
                                         Apply Now
                                         <img src="~/images/right-arrow.png" class="mt-0 ms-2" />
@@ -278,14 +283,14 @@
 
                             <div class="row justify-content-center ">
 
-                                <button class="aply  col-8 col-xl-4 d-xl-block d-lg-none  col-md-4  mt-3   d-flex rounded-5 bg-white px-4 py-2 justify-content-center " >
+                                <button class="aply  col-8 col-xl-4 d-xl-block d-lg-none  col-md-4  mt-3   d-flex rounded-5 bg-white px-4 py-2 justify-content-center ">
                                     <a class="aplys text-decoration-none">
                                         Alredy Aplied
-                                     
+
                                     </a>
                                 </button>
                             </div>
-                          
+
                         }
 
                     </div>
@@ -305,7 +310,7 @@
                 <img src="~/images/web.png" alt=" " class="" />
                 <br />
                 <label class="text-muted mt-4">Theme </label><br />
-                <label class="">  @ViewBag.Missiondetail.Themename</label>
+                <label class="" name="theme" value="@ViewBag.Missiondetail.MissionId">  @ViewBag.Missiondetail.Themename</label>
 
             </div>
             <div class="col d-xl-none d-lg-block col-lg-2 d-none  me-3 foursquer ">
@@ -341,15 +346,15 @@
             else
             {
                 <div class="col d-xl-none d-lg-block col-lg-3 d-none me-2   ">
-                    <button class="aply   mt-4 ms-4   d-flex rounded-5 bg-white px-4 py-2 justify-content-center " >
+                    <button class="aply   mt-4 ms-4   d-flex rounded-5 bg-white px-4 py-2 justify-content-center ">
                         <a class="aplys text-decoration-none">
                             Alredy Aplied
-                         
+
                         </a>
                     </button>
 
                 </div>
-                
+
             }
 
 
@@ -416,7 +421,7 @@
                             }
                             else
                             {
-                               
+
                                 @foreach (var comment in @ViewBag.missioncomment)
                                 {
                                     <div class="col-12 d-flex bg-white mt-3  align-items-center">
@@ -469,21 +474,21 @@
                             Rating
                         </div>
 
-                        <div class="overflow-auto avgrat   ms-5">
+                        <div class="overflow-auto avgrat   ms-5" id="avgrat">
                             @if (ViewBag.Missiondetail.AvrageRating != 0)
                             {
-                                for(int i=0; i < @ViewBag.Missiondetail.AvrageRating; i++)
+                                for (int i = 0; i < @ViewBag.Missiondetail.AvrageRating; i++)
                                 {
                                     <img src="~/images/selected-star.png" alt="" />
                                 }
-                                for(int i=@ViewBag.Missiondetail.AvrageRating; i<5; i++)
+                                for (int i = @ViewBag.Missiondetail.AvrageRating; i < 5; i++)
                                 {
                                     <img src="~/images/star.png" alt="" />
                                 }
                             }
-                        
+
                             <div class="mt-1">
-                                ( by 125 volunteers)
+                                ( by @ViewBag.ratusercouny volunteers)
                             </div>
                         </div>
 
@@ -492,28 +497,74 @@
                     </div>
 
                 </div>
-                <div class="col col-12 col-lg-12  col-md-6   ms-0 ms-lg-0 ms-md-3 mt-3     foursquer shadow-lg">
+                <div class="col col-12 col-lg-12  col-md-6   ms-0 ms-lg-0 ms-md-3 mt-3     foursquer shadow-lg" id="recent">
                     <div>
                         <p class="fs-3 p-2 pb-0">Recent Volunteers</p>
                         <div class="d-flex">
                             <hr class="" style="border:2px solid black; width:600px;" />
                             <hr class="trees" />
                         </div>
-                        <div class="overflow-x-auto d-flex  ">
+                        <div class="container">
+                            <div class="row   ">
 
 
-                            @foreach (var recent in ViewBag.recentvolunteered)
-                            {
-                                <div class="col-4  d-flex ">
-                                    <a class=" ms-4 me-2 text-decoration-none text-black justify-content-center " asp-area="" asp-controller="home" asp-action="login">
-                                        <img src="~/images/volunteer1.png" class="involveduserprofile" />
-                                        <label id="" class="text-center">@recent.username</label>
-                                    </a>
-                                </div>
-                            }
+                                @foreach (var recent in ViewBag.recentvolunteered)
+                                {
+                                    <div class="col-4   ">
+                                        <a class=" ms-2 me-2 text-decoration-none text-black " asp-area="" asp-controller="home" asp-action="login">
+                                            <img src="~/images/volunteer1.png" class="involveduserprofile  " />
+                                            <label id="" class="text-center d-flex  justify-content-center">@recent.username</label>
+                                        </a>
+                                    </div>
+                                }
 
 
+                            </div>
                         </div>
+
+
+                        <hr class="my-0"/>
+                        @if (pagination.TotalPages > 0)
+                        {
+                            <ul class="pagination d-flex justify-content-between mb-0 pe-0 mt-0">
+                                @if (pagination.CurrentPage > pagination.StartPage)
+                                {
+
+                                    <li class="page-item ">
+                                        <a class="page-link" style="background-color:gray;" onclick="recentvol(@pagination.CurrentPage - 1,@ViewBag.Missiondetail.MissionId,@ViewBag.UserID)"><img src="~/images/left1.png" /></a>
+                                    </li>
+
+                                }
+                                else
+                                {
+                                    <li class="page-item ">
+                                        <a class="page-link" style="background-color:gray;"><img src="~/images/left1.png" /></a>
+                                    </li>
+                                }
+                                <li class="page-item d-flex justify-content-center align-items-center">
+                                    <span> Recent @ViewBag.totalcount Pepole Voluntered</span>
+                                </li>
+
+
+                                @if (pagination.CurrentPage < pagination.TotalPages)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" style="background-color:gray;" onclick="recentvol(@pagination.CurrentPage + 1,@ViewBag.Missiondetail.MissionId,@ViewBag.UserID)"><img src="~/images/right-arrow2.png" /></a>
+                                    </li>
+
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" style="background-color:gray;" ><img src="~/images/right-arrow2.png" /></a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+
+
+                        @*         <partial name="Recentvolunteering_partialView" />*@
+
 
                     </div>
                 </div>
@@ -523,7 +574,7 @@
     </div>
 
 
-   
+
     <script src="~/js/Missionpage.js" asp-append-version="true"></script>
 
 

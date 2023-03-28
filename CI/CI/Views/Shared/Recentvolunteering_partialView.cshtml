@@ -1,0 +1,73 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    PaginationModel pagination = new PaginationModel();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pagination != null)
+    {
+        pagination = ViewBag.Pagination;
+        pageNo = pagination.CurrentPage;
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class=" container  ">
+        <div class="row">
+
+
+        @foreach (var recent in ViewBag.recentvolunteered)
+        {
+            <div class="col-4  ">
+                <a class=" ms-4 me-2 text-decoration-none text-black  ">
+                    <img src="~/images/volunteer1.png" class="involveduserprofile" />
+                    <label id="" class="text-center d-flex justify-content-center">@recent.username</label>
+                </a>
+            </div>
+        }
+        </div>
+
+    </div>
+
+    <div class="container-fluid mt-3">
+        
+        @if (pagination.TotalPages > 0)
+        {
+            <ul class="pagination justify-content-center">
+                @if (pagination.CurrentPage > pagination.StartPage)
+                {
+                    
+                    <li class="page-item">
+                        <a class="page-link" onclick="recentvol(@pagination.CurrentPage - 1,' ')"></a>
+                    </li>
+
+                }
+
+               
+
+                @if (pagination.CurrentPage < pagination.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" onclick="recentvol(@pagination.CurrentPage + 1,' ')"></a>
+                    </li>
+             
+                }
+            </ul>
+        }
+     
+    </div>
+
+
+</body>
+</html>

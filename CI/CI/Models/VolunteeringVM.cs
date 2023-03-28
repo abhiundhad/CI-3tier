@@ -46,7 +46,8 @@
         public long StoryId { get; set; }
         public string? StoryTitle { get; set; }
         public string? StoryDescription { get; set; }
-        public string Givenrating { get; set; } = null!;
+        public long? Givenrating { get; set; }
+        public bool isclosed { get; set; }
 
 
 

@@ -73,7 +73,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" asp-controller="Login" asp-action="Login">Sign out</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Login" asp-action="Logout">Sign out</a></li>
                                 </ul>
                             </div>
                         }
@@ -154,7 +154,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" asp-controller="Login" asp-action="Login">Sign out</a></li>
+                            <li><a class="dropdown-item" asp-controller="Login" asp-action="Logout">Sign out</a></li>
                         </ul>
                     </div>
                 }
@@ -305,7 +305,7 @@
                                     @foreach (var items in ViewBag.Country)
                                     {
                                         <li>
-                                            <input class=" checkboxf form-check-input mt-1 ms-2" name="country" type="checkbox" value="@items.Name" id=@items.CountryId onchange="filter()" aria-label="Checkbox for following text input" />
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" name="country" type="checkbox" value="@items.Name" id="@items.CountryId" onchange="filter()" aria-label="Checkbox for following text input" />
                                             @items.Name
                                         </li>
 
@@ -322,11 +322,11 @@
                             </a>
                             <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
 
-                                @if (ViewBag.Cityy != null)
+                                @if (ViewBag.City != null)
                                 {
 
 
-                                    @foreach (var items in ViewBag.Cityy)
+                                    @foreach (var items in ViewBag.City)
                                     {
                                         <li>
                                             <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Name" name="city" onchange="filter()" id=@items.CityId aria-label="Checkbox for following text input" />
@@ -335,6 +335,18 @@
 
                                     }
 
+                                }
+                               else
+                                {
+                                    <span>please select country first</span>
+                                  @*  @foreach (var items in ViewBag.Cityy)
+                                    {
+                                        <li>
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Name" name="city" onchange="filter()" id=@items.CityId aria-label="Checkbox for following text input" />
+                                            @items.Name
+                                        </li>
+
+                                    }*@
                                 }
                             </ul>
                         </li>

@@ -26,6 +26,11 @@ namespace CI.Controllers
             HttpContext.Session.Clear();
             return View();
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Landingpage", "Landingpage");
+        }
 
         [HttpPost]
         public async Task<IActionResult> Login(UserViewModel model)
@@ -92,13 +97,13 @@ namespace CI.Controllers
 
 
         }
-            [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction(nameof(LoginController.Login), "Login");
-        }
+        //    [HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Logout()
+        //{
+        //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //    return RedirectToAction(nameof(LoginController.Login), "Login");
+        //}
     }
 
   

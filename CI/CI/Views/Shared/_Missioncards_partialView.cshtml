@@ -96,7 +96,8 @@
 
                                     <div class="appliedbtn rounded-end" style="@(@item.isApplied?  "display:block;": "display:none;")">Applied</div>
                                 }
-                                <div class="closedbtn rounded-end">closed</div>
+
+                                <div class="closedbtn rounded-end" style="@(@item.isclosed?  "display:block;": "display:none;")">closed</div>
                                 <div class="landing-page-top-right"><img src="~/images/pin.png" alt="">@item.Cityname </div>
 
                                 <div class="landing-page-bottom-right d-flex flex-column">

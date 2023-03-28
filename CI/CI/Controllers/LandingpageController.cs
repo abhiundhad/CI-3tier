@@ -23,12 +23,14 @@ namespace CI.Controllers
         }
 
         #region Landingpage
-        public IActionResult Landingpage(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme)
+        public IActionResult Landingpage(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme )
         {
             var UserId = HttpContext.Session.GetString("userID");
             ViewBag.Country = _Idb.CountryList();
+
             ViewBag.Themes = _Idb.ThemeList();
-            ViewBag.Cityy=_Idb.CityList();
+            ViewBag.Cityy = _Idb.CityList();
+
             return View();
         }
         #endregion
@@ -37,6 +39,9 @@ namespace CI.Controllers
         public IActionResult Filters(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme, int pg)
         {
             var SessionUserId = HttpContext.Session.GetString("userID");
+     
+        
+            
 
             List<User> alluser = _Idb.alluser();
             List<VolunteeringVM> allavailuser = new List<VolunteeringVM>();
@@ -64,6 +69,7 @@ namespace CI.Controllers
                 string[] Enddate2 = item.EndDate.ToString().Split(" ");
                 var favrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(SessionUserId) && u.MissionId == item.MissionId) : false;
                 var Applybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(SessionUserId)) : false;
+                var colsed = (id != null) ? _Idb.MissionsList().Any(u => u.StartDate<DateTime.Now) : false;
                 ViewBag.FavoriteMissions = favrioute;
                 var rat = _Idb.missionRatingList().Where(u => u.MissionId == item.MissionId).ToList();
                 int finalrat = 0;
@@ -100,7 +106,8 @@ namespace CI.Controllers
                     AvrageRating = finalrat,
                     isFavriout = favrioute,
                     isApplied = Applybtn,
-                     UserId= Convert.ToInt64(SessionUserId),
+                    isclosed = colsed,
+                     UserId = Convert.ToInt64(SessionUserId),
                 });
             }
           
@@ -140,6 +147,7 @@ namespace CI.Controllers
                     Missions = Missions.OrderBy(m => m.EndDate).ToList();
                     break;
             }
+       
 
             //filter
             if (country.Length > 0)
