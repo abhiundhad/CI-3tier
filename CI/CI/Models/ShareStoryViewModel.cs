@@ -12,5 +12,6 @@ namespace CI.Models
         public string editor1 { get; set;}
         public DateTime date { get; set; }
         public long userID { get; set; }
+        public List<IFormFile> attachment { get; set; }
     }
 }

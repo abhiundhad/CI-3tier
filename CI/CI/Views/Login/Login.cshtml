@@ -12,7 +12,35 @@
     <!-- <script src="/bootstrap-4.0.0-dist[1]/js/bootstrap.bundle.min.js"></script> -->
 </head>
 <body>
+    <div>
+        @if (TempData["Done"] != null)
+        {
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+            <script type="text/javascript">
 
+                
+                toastr.success('@TempData["Done"]');
+
+
+            </script>
+        }   <div>
+            @if (TempData["Passs change"] != null)
+            {
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+                <script type="text/javascript">
+
+
+                    toastr.success('@TempData["Passs change"]');
+
+
+                </script>
+            }
+        </div>
+    </div>
     <div class="container-fluid maindiv p-0">
         <div class="row loginrow ">
           <div class="col col-lg-7 col-md-12 col-sm-12 col-xs-12   " >

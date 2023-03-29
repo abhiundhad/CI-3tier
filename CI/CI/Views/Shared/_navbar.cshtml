@@ -61,7 +61,7 @@
                             <div class=" dropdown text-end ">
                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                                    aria-expanded="false">
-                                    @if (useravtar != "")
+                                    @if (useravtar != null)
                                     {
                                         <img src="@useravtar" alt="mdo" width="40" height="40" class="rounded-circle loginimg">
                                     }
@@ -151,7 +151,7 @@
                     <div class="dropdown text-end userprofile ">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                            aria-expanded="false">
-                            @if (useravtar != "")
+                            @if (useravtar != null)
                             {
                                 <img src="@useravtar" alt="mdo" width="40" height="40" class="rounded-circle loginimg">
                             }

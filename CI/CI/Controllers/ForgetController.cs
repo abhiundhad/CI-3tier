@@ -14,11 +14,11 @@ namespace CI.Controllers
 {
     public class ForgetController : Controller
     {
-        private readonly CiPlatformContext _db;
+     
         private readonly IUserRepository _Idb;
-        public ForgetController(CiPlatformContext db, IUserRepository Idb)
+        public ForgetController( IUserRepository Idb)
         {
-            _db = db;
+          
             _Idb = Idb;
         }
         public ActionResult Forget()
@@ -44,13 +44,8 @@ namespace CI.Controllers
                 var token = Guid.NewGuid().ToString();
 
                 // Store the token in the password resets table with the user's email
-                var passwordReset = new PasswordReset
-                {
-                    Email = model.Email,
-                    Token = token
-                };
-                _db.PasswordResets.Add(passwordReset);
-                _db.SaveChanges();
+                _Idb.storepasswordResets(model.Email, token);
+              
 
                 // Send an email with the password reset link to the user's email address
                 var resetLink = Url.Action("ResetPassword", "Forget", new { email = model.Email, token }, Request.Scheme);
@@ -73,7 +68,7 @@ namespace CI.Controllers
                     EnableSsl = true
                 };
                 smtpClient.Send(message);
-
+                TempData["Email Send"] = "Link for reset Password Sucessfuly Sended to registerd Email";
                 return RedirectToAction("Forget", "Forget");
             }
 
@@ -106,30 +101,9 @@ namespace CI.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Find the user by email
-                //var user = _db.Users.FirstOrDefault(u => u.Email == rsp.Email);
-                var user = _Idb.UserExist(rsp.Email);
-                if (user == null)
-                {
-                    return RedirectToAction("ResetPassword", "ResetPassword");
-                }
-
-                // Find the password reset record by email and token
-                //var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == rsp.Email && pr.Token == rsp.Token);
-                var passwordReset = _Idb.PasswordResets(rsp.Email,rsp.Token);
-                if (passwordReset == null)
-                {
-                    return RedirectToAction("ResetPassword", "ResetPassword");
-                }
-
-                // Update the user's password
-                user.Password = rsp.Password;
-                _db.SaveChanges();
-
-                // Remove the password reset record from the database
-                _db.PasswordResets.Remove(passwordReset);
-                _db.SaveChanges();
-
+                _Idb.Updateremovepassword(rsp.Email,rsp.Token,rsp.Password);
+               
+                TempData["Passs change"] = "Password Change Sucessfully";
                 return RedirectToAction("Login", "Login");
             }
 

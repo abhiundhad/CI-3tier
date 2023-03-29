@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BDw8RCN7gc6MYvqdntOH5ESqP9qVvirjyD7Dyaappgc=",
+  "Hash": "zBEXY2bpoYH/IwjYSO3gWqoferEua8z/f19yOliuN9w=",
   "Source": "CI",
   "BasePath": "_content/CI",
   "Mode": "Default",
@@ -1904,6 +1904,40 @@
       "OriginalItemSpec": "wwwroot\\images\\star-empty.png"
     },
     {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Abhi.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/story/Abhi.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\story\\Abhi.jpg"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Ajjubhai.jpg",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "images/story/Ajjubhai.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\story\\Ajjubhai.jpg"
+    },
+    {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\twitter.png",
       "SourceId": "CI",
       "SourceType": "Discovered",
@@ -2310,6 +2344,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Navbar.js"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\ShareStory.js",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "js/ShareStory.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ShareStory.js"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\site.js",

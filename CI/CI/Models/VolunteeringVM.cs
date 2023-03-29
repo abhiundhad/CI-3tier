@@ -49,6 +49,7 @@
         public long? Givenrating { get; set; }
         public bool isclosed { get; set; }
         public string missionmediapath { get; set; }
+        public string storymediapath { get; set; }
         public string Useravtar {get; set; }    
 
 

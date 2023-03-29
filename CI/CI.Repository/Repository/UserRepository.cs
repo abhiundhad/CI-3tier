@@ -4,12 +4,13 @@ using CI_Entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CI.Repository.Repository
 {
-    public class UserRepository:IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly CiPlatformContext _db;
 
@@ -19,13 +20,13 @@ namespace CI.Repository.Repository
 
 
         }
-        public User UserExist(string Email) 
+        public User UserExist(string Email)
         {
             return _db.Users.FirstOrDefault(u => u.Email == Email);
         }
-        public User Login(string Email,string Password) 
+        public User Login(string Email, string Password)
         {
-            return _db.Users.FirstOrDefault(u => u.Email == Email&&u.Password==Password);
+            return _db.Users.FirstOrDefault(u => u.Email == Email && u.Password == Password);
 
         }
         public PasswordReset PasswordResets(string Email, string Token)
@@ -37,8 +38,8 @@ namespace CI.Repository.Repository
         {
             return _db.Countries.ToList();
         }
-        public List<City> CityList() 
-        { 
+        public List<City> CityList()
+        {
             return _db.Cities.ToList();
         }
         public List<MissionTheme> ThemeList()
@@ -66,7 +67,7 @@ namespace CI.Repository.Repository
             return _db.MissionRatings.ToList();
 
         }
-       public List<User> alluser()
+        public List<User> alluser()
         {
             return _db.Users.ToList();
         }
@@ -106,11 +107,11 @@ namespace CI.Repository.Repository
 
         public bool FavMissByUserMissID(long missionid, long id)
         {
-            return  _db.FavoriteMissions.Any(u => u.UserId == id && u.MissionId == missionid);
+            return _db.FavoriteMissions.Any(u => u.UserId == id && u.MissionId == missionid);
         }
         public List<Mission> RelatedMission(long themeid, long missionid)
         {
-            return _db.Missions.Where(m=>m.ThemeId==themeid && m.MissionId!=missionid).ToList();
+            return _db.Missions.Where(m => m.ThemeId == themeid && m.MissionId != missionid).ToList();
         }
         public List<User> Adduser(User user)
         {
@@ -123,7 +124,7 @@ namespace CI.Repository.Repository
         public void addstory(long MissionId, string title, DateTime date, string discription, long id)
         {
             var newstory = new Story();
-           newstory.MissionId = MissionId;
+            newstory.MissionId = MissionId;
             newstory.Title = title;
             newstory.Description = discription;
             newstory.Status = "1";
@@ -132,9 +133,58 @@ namespace CI.Repository.Repository
             _db.Add(newstory);
             _db.SaveChanges();
         }
-        public List<MissionMedium> MissionMediaList( )
+        public List<MissionMedium> MissionMediaList()
         {
-           return _db.MissionMedia.ToList();
+            return _db.MissionMedia.ToList();
+        }
+        public List<PasswordReset> storepasswordResets(string Email, string Token)
+        {
+            var passwordReset = new PasswordReset
+            {
+                Email = Email,
+                Token = Token
+            };
+            _db.PasswordResets.Add(passwordReset);
+            _db.SaveChanges();
+            return null;
+        }
+        public List<PasswordReset> Updateremovepassword(string Email, string Token, string password)
+        {
+            // Find the user by email
+            //var user = _db.Users.FirstOrDefault(u => u.Email == rsp.Email);
+            var user = _db.Users.FirstOrDefault(m => m.Email == Email);
+
+
+
+            // Find the password reset record by email and token
+            //var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == rsp.Email && pr.Token == rsp.Token);
+            //var passwordReset = _db.PasswordResets.FirstOrDefault(m=>m.Email==Email&& m.Token==Token );
+            var passwordreset = _db.PasswordResets.FirstOrDefault(m => m.Email == Email && m.Token == Token);
+
+            // Update the user's password
+
+            user.Password = password;
+            _db.SaveChanges();
+
+            // Remove the password reset record from the database
+            _db.PasswordResets.Remove(passwordreset);
+            _db.SaveChanges();
+            return null;
+        }
+
+        public void addstoryMedia(long MissionId, string mediatype, string mediapath, long id)
+        {
+            var story = _db.Stories.OrderBy(s => s.CreatedAt).Where(s => s.MissionId == MissionId && s.UserId == id).FirstOrDefault();
+            StoryMedium st = new StoryMedium();
+            st.StoryId = story.StoryId;
+            st.StoryType = mediatype;
+            st.StoryPath = mediapath;
+            _db.Add(st);
+            _db.SaveChanges();
+        }
+        public List<StoryMedium> storyMedia()
+        {
+            return _db.StoryMedia.ToList();
         }
     }
 }

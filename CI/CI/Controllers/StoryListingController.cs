@@ -14,23 +14,28 @@ namespace CI.Controllers
     {
         private readonly CiPlatformContext _db;
         private readonly IUserRepository _Idb;
-        public StoryListingController(CiPlatformContext db, IUserRepository Idb)
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
+        public StoryListingController(CiPlatformContext db, IUserRepository Idb, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment)
         {
             _db = db;
             _Idb = Idb;
+            _hostingEnvironment = hostingEnvironment;
         }
-        public IActionResult StoryListing(long id, int? pageIndex,int pg)
+        #region StoryListing
+        public IActionResult StoryListing(long id, int? pageIndex, int pg)
 
         {
             var userId = HttpContext.Session.GetString("userID");
 
             ViewBag.UserId = int.Parse(userId);
-            List<Story> storylist = _db.Stories.ToList(); 
-           List<VolunteeringVM> StoryList = new List<VolunteeringVM>();
-            foreach(var story in storylist) 
-            { var storyuser=_db.Users.FirstOrDefault(x => x.UserId == story.UserId);  
-                var missiontheme=_Idb.MissionsList().FirstOrDefault(m=>m.MissionId == story.MissionId).ThemeId;
-                var storytheme=_Idb.ThemeList().FirstOrDefault(m=>m.MissionThemeId == missiontheme).Title;
+            List<Story> storylist = _db.Stories.ToList();
+            List<VolunteeringVM> StoryList = new List<VolunteeringVM>();
+            foreach (var story in storylist)
+            {
+                var storyuser = _db.Users.FirstOrDefault(x => x.UserId == story.UserId);
+                var missiontheme = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == story.MissionId).ThemeId;
+                var storytheme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == missiontheme).Title;
+                var storymedia = _Idb.storyMedia().FirstOrDefault(m=>m.StoryId==story.StoryId);
                 StoryList.Add(new VolunteeringVM
                 {
                     StoryId = story.StoryId,
@@ -38,11 +43,13 @@ namespace CI.Controllers
                     UserId = story.UserId,
                     StoryTitle = story.Title,
                     Themename = storytheme,
-                     ShortDescription = HttpUtility.HtmlDecode(story.Description),
+                    ShortDescription = HttpUtility.HtmlDecode(story.Description),
                     username = storyuser.FirstName,
                     lastname = storyuser.LastName,
+                    Useravtar=storyuser.Avatar!=null? storyuser.Avatar:"",
+                    storymediapath= storymedia !=null ? storymedia.StoryPath : "",
 
-                }) ;
+                });;
 
             }
             var Storys = StoryList.OrderByDescending(m => m.CreatedDate).ToList(); ;
@@ -65,14 +72,16 @@ namespace CI.Controllers
             var Finalstorys = Storys.Skip(missionSkip).Take(PaginationModel.PageSize).ToList();
 
 
-          
+
             int totalCount = Storys.Count();
             ViewBag.totalcount = totalCount;
 
             return View(Finalstorys);
         }
+        #endregion
 
-        public IActionResult StoryDetail(long id,int StoryId)
+        #region StoryDetail
+        public IActionResult StoryDetail(long id, int StoryId)
         {
             var userId = HttpContext.Session.GetString("userID");
 
@@ -120,7 +129,9 @@ namespace CI.Controllers
                 return View();
             }
         }
+        #endregion
 
+        #region SendRecomandation
         [HttpPost]
         public async Task<IActionResult> sendRecom(long Id, long storyid, string[] Email)
         {
@@ -158,20 +169,40 @@ namespace CI.Controllers
         {
             var ShareStoryData = new ShareStoryViewModel();
             ShareStoryData.Missions = _Idb.MissionsList();
-            ShareStoryData.MissionApplications=_Idb.missionApplications().Where(m=>m.UserId==id).ToList();
+            ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == id).ToList();
 
             return View(ShareStoryData);
         }
+        #endregion
+
+
         #region AddStory
         [HttpPost]
         public IActionResult AddStory(ShareStoryViewModel model)
         {
-                var id = HttpContext.Session.GetString("userID");
+            var id = HttpContext.Session.GetString("userID");
             long userid = Convert.ToInt64(id);
 
             _Idb.addstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid);
+            foreach (var i in model.attachment)
+            {
+                if (i != null)
+                {
+                    string UploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images\\story");
+                    string FileName = i.FileName;
+                    string FilePath = Path.Combine(UploadsFolder, FileName);
+
+                    using (var FileStream = new FileStream(FilePath, FileMode.Create))
+                    {
+                        i.CopyTo(FileStream);
+                    }
+                    var type = i.ContentType;
+                    _Idb.addstoryMedia(model.MissionId, i.ContentType.Split("/")[0], FileName, userid);
+                }
+
+            }
             return RedirectToAction("ShareStory", "StoryListing");
-            
+
 
         }
         #endregion

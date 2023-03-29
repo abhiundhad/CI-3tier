@@ -2,8 +2,23 @@
 @{
     Layout="_navbar";
 }
-<div id="filterdiv">
+@*<div id="filterdiv">
 
+</div>*@
+<div>
+    @if (TempData["Done"] != null)
+    {
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript">
+
+
+            toastr.success('@TempData["Done"]');
+
+
+        </script>
+    }
 </div>
 <div id="missions">
  

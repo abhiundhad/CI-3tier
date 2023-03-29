@@ -453,6 +453,14 @@
       "PackagePath": "staticwebassets\\images\\star.png"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Abhi.jpg",
+      "PackagePath": "staticwebassets\\images\\story\\Abhi.jpg"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Ajjubhai.jpg",
+      "PackagePath": "staticwebassets\\images\\story\\Ajjubhai.jpg"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\twitter.png",
       "PackagePath": "staticwebassets\\images\\twitter.png"
     },
@@ -531,6 +539,10 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Navbar.js",
       "PackagePath": "staticwebassets\\js\\Navbar.js"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\ShareStory.js",
+      "PackagePath": "staticwebassets\\js\\ShareStory.js"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\StoryDetail.js",

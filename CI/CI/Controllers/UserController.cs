@@ -1,4 +1,5 @@
-﻿using CI.Repository.Interface;
+﻿using CI.Models;
+using CI.Repository.Interface;
 using CI_Entity.CIDbContext;
 using CI_Entity.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -27,18 +28,27 @@ namespace CI.Controllers
 
         public IActionResult Register()
         {
-            User user = new User();
-            return View(user);
+            //User user = new User();
+            return View();
         }
 
         [HttpPost]
-        public IActionResult Register(User user)
+        public IActionResult Register(RegistrationViewModel user)
         {
             var obj = _Idb.UserExist(user.Email);
             if (obj == null)
+                
+                
             {
-                _Idb.Adduser(user);
+                var newuser = new User();
+                    newuser.Email = user.Email;
+                newuser.Password = user.Password;
+                newuser.FirstName = user.FirstName;
+                newuser.LastName = user.LastName;
+                newuser.PhoneNumber=user.PhoneNumber;
 
+                _Idb.Adduser(newuser);
+                TempData["Done"] = "Register Successfully";
                 return RedirectToAction("Login", "Login");
 
             }

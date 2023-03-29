@@ -63,7 +63,6 @@ public partial class CiPlatformContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<UserSkill> UserSkills { get; set; }
-    public object PasswordReset { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionStrings:DefaultConnection");
@@ -212,6 +211,7 @@ public partial class CiPlatformContext : DbContext
             entity.Property(e => e.MissionId).HasColumnName("mission_id");
             entity.Property(e => e.MissionTxt)
                 .HasMaxLength(765)
+                .HasDefaultValueSql("(getdate())")
                 .HasColumnName("mission_txt");
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("datetime")
