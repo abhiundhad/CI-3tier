@@ -32,24 +32,29 @@ namespace CI.Controllers
             List<VolunteeringVM> StoryList = new List<VolunteeringVM>();
             foreach (var story in storylist)
             {
-                var storyuser = _db.Users.FirstOrDefault(x => x.UserId == story.UserId);
-                var missiontheme = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == story.MissionId).ThemeId;
-                var storytheme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == missiontheme).Title;
-                var storymedia = _Idb.storyMedia().FirstOrDefault(m=>m.StoryId==story.StoryId);
-                StoryList.Add(new VolunteeringVM
+                if (story.Status != "draft")
                 {
-                    StoryId = story.StoryId,
-                    MissionId = story.MissionId,
-                    UserId = story.UserId,
-                    StoryTitle = story.Title,
-                    Themename = storytheme,
-                    ShortDescription = HttpUtility.HtmlDecode(story.Description),
-                    username = storyuser.FirstName,
-                    lastname = storyuser.LastName,
-                    Useravtar=storyuser.Avatar!=null? storyuser.Avatar:"",
-                    storymediapath= storymedia !=null ? storymedia.StoryPath : "",
+                    
 
-                });;
+                    var storyuser = _db.Users.FirstOrDefault(x => x.UserId == story.UserId);
+                    var missiontheme = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == story.MissionId).ThemeId;
+                    var storytheme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == missiontheme).Title;
+                    var storymedia = _Idb.storyMedia().FirstOrDefault(m => m.StoryId == story.StoryId);
+                    StoryList.Add(new VolunteeringVM
+                    {
+                        StoryId = story.StoryId,
+                        MissionId = story.MissionId,
+                        UserId = story.UserId,
+                        StoryTitle = story.Title,
+                        Themename = storytheme,
+                        ShortDescription = HttpUtility.HtmlDecode(story.Description),
+                        username = storyuser.FirstName,
+                        lastname = storyuser.LastName,
+                        Useravtar = storyuser.Avatar != null ? storyuser.Avatar : "",
+                        storymediapath = storymedia != null ? storymedia.StoryPath : "",
+
+                    }); 
+                }
 
             }
             var Storys = StoryList.OrderByDescending(m => m.CreatedDate).ToList(); ;
@@ -165,17 +170,42 @@ namespace CI.Controllers
             }
             return Json(new { success = true });
         }
-        public IActionResult ShareStory(int id)
+        #endregion
+        #region ShareStory
+        public IActionResult ShareStory(int id,int Storyid)
+
         {
             var ShareStoryData = new ShareStoryViewModel();
-            ShareStoryData.Missions = _Idb.MissionsList();
-            ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == id).ToList();
+            if (Storyid != 0){
+                ShareStoryData.Missions = _Idb.MissionsList();
+                ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == id).ToList();
+                var foundstory = _Idb.StoryList().FirstOrDefault(x => x.StoryId == Storyid);
+                ShareStoryData.MissionId = foundstory.MissionId;
+                ShareStoryData.StoryTitle = foundstory.Title;
+                ShareStoryData.date = foundstory.CreatedAt;
+                ShareStoryData.editor1 = foundstory.Description;
+                ShareStoryData.StoryID = Convert.ToInt64(Storyid);
 
+
+
+
+
+
+               
+            }
+            else
+            {
+
+
+               
+                ShareStoryData.Missions = _Idb.MissionsList();
+                ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == id).ToList();
+          
+            }
             return View(ShareStoryData);
         }
         #endregion
-
-
+        
         #region AddStory
         [HttpPost]
         public IActionResult AddStory(ShareStoryViewModel model)
@@ -183,11 +213,51 @@ namespace CI.Controllers
             var id = HttpContext.Session.GetString("userID");
             long userid = Convert.ToInt64(id);
 
-            _Idb.addstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid);
-            foreach (var i in model.attachment)
+            _Idb.addstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid,model.StoryID);
+
+            if (model.attachment != null)
             {
-                if (i != null)
-                {
+                foreach (var i in model.attachment)
+            {
+               
+               
+                    string UploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images\\story");
+                    string FileName= i.FileName;
+                    string FilePath = Path.Combine(UploadsFolder, FileName);
+
+                    using (var FileStream = new FileStream(FilePath, FileMode.Create))
+                    {
+                        i.CopyTo(FileStream);
+                    }
+                    var type = i.ContentType;
+                
+                    _Idb.addstoryMedia(model.MissionId, i.ContentType.Split("/")[0], FileName, userid);
+                }
+
+            }
+            TempData["Story submit"] = "Story Submitted Sucessfully";
+            return RedirectToAction("ShareStory", "StoryListing");
+
+
+        }
+        #endregion
+
+        #region save as Draft
+        [HttpPost]
+        public IActionResult SaveASDraft(ShareStoryViewModel model)
+        {
+            var id = HttpContext.Session.GetString("userID");
+            long userid = Convert.ToInt64(id);
+
+            _Idb.adddraftstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid, model.StoryID);
+
+            if (model.attachment != null)
+            {
+
+                foreach (var i in model.attachment)
+            {
+
+                
                     string UploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images\\story");
                     string FileName = i.FileName;
                     string FilePath = Path.Combine(UploadsFolder, FileName);
@@ -197,13 +267,77 @@ namespace CI.Controllers
                         i.CopyTo(FileStream);
                     }
                     var type = i.ContentType;
+                  
                     _Idb.addstoryMedia(model.MissionId, i.ContentType.Split("/")[0], FileName, userid);
                 }
 
             }
+            TempData["Story draft"] = "Story Detail Save As Draft ";
             return RedirectToAction("ShareStory", "StoryListing");
 
 
+        }
+        #endregion
+        #region DraftStoryListing
+        public IActionResult DraftStorys(long id)
+
+        {
+            var userId = HttpContext.Session.GetString("userID");
+
+            ViewBag.UserId = int.Parse(userId);
+           var  storylist = _db.Stories.Where(m=>m.UserId== Convert.ToInt64( userId)).ToList();
+            List<VolunteeringVM> StoryList = new List<VolunteeringVM>();
+            foreach (var story in storylist)
+            {
+                if (story.Status == "draft")
+                {
+
+
+                    var storyuser = _db.Users.FirstOrDefault(x => x.UserId == story.UserId);
+                    var missiontheme = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == story.MissionId).ThemeId;
+                    var storytheme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == missiontheme).Title;
+                    var storymedia = _Idb.storyMedia().FirstOrDefault(m => m.StoryId == story.StoryId);
+                    StoryList.Add(new VolunteeringVM
+                    {
+                        StoryId = story.StoryId,
+                        MissionId = story.MissionId,
+                        UserId = story.UserId,
+                        StoryTitle = story.Title,
+                        Themename = storytheme,
+                        ShortDescription = HttpUtility.HtmlDecode(story.Description),
+                        username = storyuser.FirstName,
+                        lastname = storyuser.LastName,
+                        Useravtar = storyuser.Avatar != null ? storyuser.Avatar : "",
+                        storymediapath = storymedia != null ? storymedia.StoryPath : "",
+
+                    }); ;
+                }
+            }
+            var Storys = StoryList ;
+            ViewBag.StoryList = StoryList;
+
+
+            //const int pageSize = 6;
+            //if (pg < 1)
+            //{
+            //    pg = 1;
+            //}
+
+            //int missionCount = Storys.Count();
+
+            //var PaginationModel = new PaginationModel(missionCount, pg, pageSize);
+
+            //int missionSkip = (pg - 1) * pageSize;
+            //ViewBag.Pagination = PaginationModel;
+
+            //var Finalstorys = Storys.Skip(missionSkip).Take(PaginationModel.PageSize).ToList();
+
+
+
+            int totalCount = Storys.Count();
+            ViewBag.totalcount = totalCount;
+
+            return View(Storys);
         }
         #endregion
 

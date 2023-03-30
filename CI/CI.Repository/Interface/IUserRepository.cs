@@ -29,11 +29,13 @@ namespace CI.Repository.Interface
         public List<Mission> RelatedMission(long themeid , long missionid);
         //public void Adduser(string user);
         public List<User> Adduser(User user);
-        public void addstory(long MissionId, string title, DateTime date, string discription, long id);
+        public void addstory(long MissionId, string title, DateTime date, string discription, long id,long storyid);
+        public void adddraftstory(long MissionId, string title, DateTime date, string discription, long id, long storyid);
         public List<MissionMedium> MissionMediaList( );
         public List <PasswordReset> storepasswordResets(string Email, string Token);
         public List <PasswordReset> Updateremovepassword(string Email, string Token,string password);
         public void addstoryMedia(long MissionId, string mediatype, string mediapath, long id);
         public List<StoryMedium> storyMedia();
+        public List<Story> StoryList();
     }
 }

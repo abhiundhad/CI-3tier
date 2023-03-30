@@ -54,26 +54,26 @@
     <div class="album py-5 bg-light" id="storycards">
         <div class="container">
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2  row-cols-lg-2 row-cols-xl-3 g-3">
 
                 @foreach(var story in Model)
                 {
                     <div class="col">
-                        <div class="card shadow-sm">
+                        <div class="card shadow-sm" style="height:100% width:98%">
                             <div class="img-event">
                                 @if (story.storymediapath != "")
                                 {
-                                    <img class="card-img-top storyimg"
+                                    <img class="card-img-top storyimg" id="cardBanner"
                                          src="~/images/story/@story.storymediapath" alt="Card image cap">
                                 }
                                 else
                                 {
-                                    <img class="card-img-top storyimg"
+                                    <img class="card-img-top storyimg" id="cardBanner"
                                          src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="Card image cap">
                                 }
                               
                                 <div class="ABC position-absolute top-0 start-0" style="height:100%; width:100%;">StoryId
-                                    <a class="btn-view  rounded-5 p-1 px-4 position-absolute top-50 start-50 translate-middle" href="/StoryListing/StoryDetail/@ViewBag.UserId?StoryId=@story.StoryId">
+                                    <a class="btn-view  rounded-5 py-1 px-1 px-sm-4 px-lg-4 position-absolute top-50 start-50 translate-middle" href="/StoryListing/StoryDetail/@ViewBag.UserId?StoryId=@story.StoryId">
                                         View Details
                                         <i class="bi bi-arrow-right  "></i>
 
@@ -84,9 +84,11 @@
                             <div class="card-body">
                                 <div class=" col-12">
                                     <h5 class="card-title demo-1  mt-3">@story.StoryTitle</h5>
-                                    <p class="card-text demo-2">
+                                    <div class="demo-2">
+                                    <p class="card-text ">
                                         @Html.Raw(story.ShortDescription)
                                     </p>
+                                    </div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                  

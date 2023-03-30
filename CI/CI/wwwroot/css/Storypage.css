@@ -117,3 +117,10 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+#cardBanner {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: 100% 50%;
+       opacity:  1;
+}

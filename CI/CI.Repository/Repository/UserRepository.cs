@@ -121,16 +121,64 @@ namespace CI.Repository.Repository
             return null;
         }
 
-        public void addstory(long MissionId, string title, DateTime date, string discription, long id)
+        public void addstory(long MissionId, string title, DateTime date, string discription, long id, long storyid)
         {
-            var newstory = new Story();
-            newstory.MissionId = MissionId;
-            newstory.Title = title;
-            newstory.Description = discription;
-            newstory.Status = "1";
-            newstory.CreatedAt = date;
-            newstory.UserId = id;
-            _db.Add(newstory);
+            if (storyid != 0)
+            {
+                var updatestory = _db.Stories.FirstOrDefault(x => x.StoryId == storyid);
+
+                updatestory.MissionId = MissionId;
+                updatestory.Title = title;
+                updatestory.Description = discription;
+                updatestory.Status = "1";
+                updatestory.CreatedAt = date;
+                updatestory.UpdatedAt= DateTime.Now;
+                updatestory.UserId = id;
+                _db.Update(updatestory);
+
+            }
+            else
+            {
+                var newstory = new Story();
+                newstory.MissionId = MissionId;
+                newstory.Title = title;
+                newstory.Description = discription;
+                newstory.Status = "1";
+                newstory.CreatedAt = date;
+                newstory.UserId = id;
+                _db.Add(newstory);
+            }
+            _db.SaveChanges();
+        }
+        public void adddraftstory(long MissionId, string title, DateTime date, string discription, long id,long storyid)
+            
+        {
+            if (storyid != 0)
+            {
+                 var updatedraftstory= _db.Stories.FirstOrDefault(x=>x.StoryId==storyid);
+                updatedraftstory.MissionId = MissionId;
+                updatedraftstory.Title = title;
+                updatedraftstory.Description = discription;
+                updatedraftstory.Status = "draft";
+                updatedraftstory.CreatedAt = date;
+                updatedraftstory.UpdatedAt = DateTime.Now;
+                updatedraftstory.UserId = id;
+                _db.Update(updatedraftstory);
+
+
+            }
+            else
+            {
+                var newstory = new Story();
+                newstory.MissionId = MissionId;
+                newstory.Title = title;
+                newstory.Description = discription;
+                newstory.Status = "draft";
+                newstory.CreatedAt = date;
+                newstory.UserId = id;
+                _db.Add(newstory);
+            }
+         
             _db.SaveChanges();
         }
         public List<MissionMedium> MissionMediaList()
@@ -185,6 +233,10 @@ namespace CI.Repository.Repository
         public List<StoryMedium> storyMedia()
         {
             return _db.StoryMedia.ToList();
+        }
+        public List<Story> StoryList()
+        {
+            return _db.Stories.ToList();
         }
     }
 }

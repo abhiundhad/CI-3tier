@@ -77,6 +77,8 @@
                                 </a>
                                 <ul class="dropdown-menu text-small">
                                     <li><a class="dropdown-item" href="#">New project...</a></li>
+                                    <li><a class="dropdown-item" href="/Landingpage/Landingpage/@id">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="/StoryListing/DraftStorys/@id">Draft Story</a></li>
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
                                     <li>
@@ -166,6 +168,8 @@
                         </a>
                         <ul class="dropdown-menu text-small">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="/Landingpage/Landingpage/@id">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/StoryListing/DraftStorys/@id">Draft Story</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li>
@@ -202,7 +206,7 @@
 
 
 
-     @*           <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="filteroffcanvasWithBothOptions"
+               <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="filteroffcanvasWithBothOptions"
                      aria-labelledby="offcanvasWithBothOptionsLabel">
                     <div class="offcanvas-header">
 
@@ -223,7 +227,7 @@
                                     @foreach (var items in ViewBag.Country)
                                     {
                                         <li>
-                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="  @items.Name" id=" @items.CountryId" onchange="FilterforCountry()" aria-label="Checkbox for following text input" />
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" name="country" type="checkbox" value="@items.Name" id="@items.CountryId" onchange="filter()" aria-label="Checkbox for following text input" />
                                             @items.Name
                                         </li>
 
@@ -239,19 +243,31 @@
                             </a>
                             <ul class="dropdown-menu" style="height:200px; overflow-y:auto;">
 
-                                @if (ViewBag.Cityy != null)
+                                @if (ViewBag.City != null)
                                 {
 
 
-                                    @foreach (var items in ViewBag.Cityy)
+                                    @foreach (var items in ViewBag.City)
                                     {
                                         <li>
-                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="  @items.Name" id="" aria-label="Checkbox for following text input" />
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Name" name="city" onchange="filter()" id=@items.CityId aria-label="Checkbox for following text input" />
                                             @items.Name
                                         </li>
 
                                     }
 
+                                }
+                                else
+                                {
+                                    <span>please select country first</span>
+                                    @*  @foreach (var items in ViewBag.Cityy)
+                                {
+                                <li>
+                                <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Name" name="city" onchange="filter()" id=@items.CityId aria-label="Checkbox for following text input" />
+                                @items.Name
+                                </li>
+
+                                }*@
                                 }
                             </ul>
                         </li>
@@ -269,7 +285,7 @@
                                     @foreach (var items in ViewBag.Themes)
                                     {
                                         <li>
-                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="  @items.Title" id="" aria-label="Checkbox for following text input" />
+                                            <input class=" checkboxf form-check-input mt-1 ms-2" type="checkbox" value="@items.Title" name="theme" id=@items.MissionThemeId onchange="filter()" aria-label="Checkbox for following text input" />
                                             @items.Title
                                         </li>
 
@@ -301,7 +317,7 @@
                             </ul>
                         </li>
                     </div>
-                </div>*@
+                </div>
 
                 <div class="seconddiv col-lg-6 col-md-7">
                     <ul class="navbar-nav">

@@ -18,19 +18,54 @@
     <link rel="stylesheet" href="~/css/ShareStory.css" asp-append-version="true" />
 </head>
 <body>
+    <div>
+        @if (TempData["Story draft"] != null)
+        {
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+            <script type="text/javascript">
+
+
+                toastr.info('@TempData["Story draft"]');
+
+
+            </script>
+        }
+        <div>
+            @if (TempData["Story submit"] != null)
+            {
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+                <script type="text/javascript">
+
+
+                    toastr.success('@TempData["Story submit"]');
+
+
+                </script>
+            }
+        </div>
+    </div>
     <div class=" sharestory container">
         <div class="row">
             <div class="col-12 col-md-6 col-sm-12">
                 <lable class="fs-2"> Share Your Story</lable>
             </div>
         </div>
-        <form asp-controller="StoryListing" asp-action="AddStory" method="post" enctype="multipart/form-data">
+        <form  enctype="multipart/form-data">
+            <input type="hidden" asp-for="StoryID"  value="@Model.StoryID"/>
             
             <div class="row ">
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
                     <lable class="fs-6">Select Mission</lable>
 
                     <select asp-for="MissionId" class="form-select" aria-label="Default select example">
+                     @*   @foreach (var items in Model.DraftStory)
+                        {
+                            <option value="@items.StoryId">@items.Title</option>
+                        }*@
                         @foreach(var item in Model.MissionApplications)
                         {
                             
@@ -92,10 +127,11 @@
                     <button class="w-100 bg-white rounded-5 py-2" >cancel</button>
                 </div> 
                 <div class=" col-12 col-md-2 mt-2 mt-md-0 ">
-                    <button class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn">Save</button>
+                   
+                    <button class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn" formmethod="post" asp-action="SaveASDraft" asp-controller="StoryListing">Save</button>
                 </div> 
                 <div class=" col-12 col-md-2 mt-2 mt-md-0">
-                    <button  type="submit" class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn">Submit</button>
+                    <button type="submit" class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn" formmethod="post" asp-action="AddStory" asp-controller="StoryListing" >Submit</button>
                 </div>
             </div>
 

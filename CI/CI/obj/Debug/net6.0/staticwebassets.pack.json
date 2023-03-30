@@ -461,6 +461,18 @@
       "PackagePath": "staticwebassets\\images\\story\\Ajjubhai.jpg"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Already-volunteered.png",
+      "PackagePath": "staticwebassets\\images\\story\\Already-volunteered.png"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Animal-welfare-&-save-birds-campaign.png",
+      "PackagePath": "staticwebassets\\images\\story\\Animal-welfare-&-save-birds-campaign.png"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Dharmik.jpg",
+      "PackagePath": "staticwebassets\\images\\story\\Dharmik.jpg"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\twitter.png",
       "PackagePath": "staticwebassets\\images\\twitter.png"
     },
