@@ -457,6 +457,10 @@
       "PackagePath": "staticwebassets\\images\\story\\Abhi.jpg"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Abhi2.jpg",
+      "PackagePath": "staticwebassets\\images\\story\\Abhi2.jpg"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Ajjubhai.jpg",
       "PackagePath": "staticwebassets\\images\\story\\Ajjubhai.jpg"
     },
@@ -471,6 +475,10 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\Dharmik.jpg",
       "PackagePath": "staticwebassets\\images\\story\\Dharmik.jpg"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\story\\bin.png",
+      "PackagePath": "staticwebassets\\images\\story\\bin.png"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\twitter.png",

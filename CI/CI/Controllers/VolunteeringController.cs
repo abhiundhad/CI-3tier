@@ -302,6 +302,7 @@ namespace CI.Controllers
 
                 }
                 ViewBag.allavailuser = allavailuser;
+            
 
                 List<VolunteeringVM> misComment = new List<VolunteeringVM>();
                 var missioncomment = _db.Comments.Where(c => c.MissionId == missionid).ToList();
@@ -318,6 +319,8 @@ namespace CI.Controllers
                         CreatedDate = comment.CreatedAt,
                         Day = comment.CreatedAt.Day.ToString(),
                         Useravtar=cmtuser.Avatar !=null ? cmtuser.Avatar:"",
+                        UserId=cmtuser.UserId,
+                        Commentid=comment.CommentId,
 
                     });
                 }
@@ -331,6 +334,13 @@ namespace CI.Controllers
 
         }
         #endregion
-    
+        public IActionResult cmtdelete(long cmtid, long id, long missionid)
+
+        {
+            _Idb.cmtdelete(cmtid);
+            return RedirectToAction("Volunteering", "Volunteering", new { id = id, missionid = missionid });
+        }
+
+
     }
 }

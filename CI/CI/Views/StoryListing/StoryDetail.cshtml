@@ -88,14 +88,22 @@
 
 
             </div>
-            <div class="rightdiv  col-12 col-lg-6 col-md-12 col-sm-12 mt-4 mt-lg-0" >
+            <div class="rightdiv  col-12 col-lg-6 col-md-12 col-sm-12 mt-4 mt-lg-0 shadow-lg">
                 @foreach (var story in ViewBag.StoryDetail)
                 {
-                    <div class="container ">
+                    <div class="container  ">
                         <div class="row mt-4 mt-md-2">
                             <div class="col-3 me-auto  ">
                                 <div class=" d-flex justify-content-center">
-                                    <img src="~/images/volunteer1.png" class="storyuserimg rounded-circle">
+                                    @if (story.Useravtar != "")
+                                    {
+                                        <img src="@story.Useravtar" class="storyuserimg rounded-circle">
+                                    }
+                                    else
+                                    {
+                                        
+                                    <img src="~/images/user1.png" class="storyuserimg rounded-circle">
+                                    }
                                 </div>
                                 <label class="fs-6 d-flex justify-content-center"> @story.username &nbsp;@story.lastname</label>
                             </div>
@@ -107,7 +115,7 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-12 " >
+                            <div class="col-12  fs-4  fw-bold" >
                                 @story.StoryTitle
 
                             </div>
@@ -117,7 +125,7 @@
                                 <img src="~/images/add1.png">
                                 <span class="ms-2">Recomanded to Co-Worker</span>
                             </button>
-                            <a class="col-11 col-xl-5  col-lg-11 col-md-5  bg-white text-decoration-none mt-2  mt-xl-0 mt-lg-2 mt-md-0  mb-2 mb-md-0 p-0" href="/Volunteering/Volunteering/@ViewBag.UserId?missionid=@story.StoryId">
+                            <a class="col-11 col-xl-5  col-lg-11 col-md-5  bg-white text-decoration-none mt-2  mt-xl-0 mt-lg-2 mt-md-0  mb-2 mb-md-0 p-0" href="/Volunteering/Volunteering/@ViewBag.UserId?missionid=@story.MissionId">
                                 <button class="openmissionbtn    d-flex justify-content-center align-items-cente bg-white  rounded-5  py-2  w-100  ">
                                 <span class="">Open Mission</span>
                                 <img src="~/images/right-arrow.png" class="mt-1 ms-2">
@@ -135,7 +143,15 @@
                                             @foreach (var user in ViewBag.allavailuser)
                                             {
                                                 <div class=" userlistdiv align-items-center d-flex my-3">
-                                                    <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
+                                                    @if (user.Useravtar!="")
+                                                    {
+                                                        <img src="@user.Useravtar" class="aviluser ms-2 my-1">
+                                                    }
+                                                    else
+                                                    {
+                                                    <img src="~/images/user1.png" class="aviluser ms-2 my-1">
+                                                        
+                                                    }
                                                     <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
                                                     <input class="form-check-input me-2 " type="checkbox" value="" id="@user.userEmail" name="email">
                                                 </div>
@@ -156,6 +172,17 @@
                 }
             </div>
         </div>
+        <div class="row mt-4  shadow-lg mb-4" style="border:1px solid black">
+            <div class="card container">
+            <div class="col-12 p-2">
+                    @foreach (var story in ViewBag.StoryDetail) 
+                {
+                    @Html.Raw(story.StoryDescription)
+                }
+            </div>
+            </div>
+        </div>
+
     </div>
     <script src="~/js/StoryDetail.js"></script>
 </body>

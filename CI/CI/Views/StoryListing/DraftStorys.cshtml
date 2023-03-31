@@ -79,7 +79,7 @@
                                 @if (story.storymediapath != "")
                                 {
                                         <img class="card-img-top storyimg" id="cardBanner"
-                                         src="~/images/story/@story.storymediapath" alt="Card image cap">
+                                         src="@story.storymediapath" alt="Card image cap">
                                 }
                                 else
                                 {
@@ -100,9 +100,11 @@
                             <div class="card-body">
                                 <div class=" col-12">
                                     <h5 class="card-title demo-1  mt-3">@story.StoryTitle</h5>
-                                    <p class="card-text demo-2">
-                                        @Html.Raw(story.ShortDescription)
-                                    </p>
+                                        <div class="demo-2">
+                                            <p class="card-text ">
+                                                @Html.Raw(story.ShortDescription)
+                                            </p>
+                                        </div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
 

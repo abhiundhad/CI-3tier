@@ -121,7 +121,7 @@ namespace CI.Repository.Repository
             return null;
         }
 
-        public void addstory(long MissionId, string title, DateTime date, string discription, long id, long storyid)
+        public long addstory(long MissionId, string title, DateTime date, string discription, long id, long storyid)
         {
             if (storyid != 0)
             {
@@ -135,7 +135,9 @@ namespace CI.Repository.Repository
                 updatestory.UpdatedAt= DateTime.Now;
                 updatestory.UserId = id;
                 _db.Update(updatestory);
-
+                _db.SaveChanges();
+                
+                return updatestory.StoryId;
             }
             else
             {
@@ -147,15 +149,17 @@ namespace CI.Repository.Repository
                 newstory.CreatedAt = date;
                 newstory.UserId = id;
                 _db.Add(newstory);
+                _db.SaveChanges();
+                return newstory.StoryId;
             }
-            _db.SaveChanges();
+     
         }
-        public void adddraftstory(long MissionId, string title, DateTime date, string discription, long id,long storyid)
+        public long adddraftstory(long MissionId, string title, DateTime date, string discription, long id,long Storyid)
             
         {
-            if (storyid != 0)
+            if (Storyid != 0)
             {
-                 var updatedraftstory= _db.Stories.FirstOrDefault(x=>x.StoryId==storyid);
+                 var updatedraftstory= _db.Stories.FirstOrDefault(x=>x.StoryId==Storyid);
                 updatedraftstory.MissionId = MissionId;
                 updatedraftstory.Title = title;
                 updatedraftstory.Description = discription;
@@ -164,7 +168,8 @@ namespace CI.Repository.Repository
                 updatedraftstory.UpdatedAt = DateTime.Now;
                 updatedraftstory.UserId = id;
                 _db.Update(updatedraftstory);
-
+               _db.SaveChanges();
+                return updatedraftstory.StoryId;
 
             }
             else
@@ -177,9 +182,11 @@ namespace CI.Repository.Repository
                 newstory.CreatedAt = date;
                 newstory.UserId = id;
                 _db.Add(newstory);
+                _db.SaveChanges();
+                return newstory.StoryId;
             }
          
-            _db.SaveChanges();
+         
         }
         public List<MissionMedium> MissionMediaList()
         {
@@ -220,15 +227,25 @@ namespace CI.Repository.Repository
             return null;
         }
 
-        public void addstoryMedia(long MissionId, string mediatype, string mediapath, long id)
+        public void addstoryMedia(long MissionId, string mediatype, string mediapath, long id, long sid)
         {
-            var story = _db.Stories.OrderBy(s => s.CreatedAt).Where(s => s.MissionId == MissionId && s.UserId == id).FirstOrDefault();
+           // var story = _db.Stories.OrderBy(s => s.CreatedAt).Where(s => s.MissionId == MissionId && s.UserId == id).FirstOrDefault();
             StoryMedium st = new StoryMedium();
-            st.StoryId = story.StoryId;
+            st.StoryId = sid;
             st.StoryType = mediatype;
             st.StoryPath = mediapath;
             _db.Add(st);
             _db.SaveChanges();
+        }
+        public void Removemedia(long storyid)
+        {
+            var x=_db.StoryMedia.Where(x=>x.StoryId==storyid).ToList();
+            foreach(var image  in x)
+            {
+                _db.StoryMedia.Remove(image);
+                _db.SaveChanges();
+            }
+
         }
         public List<StoryMedium> storyMedia()
         {
@@ -237,6 +254,15 @@ namespace CI.Repository.Repository
         public List<Story> StoryList()
         {
             return _db.Stories.ToList();
+        }
+        
+        public Comment cmtdelete(long cmtid)
+        {
+            var commtdetail=_db.Comments.FirstOrDefault(x=>x.CommentId==cmtid);
+            _db.Comments.Remove(commtdetail);
+            _db.SaveChanges();
+            return null;
+            
         }
     }
 }

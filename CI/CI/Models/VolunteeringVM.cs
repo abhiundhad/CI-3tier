@@ -51,6 +51,7 @@
         public string missionmediapath { get; set; }
         public string storymediapath { get; set; }
         public string Useravtar {get; set; }    
+        public long Commentid { get; set; } 
 
 
 

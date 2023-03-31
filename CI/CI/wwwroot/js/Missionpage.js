@@ -189,3 +189,21 @@ function recentvol(pg, missionid,id) {
         }
     })
 }
+function cmtdelete(cmtid,missionid,id)
+{
+    $.ajax({
+        url: "/Volunteering/cmtdelete",
+        type: "POST",
+        data: { 'cmtid': cmtid, 'missionid': missionid ,'id':id},
+
+        success: function (res) {
+          
+       
+            $('.commentdiv').html($(res).find('.commentdiv').html());
+
+        },
+        error: function () {
+            alert("recentvolunteering error");
+        }
+    })
+}

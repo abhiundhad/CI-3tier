@@ -101,7 +101,8 @@
 .aviluser {
     border-radius: 50px;
     width: 52px;
-    heid: 52px;
+    height: 52px;
+    border: 4px solid #F88634;
 }
 
 .userlistdiv {
@@ -110,4 +111,9 @@
 .rightdiv {
     border:1px solid black;
     position:relative;
+}
+.storyuserimg {
+    height: 90px;
+    width: 90px;
+    border: 2px solid #F88634;
 }

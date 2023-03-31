@@ -418,7 +418,7 @@
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="comment"></textarea>
                             <label for="floatingTextarea2">Comments</label>
                         </div>
-                        <button type="button" class=" cmtbtn col-4  px-1  py-2 mt-2 rounded-5 bg-white  align-items-center " onclick="AddPost(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">post Comment</button>
+                        <button type="button" class=" cmtbtn col-8  col-lg-4 col-md-4 px-1  py-2 mt-2 rounded-5 bg-white  align-items-center " onclick="AddPost(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">post Comment</button>
 
                         <div class=" col-12 bg-light overflow-y-auto border-1 border-black" style="height:500px;">
                             @if (ViewBag.missioncomment == null)
@@ -434,18 +434,27 @@
                                     <div class="col-12 d-flex bg-white mt-3  align-items-center">
                                         @if (@comment.Useravtar != "")
                                         {
-                                            <img src="@comment.Useravtar" class="comtuserimg ">
+                                            <img src="@comment.Useravtar" class="  comtuserimg ">
                                         }
                                         else
                                         {
-                                            <img src="~/images/user1.png" class="comtuserimg ">
+                                            <img src="~/images/user1.png" class="   comtuserimg ">
                                         }
-                                        <div class=" ms-4 ">
+                                      
+                                        <div class=" col-9 ms-1 ms-sm-2 ms-ms-4 ms-xl-4  ">
                                             <label class="mx-1 fs-6">@comment.username &nbsp;@comment.lastname</label><br>
                                             <label class="mx-1 fs-6"> @comment.Day &nbsp; @comment.CreatedDate</label>
-                                            <p class=" fs-5" style="width:-webkit-fit-content"> @comment.Commenttext</p>
+                                            <div class=" fs-5  text-break "> @comment.Commenttext</div>
+                                            </div>
 
+                             
+                                        @if (comment.UserId == @ViewBag.UserId)
+                                        {
+
+                                            <div class="h-100  ms-auto me-2" id="@comment.Commentid" onclick="cmtdelete(this.id,@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">
+                                            <img src="~/images/bin.png">
                                         </div>
+                                        }
                                     </div>
                                 }
                             }

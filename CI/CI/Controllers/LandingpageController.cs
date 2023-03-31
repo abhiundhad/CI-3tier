@@ -53,6 +53,7 @@ namespace CI.Controllers
                     lastname = all.LastName,
                     userEmail = all.Email,
                     UserId = all.UserId,
+                    Useravtar=all.Avatar!=null?all.Avatar:"",
                 });
 
             }

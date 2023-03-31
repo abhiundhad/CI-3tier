@@ -149,7 +149,15 @@
                                                         @foreach (var user in ViewBag.allavailuser)
                                                         {
                                                             <div class=" userlistdiv align-items-center d-flex my-3">
-                                                                <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
+                                                                @if (user.Useravtar != "")
+                                                                {
+                                                                    <img src="@user.Useravtar" class="aviluser ms-2 my-1">
+                                                                }
+                                                                else
+                                                                {
+                                                                    <img src="~/images/user1.png" class="aviluser ms-2 my-1">
+
+                                                                }
                                                                 <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
                                                                 <input class="form-check-input me-2 " type="checkbox" value="" id="@user.userEmail" name="email">
                                                             </div>

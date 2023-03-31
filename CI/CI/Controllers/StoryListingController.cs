@@ -34,7 +34,7 @@ namespace CI.Controllers
             {
                 if (story.Status != "draft")
                 {
-                    
+
 
                     var storyuser = _db.Users.FirstOrDefault(x => x.UserId == story.UserId);
                     var missiontheme = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == story.MissionId).ThemeId;
@@ -53,7 +53,7 @@ namespace CI.Controllers
                         Useravtar = storyuser.Avatar != null ? storyuser.Avatar : "",
                         storymediapath = storymedia != null ? storymedia.StoryPath : "",
 
-                    }); 
+                    });
                 }
 
             }
@@ -107,8 +107,9 @@ namespace CI.Controllers
                     {
                         username = userdetail.FirstName,
                         lastname = userdetail.LastName,
+                        Useravtar=userdetail.Avatar!= null ?userdetail.Avatar:"",
                         StoryTitle = storydetail.Title,
-                        StoryDescription = storydetail.Description,
+                        StoryDescription = HttpUtility.HtmlDecode(storydetail.Description),
                         MissionId = storydetail.MissionId,
                         StoryId = storydetail.StoryId,
 
@@ -127,6 +128,7 @@ namespace CI.Controllers
                         lastname = all.LastName,
                         userEmail = all.Email,
                         UserId = all.UserId,
+                        Useravtar=all.Avatar!= null ?all.Avatar:"",
                     });
 
                 }
@@ -172,11 +174,12 @@ namespace CI.Controllers
         }
         #endregion
         #region ShareStory
-        public IActionResult ShareStory(int id,int Storyid)
+        public IActionResult ShareStory(int id, int Storyid)
 
         {
             var ShareStoryData = new ShareStoryViewModel();
-            if (Storyid != 0){
+            if (Storyid != 0)
+            {
                 ShareStoryData.Missions = _Idb.MissionsList();
                 ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == id).ToList();
                 var foundstory = _Idb.StoryList().FirstOrDefault(x => x.StoryId == Storyid);
@@ -191,47 +194,54 @@ namespace CI.Controllers
 
 
 
-               
+
             }
             else
             {
 
 
-               
+
                 ShareStoryData.Missions = _Idb.MissionsList();
                 ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == id).ToList();
-          
+
             }
             return View(ShareStoryData);
         }
         #endregion
-        
+
         #region AddStory
         [HttpPost]
-        public IActionResult AddStory(ShareStoryViewModel model)
+        public async Task<IActionResult> AddStory(ShareStoryViewModel model)
         {
             var id = HttpContext.Session.GetString("userID");
             long userid = Convert.ToInt64(id);
 
-            _Idb.addstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid,model.StoryID);
+            var storyid = _Idb.addstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid, model.StoryID);
 
             if (model.attachment != null)
             {
+                if (model.StoryID != 0)
+                {
+                    _Idb.Removemedia(model.StoryID);
+                }
                 foreach (var i in model.attachment)
-            {
-               
-               
-                    string UploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images\\story");
-                    string FileName= i.FileName;
-                    string FilePath = Path.Combine(UploadsFolder, FileName);
+                {
 
-                    using (var FileStream = new FileStream(FilePath, FileMode.Create))
+
+                 
+
+                    var FileName = "";
+
+
+                    using (var ms = new MemoryStream())
                     {
-                        i.CopyTo(FileStream);
+                        await i.CopyToAsync(ms);
+                        var imageBytes = ms.ToArray();
+                        var base64String = Convert.ToBase64String(imageBytes);
+                        FileName = "data:image/png;base64," + base64String;
                     }
-                    var type = i.ContentType;
-                
-                    _Idb.addstoryMedia(model.MissionId, i.ContentType.Split("/")[0], FileName, userid);
+
+                    _Idb.addstoryMedia(model.MissionId, i.ContentType.Split("/")[0], FileName, userid, storyid);
                 }
 
             }
@@ -244,31 +254,37 @@ namespace CI.Controllers
 
         #region save as Draft
         [HttpPost]
-        public IActionResult SaveASDraft(ShareStoryViewModel model)
+        public async Task<IActionResult> SaveASDraft(ShareStoryViewModel model)
         {
             var id = HttpContext.Session.GetString("userID");
             long userid = Convert.ToInt64(id);
 
-            _Idb.adddraftstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid, model.StoryID);
+
+            var storyid = _Idb.adddraftstory(model.MissionId, model.StoryTitle, model.date, model.editor1, userid, model.StoryID);
 
             if (model.attachment != null)
             {
+                if (model.StoryID != 0)
+                {
+                    _Idb.Removemedia(model.StoryID);
+                }
 
                 foreach (var i in model.attachment)
-            {
+                {
 
-                
-                    string UploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images\\story");
-                    string FileName = i.FileName;
-                    string FilePath = Path.Combine(UploadsFolder, FileName);
 
-                    using (var FileStream = new FileStream(FilePath, FileMode.Create))
+               
+                    var FileName = "";
+
+
+                    using (var ms = new MemoryStream())
                     {
-                        i.CopyTo(FileStream);
+                        await i.CopyToAsync(ms);
+                        var imageBytes = ms.ToArray();
+                        var base64String = Convert.ToBase64String(imageBytes);
+                        FileName = "data:image/png;base64," + base64String;
                     }
-                    var type = i.ContentType;
-                  
-                    _Idb.addstoryMedia(model.MissionId, i.ContentType.Split("/")[0], FileName, userid);
+                    _Idb.addstoryMedia(model.MissionId, i.ContentType.Split("/")[0], FileName, userid, storyid);
                 }
 
             }
@@ -285,7 +301,7 @@ namespace CI.Controllers
             var userId = HttpContext.Session.GetString("userID");
 
             ViewBag.UserId = int.Parse(userId);
-           var  storylist = _db.Stories.Where(m=>m.UserId== Convert.ToInt64( userId)).ToList();
+            var storylist = _db.Stories.Where(m => m.UserId == Convert.ToInt64(userId)).ToList();
             List<VolunteeringVM> StoryList = new List<VolunteeringVM>();
             foreach (var story in storylist)
             {
@@ -313,7 +329,7 @@ namespace CI.Controllers
                     }); ;
                 }
             }
-            var Storys = StoryList ;
+            var Storys = StoryList;
             ViewBag.StoryList = StoryList;
 
 
@@ -340,6 +356,11 @@ namespace CI.Controllers
             return View(Storys);
         }
         #endregion
+
+        public  IActionResult test()
+        {
+            return View();
+        }
 
     }
 }
