@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Net;
 using CI.Repository.Interface;
 using System.Reflection;
+//using Microsoft.SqlServer.Management.Smo;
 
 namespace CI.Controllers
 {
@@ -79,7 +80,7 @@ namespace CI.Controllers
         [HttpPost]
         public async Task<IActionResult> Addrating(string rating, long Id, long missionId)
         {
-            var ratingExists = _Idb.missionRatingList().FirstOrDefault(u => u.MissionId == missionId&&u.UserId==Id);
+            var ratingExists = _Idb.missionRatingList().FirstOrDefault(u => u.MissionId == missionId && u.UserId == Id);
             if (ratingExists != null)
             {
                 ratingExists.Rating = rating;
@@ -97,7 +98,7 @@ namespace CI.Controllers
                 _db.SaveChanges();
                 //return Json(new { success = true, ratingele, isRated = true });
             }
-                return RedirectToAction("Volunteering", new { id = Id, missionid = missionId });
+            return RedirectToAction("Volunteering", new { id = Id, missionid = missionId });
         }
         #endregion
         #region AddtoFavrioate
@@ -105,12 +106,12 @@ namespace CI.Controllers
         public async Task<IActionResult> Addfav(long Id, long missionId)
         {
             FavoriteMission fav = await _db.FavoriteMissions.FirstOrDefaultAsync(fm => fm.UserId == Id && fm.MissionId == missionId);
-         
+
             if (fav != null)
             {
 
                 _db.Remove(fav);
-             
+
                 _db.SaveChanges();
                 return Json(new { success = true, favmission = "1" });
             }
@@ -127,7 +128,7 @@ namespace CI.Controllers
         }
         #endregion
         #region Volunteering
-        public   IActionResult Volunteering(long id, long missionid,int pg)
+        public IActionResult Volunteering(long id, long missionid, int pg)
 
         {
             var sessionUserId = HttpContext.Session.GetString("userID");
@@ -139,7 +140,7 @@ namespace CI.Controllers
             }
             else
             {
-         
+
                 var volmission = _Idb.MissionsList().FirstOrDefault(m => m.MissionId == missionid);
                 var theme = _Idb.ThemeList().FirstOrDefault(m => m.MissionThemeId == volmission.ThemeId);
                 var City = _Idb.CityList().FirstOrDefault(m => m.CityId == volmission.CityId);
@@ -149,10 +150,10 @@ namespace CI.Controllers
                 var favrioute = (id != null) ? _Idb.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(sessionUserId) && u.MissionId == volmission.MissionId) : false;
                 var Applybtn = (id != null) ? _Idb.missionApplications().Any(u => u.MissionId == volmission.MissionId && u.UserId == Convert.ToInt64(sessionUserId)) : false;
                 int Applycunt = _Idb.missionApplications().Where(m => m.MissionId == volmission.MissionId).ToList().Count();
-                var givrats =_Idb.missionRatingList().FirstOrDefault(u => u.MissionId == volmission.MissionId && u.UserId == Convert.ToInt64(sessionUserId));
+                var givrats = _Idb.missionRatingList().FirstOrDefault(u => u.MissionId == volmission.MissionId && u.UserId == Convert.ToInt64(sessionUserId));
                 int seatleft = Convert.ToInt32(volmission.Availability) - Applycunt;
                 var rat = _Idb.missionRatingList().Where(u => u.MissionId == volmission.MissionId).ToList();
-                ViewBag.ratusercouny=rat.Count();
+                ViewBag.ratusercouny = rat.Count();
                 int finalrat = 0;
                 if (rat.Count > 0)
                 {
@@ -184,10 +185,10 @@ namespace CI.Controllers
                 volunteeringVM.GoalObjectiveText = themeobjective != null ? themeobjective.GoalObjectiveText : "Null";
                 volunteeringVM.isFavriout = favrioute;
                 volunteeringVM.isApplied = Applybtn;
-               volunteeringVM.Givenrating = givrats != null?Convert.ToInt64( givrats.Rating) : 0;
+                volunteeringVM.Givenrating = givrats != null ? Convert.ToInt64(givrats.Rating) : 0;
                 volunteeringVM.AvrageRating = finalrat;
                 volunteeringVM.UserId = Convert.ToInt64(sessionUserId);
-                
+
 
                 ViewBag.Missiondetail = volunteeringVM;
 
@@ -240,7 +241,7 @@ namespace CI.Controllers
                         isFavriout = relfavrioute,
                         isApplied = relApplybtn,
                         AvrageRating = relfinalrat,
-                        missionmediapath =  missionpath != null ? missionpath.MediaPath : "",
+                        missionmediapath = missionpath != null ? missionpath.MediaPath : "",
                     }
                     );
 
@@ -259,13 +260,13 @@ namespace CI.Controllers
                     recentvolunteredlist.Add(new VolunteeringVM
                     {
                         username = item.FirstName,
-                        Useravtar=item.Avatar !=null ? item.Avatar :"",
+                        Useravtar = item.Avatar != null ? item.Avatar : "",
 
                     });
 
                 }
                 var rcentvolunteering = recentvolunteredlist;
-          
+
                 const int pageSize = 6;
                 if (pg < 1)
                 {
@@ -285,9 +286,10 @@ namespace CI.Controllers
                 ViewBag.recentvolunteered = FinalMissions;
                 int totalCount = rcentvolunteering.Count();
                 ViewBag.totalcount = totalCount;
-                
 
-                List<User> alluser = _db.Users.ToList();
+                List<User> alluser= _db.Users.ToList();
+
+                //List<User> alluser = _db.Users.ToList();
                 List<VolunteeringVM> allavailuser = new List<VolunteeringVM>();
                 foreach (var all in alluser)
                 {
@@ -297,12 +299,12 @@ namespace CI.Controllers
                         lastname = all.LastName,
                         userEmail = all.Email,
                         UserId = all.UserId,
-                        Useravtar=all.Avatar !=null ? all.Avatar:"",
+                        Useravtar = all.Avatar != null ? all.Avatar : "",
                     });
 
                 }
                 ViewBag.allavailuser = allavailuser;
-            
+
 
                 List<VolunteeringVM> misComment = new List<VolunteeringVM>();
                 var missioncomment = _db.Comments.Where(c => c.MissionId == missionid).ToList();
@@ -318,18 +320,18 @@ namespace CI.Controllers
                         lastname = cmtuser.LastName,
                         CreatedDate = comment.CreatedAt,
                         Day = comment.CreatedAt.Day.ToString(),
-                        Useravtar=cmtuser.Avatar !=null ? cmtuser.Avatar:"",
-                        UserId=cmtuser.UserId,
-                        Commentid=comment.CommentId,
+                        Useravtar = cmtuser.Avatar != null ? cmtuser.Avatar : "",
+                        UserId = cmtuser.UserId,
+                        Commentid = comment.CommentId,
 
                     });
                 }
 
-                 misComment.Reverse();
-                ViewBag.missioncomment = misComment.OrderByDescending(m=>m.CreatedDate).ToList();
+                misComment.Reverse();
+                ViewBag.missioncomment = misComment.OrderByDescending(m => m.CreatedDate).ToList();
 
-             
-                return View(new {sucess=true});
+
+                return View(new { sucess = true });
             }
 
         }
@@ -340,6 +342,40 @@ namespace CI.Controllers
             _Idb.cmtdelete(cmtid);
             return RedirectToAction("Volunteering", "Volunteering", new { id = id, missionid = missionid });
         }
+
+        public IActionResult Volunteeringtimesheet()
+        {
+            var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+
+            var ShareStoryData = new TimesheetViewModel();
+            ShareStoryData.Missions = _Idb.MissionsList();
+            ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == userId).ToList();
+            ShareStoryData.timesheetslist=_Idb.TimesheetList().Where(x=>x.UserId==userId).ToList();
+        
+            
+
+            return View(ShareStoryData);
+        }
+        #region AddTimeMIssionTimesheet
+        [HttpPost]
+        public IActionResult AddTimeMIssionTimesheet(TimesheetViewModel timesheet)
+        {
+            var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+            if (timesheet != null)
+            {
+                _Idb.AddTimeMIssionTimesheetdata(timesheet.missionId, userId, timesheet.hours, timesheet.minutes, timesheet.action, timesheet.date, timesheet.message);
+            }
+            return RedirectToAction("Volunteeringtimesheet" , "Volunteering" , new {  Id = userId });
+        }
+        #endregion
+        #region deletedata
+        public IActionResult deletedata(long timesheetid)
+        {
+            var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+            _Idb.deletedatatimesheet(timesheetid);
+            return RedirectToAction("Volunteeringtimesheet", "Volunteering", new { Id = userId });
+        }
+        #endregion
 
 
     }

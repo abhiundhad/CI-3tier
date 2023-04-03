@@ -39,5 +39,9 @@ namespace CI.Repository.Interface
         public List<StoryMedium> storyMedia();
         public List<Story> StoryList();
         public Comment cmtdelete(long cmtid);
+        public void AddTimeMIssionTimesheetdata(long missionId,  long userId, int hours, int minutes, int action, DateTime date, string message);
+
+        public List<Timesheet> TimesheetList();
+        public void deletedatatimesheet(long timesheetid);
     }
 }

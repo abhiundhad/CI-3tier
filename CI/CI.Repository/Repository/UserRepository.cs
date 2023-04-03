@@ -4,6 +4,7 @@ using CI_Entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -264,5 +265,53 @@ namespace CI.Repository.Repository
             return null;
             
         }
+        public void AddTimeMIssionTimesheetdata(long missionId, long userId, int hours, int minutes, int action, DateTime date, string message)
+        {
+            if (hours != 0 && minutes != 0)
+            {
+
+
+                var timesheetdata = new Timesheet();
+                timesheetdata.MissionId = missionId;
+                timesheetdata.UserId = userId;
+                timesheetdata.TimesheetTime = hours.ToString() + ":" + minutes.ToString();
+               
+                timesheetdata.DateVolunteered = date;
+                timesheetdata.Notes = message;
+                timesheetdata.Status = "pending";
+                timesheetdata.CreatedAt = DateTime.Now;
+                _db.Timesheets.Add(timesheetdata);
+                _db.SaveChanges();
+            }
+            else
+            {
+                var timesheetdata = new Timesheet();
+                timesheetdata.MissionId = missionId;
+                timesheetdata.UserId = userId;
+                
+                timesheetdata.Action = action;
+                timesheetdata.DateVolunteered = date;
+                timesheetdata.Notes = message;
+                timesheetdata.Status = "pending";
+                timesheetdata.CreatedAt = DateTime.Now;
+                _db.Timesheets.Add(timesheetdata);
+                _db.SaveChanges();
+            }
+        
+        }
+        public List<Timesheet> TimesheetList()
+        {
+            return _db.Timesheets.ToList();
+        }
+        public void deletedatatimesheet( long timesheetid)
+        {
+            var row =_db.Timesheets.FirstOrDefault(x=> x.TimesheetId==timesheetid);
+            row.DeletedAt= DateTime.Now;
+            row.Status = "3";
+            _db.Timesheets.Update(row);
+            _db.SaveChanges();
+        }
+
+
     }
-}
+}   

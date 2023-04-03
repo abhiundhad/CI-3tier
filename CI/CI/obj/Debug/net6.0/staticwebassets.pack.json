@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\Volunteering.css"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\Volunteeringtimesheet.css",
+      "PackagePath": "staticwebassets\\css\\Volunteeringtimesheet.css"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\_relatedmission_partial.css",
       "PackagePath": "staticwebassets\\css\\_relatedmission_partial.css"
     },
@@ -571,6 +575,10 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\StoryListing.js",
       "PackagePath": "staticwebassets\\js\\StoryListing.js"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Volunteeringtimesheet.js",
+      "PackagePath": "staticwebassets\\js\\Volunteeringtimesheet.js"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\_RelatedMission.js",

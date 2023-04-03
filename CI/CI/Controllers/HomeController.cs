@@ -1,4 +1,5 @@
 ﻿using CI.Models;
+using CI.Repository.Interface;
 using CI_Entity.CIDbContext;
 using CI_Entity.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,14 @@ namespace CI.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private readonly CiPlatformContext _db;
+        private readonly IUserRepository _Idb;
 
-        public HomeController(ILogger<HomeController> logger, CiPlatformContext db)
+
+        public HomeController(ILogger<HomeController> logger, CiPlatformContext db, IUserRepository Idb)
         {
             _logger = logger;
             _db = db;
+            _Idb = Idb;
         }
         public IActionResult Index()
         {
@@ -38,10 +42,10 @@ namespace CI.Controllers
         public IActionResult Forget()
         {
             return View();
-        } 
- 
-       
-    
+        }
+
+
+
         public IActionResult nomission(long ID)
         {
             List<Mission> mission = _db.Missions.ToList();
