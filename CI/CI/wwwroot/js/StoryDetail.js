@@ -31,17 +31,26 @@ function showSlides(n) {
 function sendRecomStory(storyid, Id) {
 
     var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
+    var sendbtn = document.getElementById("sendbutton");
+    sendbtn.innerHTML = "Sending...";
     $.ajax
         ({
             url: '/StoryListing/sendRecom',
             type: 'POST',
             data: { storyid: storyid, Id: Id, Email: Email },
             success: function (result) {
-                alert("Recomendations sent successfully!");
+                
                 const checkboxes = document.querySelectorAll('input[name="email"]:checked');
                 checkboxes.forEach((checkbox) => {
                     checkbox.checked = false;
                 });
+                sendbtn.innerHTML = "Send successfully";
+                setTimeout(() => {
+
+
+                    sendbtn.innerHTML = "Send Recommandation";
+
+                }, 2000);
             },
             error: function () {
 

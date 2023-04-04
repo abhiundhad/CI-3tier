@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CI.bundle.scp.css"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\Adminindex.css",
+      "PackagePath": "staticwebassets\\css\\Adminindex.css"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\ShareStory.css",
       "PackagePath": "staticwebassets\\css\\ShareStory.css"
     },
@@ -59,6 +63,10 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\userprofile.css",
+      "PackagePath": "staticwebassets\\css\\userprofile.css"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\favicon.ico",
@@ -549,10 +557,6 @@
       "PackagePath": "staticwebassets\\images\\web.png"
     },
     {
-      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\xlsx.png",
-      "PackagePath": "staticwebassets\\images\\xlsx.png"
-    },
-    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Missioncards.js",
       "PackagePath": "staticwebassets\\js\\Missioncards.js"
     },
@@ -575,6 +579,10 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\StoryListing.js",
       "PackagePath": "staticwebassets\\js\\StoryListing.js"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Userprofile.js",
+      "PackagePath": "staticwebassets\\js\\Userprofile.js"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Volunteeringtimesheet.js",

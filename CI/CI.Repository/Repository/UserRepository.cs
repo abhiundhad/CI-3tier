@@ -265,43 +265,78 @@ namespace CI.Repository.Repository
             return null;
             
         }
-        public void AddTimeMIssionTimesheetdata(long missionId, long userId, int hours, int minutes, int action, DateTime date, string message)
+        public void AddTimeMIssionTimesheetdata(long MissionId, long id, int? hour, int? minute, DateTime date, string message, int? action, long? timesheetid)
         {
-            if (hours != 0 && minutes != 0)
+            if (timesheetid == 0)
             {
-
-
-                var timesheetdata = new Timesheet();
-                timesheetdata.MissionId = missionId;
-                timesheetdata.UserId = userId;
-                timesheetdata.TimesheetTime = hours.ToString() + ":" + minutes.ToString();
-               
-                timesheetdata.DateVolunteered = date;
-                timesheetdata.Notes = message;
-                timesheetdata.Status = "pending";
-                timesheetdata.CreatedAt = DateTime.Now;
-                _db.Timesheets.Add(timesheetdata);
-                _db.SaveChanges();
+                if (hour != null && minute != null)
+                {
+                    var timesheet = new Timesheet();
+                    timesheet.MissionId = MissionId;
+                    timesheet.UserId = id;
+                    timesheet.TimesheetTime = hour + ":" + minute;
+                    timesheet.DateVolunteered = date;
+                    timesheet.Notes = message;
+                    timesheet.Status = "1";
+                    timesheet.CreatedAt = DateTime.Now;
+                    _db.Add(timesheet);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    var timesheet = new Timesheet();
+                    timesheet.MissionId = MissionId;
+                    timesheet.UserId = id;
+                    timesheet.DateVolunteered = date;
+                    timesheet.Action = action;
+                    timesheet.Notes = message;
+                    timesheet.Status = "1";
+                    timesheet.CreatedAt = DateTime.Now;
+                    _db.Add(timesheet);
+                    _db.SaveChanges();
+                }
             }
             else
             {
-                var timesheetdata = new Timesheet();
-                timesheetdata.MissionId = missionId;
-                timesheetdata.UserId = userId;
-                
-                timesheetdata.Action = action;
-                timesheetdata.DateVolunteered = date;
-                timesheetdata.Notes = message;
-                timesheetdata.Status = "pending";
-                timesheetdata.CreatedAt = DateTime.Now;
-                _db.Timesheets.Add(timesheetdata);
-                _db.SaveChanges();
+                if (hour != null && minute != null)
+                {
+                    var timesheet =  _db.Timesheets.FirstOrDefault(t => t.TimesheetId == timesheetid);
+                    timesheet.MissionId = MissionId;
+                    timesheet.UserId = id;
+                    timesheet.TimesheetTime = hour + ":" + minute;
+                    timesheet.DateVolunteered = date;
+                    timesheet.Notes = message;
+                    timesheet.Status = "1";
+                    timesheet.UpdatedAt = DateTime.Now;
+                    _db.Update(timesheet);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    var timesheet = _db.Timesheets.FirstOrDefault(t => t.TimesheetId == timesheetid);
+                    timesheet.MissionId = MissionId;
+                    timesheet.UserId = id;
+                    timesheet.DateVolunteered = date;
+                    timesheet.Action = action;
+                    timesheet.Notes = message;
+                    timesheet.Status = "1";
+                    timesheet.UpdatedAt = DateTime.Now;
+                    _db.Update(timesheet);
+                    _db.SaveChanges();
+                }
             }
-        
+
+
+
+
+
+
+
+
         }
         public List<Timesheet> TimesheetList()
         {
-            return _db.Timesheets.ToList();
+            return _db.Timesheets.Where(x=>x.DeletedAt==null).ToList();
         }
         public void deletedatatimesheet( long timesheetid)
         {

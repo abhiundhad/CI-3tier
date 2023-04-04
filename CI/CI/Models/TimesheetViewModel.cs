@@ -5,19 +5,21 @@ namespace CI.Models
 {
     public class TimesheetViewModel
     {
-        [Required]
-        public long missionId { get; set; }
-        [Required]
-        public int action { get; set; }
-  
-        public List<Mission> Missions { get; set; }
-        public List<MissionApplication> MissionApplications { get; set; }
-        public List<Timesheet> timesheetslist { get; set; }
-        public int hours { get; set; }
-        public int minutes { get; set; }
-        public int? Goal { get; set; }
-        public DateTime date { get; set; }
-        public string message { get; set; } 
 
+            public long missionId { get; set; }
+            public int? action { get; set; }
+            public List<Mission> missions { get; set; }
+            public List<MissionApplication> missionapplication { get; set; }
+            public List<Timesheet> timesheet { get; set; }
+
+            public DateTime date { get; set; }
+            public long hiddenInput { get; set; }
+            public int? hour { get; set; }
+            public int? minute { get; set; }
+
+            public string? message { get; set; }
+            public string? title { get; set; }
     }
 }
+
+

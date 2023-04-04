@@ -52,6 +52,7 @@ function  addRating(starId, missionId, Id) {
     });
 }
 function addtofav1(missionId, Id) {
+   
     $.ajax({
         url: '/Volunteering/Addfav',
         type: 'POST',
@@ -79,8 +80,8 @@ function addtofav1(missionId, Id) {
         }
     });
 }
-function sendRecom(missionid, Id) {
-
+function sendRecom(missionid) {
+  
     var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
     var sendbtn = document.getElementById("sendbutton");
     sendbtn.innerHTML = "Sending...";
@@ -88,7 +89,7 @@ function sendRecom(missionid, Id) {
         ({
             url: '/Volunteering/sendRecom',
             type: 'POST',
-            data: { missionid: missionid, Id: Id, Email: Email },
+            data: { missionid: missionid,  Email: Email },
          
             success: function (result)
             {

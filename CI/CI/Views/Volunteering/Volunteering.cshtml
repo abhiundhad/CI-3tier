@@ -209,13 +209,14 @@
                                         </div>
                                         <div class="modal-footer">
 
-                                            <button type="button" class="btn " style="background-color:#F88634;border-color:#F88634 " id="sendbutton" onclick="sendRecom(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)">Send Recomandation</button>
+                                            <button type="button" class="btn" id="sendbutton"  style="background-color:#F88634;border-color:#F88634;" id="sendbutton" onclick="sendRecom(@ViewBag.Missiondetail.MissionId)">Send Recomandation</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                        @ViewBag.Missiondetail.MissionId,@ViewBag.UserId
                         <div class=" row mt-1">
                             <div class="col-12 Ratting d-flex" id="Ratting">
                                 <hr class="trees" />

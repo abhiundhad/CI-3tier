@@ -126,3 +126,7 @@ p {
 .loginimg {
     border: 2px solid #F88634;
 }
+.form-control:focus, .btn:focus, .form-select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

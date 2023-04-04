@@ -43,12 +43,14 @@ namespace CI.Controllers
         #endregion
         #region sendRecomndetion of Mission
         [HttpPost]
-        public async Task<IActionResult> sendRecom(long Id, long missionid, string[] Email)
+        public async Task<IActionResult> sendRecom(long missionid,  string[] Email)
         {
+            var sessionUserId = HttpContext.Session.GetString("userID");
+            var ID= int.Parse(sessionUserId);
             foreach (var email in Email)
             {
                 var user = _Idb.UserExist(email);
-                var sender = _db.Users.FirstOrDefault(m => m.UserId == Id);
+                var sender = _db.Users.FirstOrDefault(m => m.UserId == ID);
                 var sendername = sender.FirstName + $" " + sender.LastName;
                 var userid = user.UserId;
                 var resetLink = Url.Action("Volunteering", "Volunteering", new { missionid = missionid, id = userid }, Request.Scheme);
@@ -343,40 +345,100 @@ namespace CI.Controllers
             return RedirectToAction("Volunteering", "Volunteering", new { id = id, missionid = missionid });
         }
 
-        public IActionResult Volunteeringtimesheet()
+        //public IActionResult Volunteeringtimesheet()
+        //{
+        //    var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+
+        //    var ShareStoryData = new TimesheetViewModel();
+        //    ShareStoryData.Missions = _Idb.MissionsList();
+        //    ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == userId).ToList();
+        //    ShareStoryData.timesheetslist=_Idb.TimesheetList().Where(x=>x.UserId==userId).ToList();
+
+
+
+        //    return View(ShareStoryData);
+        //}
+        //#region AddTimeMIssionTimesheet
+        //[HttpPost]
+        //public IActionResult AddTimeMIssionTimesheet(TimesheetViewModel timesheet)
+        //{
+        //    var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+        //    if (timesheet != null)
+        //    {
+        //        _Idb.AddTimeMIssionTimesheetdata(timesheet.missionId, userId, timesheet.hours, timesheet.minutes, timesheet.action, timesheet.date, timesheet.message);
+        //    }
+        //    return RedirectToAction("Volunteeringtimesheet" , "Volunteering" , new {  Id = userId });
+        //}
+        //#endregion
+        //#region deletedata
+        //public IActionResult deletedata(long timesheetid)
+        //{
+        //    var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+        //    _Idb.deletedatatimesheet(timesheetid);
+        //    return RedirectToAction("Volunteeringtimesheet", "Volunteering", new { Id = userId });
+        //}
+        //#endregion
+        public IActionResult VolunteeringTimeSheet()
         {
             var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+            TimesheetViewModel timeVm = new TimesheetViewModel();
 
-            var ShareStoryData = new TimesheetViewModel();
-            ShareStoryData.Missions = _Idb.MissionsList();
-            ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == userId).ToList();
-            ShareStoryData.timesheetslist=_Idb.TimesheetList().Where(x=>x.UserId==userId).ToList();
-        
-            
+            timeVm.missions = _Idb.MissionsList();
+            timeVm.missionapplication = _Idb.missionApplications().Where(m => m.UserId == userId).ToList();
+            var lists= _Idb.TimesheetList().Where(t => t.UserId == userId).ToList();
+            timeVm.timesheet = lists.OrderByDescending(x=>x.CreatedAt).ToList();
 
-            return View(ShareStoryData);
+
+
+            return View(timeVm);
         }
-        #region AddTimeMIssionTimesheet
         [HttpPost]
-        public IActionResult AddTimeMIssionTimesheet(TimesheetViewModel timesheet)
+        public async Task<IActionResult> addTimesheet(TimesheetViewModel model)
         {
-            var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
-            if (timesheet != null)
-            {
-                _Idb.AddTimeMIssionTimesheetdata(timesheet.missionId, userId, timesheet.hours, timesheet.minutes, timesheet.action, timesheet.date, timesheet.message);
-            }
-            return RedirectToAction("Volunteeringtimesheet" , "Volunteering" , new {  Id = userId });
-        }
-        #endregion
-        #region deletedata
-        public IActionResult deletedata(long timesheetid)
-        {
-            var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
-            _Idb.deletedatatimesheet(timesheetid);
-            return RedirectToAction("Volunteeringtimesheet", "Volunteering", new { Id = userId });
-        }
-        #endregion
 
+            var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+           
+            //long storyid = model.storyId;
+            _Idb.AddTimeMIssionTimesheetdata(model.missionId, userId, model.hour, model.minute, model.date, model.message, model.action, model.hiddenInput);
+
+
+
+
+
+            return RedirectToAction("Volunteeringtimesheet", "Volunteering");
+
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> deletetimesheet(long timesheetid)
+        {
+
+            var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+            //long storyid = model.storyId;
+            _Idb.deletedatatimesheet(timesheetid);
+
+
+
+
+
+            return RedirectToAction("Volunteeringtimesheet", "Volunteering");
+
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> editsheet(long timesheetid)
+        {
+
+            int? userid = HttpContext.Session.GetInt32("userIDforfavmission");
+            long id = Convert.ToInt64(userid);
+            //long storyid = model.storyId;
+            var timesheet = _Idb.TimesheetList().Where(t => t.TimesheetId == timesheetid).FirstOrDefault();
+
+            return Json(new { success = true, timesheet = timesheet });
+
+
+        }
 
     }
 }

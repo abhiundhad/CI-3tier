@@ -2,6 +2,7 @@
 
 @{
     var id = Context.Session.GetString("userID");
+    var ID = Convert.ToInt64(id);
 
 }
 <!DOCTYPE html>
@@ -71,11 +72,11 @@
                                     </button>
 
 
-                                    <button class="landing-page-btn-img" type="button" id="@items.MissionId" onclick="addID(this.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button class="landing-page-btn-img" type="button" id="@items.MissionId"  data-bs-toggle="modal" data-bs-target="#exampleModal5">
                                         <img src="~/images/user.png" alt="">
                                     </button>
 
-                                    <div class="modal fade  col-6" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade  col-6" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -94,7 +95,7 @@
                                                 </div>
                                                 <div class="modal-footer">
 
-                                                    <button type="button" class="btn btn-primary" onclick="sendRecom(@id)">Send Recomandation</button>
+                                                    <button type="button" class="btn btn-primary" id="sendbutton" onclick="sendRecomrel(@items.MissionId)">Send Recomandation</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,6 +110,7 @@
 
                             <div class="card-body">
                                 <h5 class="card-title mt-3">@items.Title</h5>
+                                @items.MissionId
                                 <p class="card-text">
                                     @items.ShortDescription
                                 </p>

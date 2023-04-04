@@ -43,6 +43,14 @@ namespace CI.Controllers
         {
             return View();
         }
+        public IActionResult Userprofile()
+        {
+            return View();
+        }
+        public IActionResult Adminindex()
+        {
+            return View();
+        }
 
 
 

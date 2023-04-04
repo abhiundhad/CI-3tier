@@ -86,7 +86,7 @@ function addtofav(missionId, Id,callId) {
     });
 }
 
-function sendRecom(Id) {
+function sendRecom1() {
 
     var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
     var sendbtn = document.getElementById("sendbutton");
@@ -98,7 +98,7 @@ function sendRecom(Id) {
        
             url: '/Volunteering/sendRecom',
             type: 'POST',
-            data: { missionid: missionid1, Id: Id, Email: Email },
+            data: { missionid: missionid1,  Email: Email },
         
             
             success: function (result) {

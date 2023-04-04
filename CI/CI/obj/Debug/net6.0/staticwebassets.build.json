@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hPSsHx+xRq9QPiHjTt0CAEVssVPuZxKb1F7lLLgqOR8=",
+  "Hash": "D6WUczhhlFdAr0GBIwV3NFeCHg/bBM6TVyDq7ThU8PE=",
   "Source": "CI",
   "BasePath": "_content/CI",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\_relatedmission_partial.css"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\Adminindex.css",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "css/Adminindex.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Adminindex.css"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\forgot.css",
@@ -253,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Storypage.css"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\userprofile.css",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "css/userprofile.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\userprofile.css"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\Volunteering.css",
@@ -2363,23 +2397,6 @@
       "OriginalItemSpec": "wwwroot\\images\\web.png"
     },
     {
-      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\images\\xlsx.png",
-      "SourceId": "CI",
-      "SourceType": "Discovered",
-      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
-      "BasePath": "_content/CI",
-      "RelativePath": "images/xlsx.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\xlsx.png"
-    },
-    {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\_RelatedMission.js",
       "SourceId": "CI",
       "SourceType": "Discovered",
@@ -2514,6 +2531,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\StoryListing.js"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\Userprofile.js",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "js/Userprofile.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Userprofile.js"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\Volunteeringtimesheet.js",
