@@ -52,6 +52,7 @@
         public string storymediapath { get; set; }
         public string Useravtar {get; set; }    
         public long Commentid { get; set; } 
+        public long? Storyview { get; set; }
 
 
 

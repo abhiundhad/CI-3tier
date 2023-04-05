@@ -126,6 +126,7 @@ input:focus, textarea:focus, select:focus {
 }
     .form-control:focus, .btn:focus, .form-select:focus {
         outline: none !important;
+        border: 1px solid #F88634 !important;
         box-shadow: none !important;
     }
 .dual-list .list-group {
@@ -149,4 +150,15 @@ input:focus, textarea:focus, select:focus {
  .list-arrows button {
         margin-bottom: 20px;
     }
+
+.addimgplus {
+    position: absolute;
+    top: 100px;
+    right: 16px;
+  /*  color: #F88634;*/
+    font-size:26px;
   
+}
+.user-profile-div{
+    position:relative;
+}

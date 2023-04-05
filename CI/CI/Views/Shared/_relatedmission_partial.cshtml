@@ -87,15 +87,22 @@
                                                     @foreach (var user in ViewBag.allavailuser)
                                                     {
                                                         <div class=" userlistdiv align-items-center d-flex my-3">
-                                                            <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
+                                                            @if (@user.Useravtar != "")
+                                                            {
+                                                                <img src="@user.Useravtar" class="aviluser ms-2 my-1">
+                                                            }
+                                                            else
+                                                            {
+                                                                <img src="~/images/user1.png" class="aviluser ms-2 my-1">
+                                                            }
                                                             <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
                                                             <input class="form-check-input me-2 " type="checkbox" value="" id="@user.userEmail" name="email">
                                                         </div>
                                                     }
                                                 </div>
                                                 <div class="modal-footer">
-
-                                                    <button type="button" class="btn btn-primary" id="sendbutton" onclick="sendRecomrel(@items.MissionId)">Send Recomandation</button>
+                                                    <button type="button" class="rounded-2 py-2" id="sendbtn" style="background-color:#F88634;border-color:#F88634;" onclick="sendRecomrel(@items.MissionId)">Send Recomandation</button>
+                                                 @*   <button type="button" class="btn" id="sendbutton3" style="background-color:#F88634;border-color:#F88634;" onclick="sendRecomrel(@items.MissionId)">Send Recomandation</button>*@
                                                 </div>
                                             </div>
                                         </div>

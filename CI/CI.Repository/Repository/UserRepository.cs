@@ -347,6 +347,35 @@ namespace CI.Repository.Repository
             _db.SaveChanges();
         }
 
+        public void changepassword(string newpassword, long id)
+        {
+            var user=_db.Users.FirstOrDefault(x=>x.UserId==id);
+            if(user!=null)
+            {
+            user.Password=newpassword;
+                user.UpdatedAt= DateTime.Now;
+                _db.Users.Update(user);
+                _db.SaveChanges();
+
+            }
+        }
+        public List<Skill> skillList()
+        {
+            return _db.Skills.ToList();
+        }
+        public void updateuser(User user)
+        {
+            _db.Update(user);
+            _db.SaveChanges();
+        }
+        public void AddUserSkills(long skillid, long userId)
+        {
+            var userskills = new UserSkill();
+            userskills.UserId = userId;
+            userskills.SkillId = skillid;
+            _db.Add(userskills);
+            _db.SaveChanges();
+        }
 
     }
 }   

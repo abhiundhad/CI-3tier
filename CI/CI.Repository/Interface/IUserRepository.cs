@@ -43,5 +43,9 @@ namespace CI.Repository.Interface
 
         public List<Timesheet> TimesheetList();
         public void deletedatatimesheet(long timesheetid);
+        public void changepassword(string newpassword, long id);
+        public List<Skill> skillList();
+        public void updateuser(User user);
+        public void AddUserSkills(long skillid, long userId);
     }
 }

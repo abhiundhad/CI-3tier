@@ -32,12 +32,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[A:/CI/CI/CI/Views/Home/nomission.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxub21pc3Npb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [A:/CI/CI/CI/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Home/Privacypolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5cG9saWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [A:/CI/CI/CI/Views/Home/Userprofile.cshtml]

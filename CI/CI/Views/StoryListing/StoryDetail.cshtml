@@ -88,7 +88,7 @@
 
 
             </div>
-            <div class="rightdiv  col-12 col-lg-6 col-md-12 col-sm-12 mt-4 mt-lg-0 shadow-lg">
+            <div class="rightdiv rounded-3  col-12 col-lg-6 col-md-12 col-sm-12 mt-4 mt-lg-0 shadow-lg ">
                 @foreach (var story in ViewBag.StoryDetail)
                 {
                     <div class="container  ">
@@ -108,8 +108,8 @@
                                 <label class="fs-6 d-flex justify-content-center"> @story.username &nbsp;@story.lastname</label>
                             </div>
                             <div class="col-6 col-xl-3 col-md-4 mt-auto ">
-                                <div class="rounded-5 border border-black d-flex justify-content-center w-100">
-                                    Stories views
+                                <div class="rounded-5 storyviewdiv d-flex justify-content-center w-100 ">
+                                    @story.Storyview   Stories views
                                 </div>
 
                             </div>
@@ -172,7 +172,7 @@
                 }
             </div>
         </div>
-        <div class="row mt-4  shadow-lg mb-4" style="border:1px solid black">
+        <div class="row mt-4  shadow-lg mb-4 rounded-3 storydescriptiondiv">
             <div class="card container">
             <div class="col-12 p-2">
                     @foreach (var story in ViewBag.StoryDetail) 

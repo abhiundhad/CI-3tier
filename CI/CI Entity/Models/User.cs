@@ -33,6 +33,8 @@ public partial class User
 
     public string? LinkedInUrl { get; set; }
 
+    public string? Availability { get; set; }
+
     public string? Title { get; set; }
 
     public string Status { get; set; } = null!;

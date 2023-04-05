@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D6WUczhhlFdAr0GBIwV3NFeCHg/bBM6TVyDq7ThU8PE=",
+  "Hash": "B4ibkWrQuXONHL8K5FKAhDaJnB4LyGG5JLR39+MNmiU=",
   "Source": "CI",
   "BasePath": "_content/CI",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\nomission.css"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\Privacypolicy.css",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "css/Privacypolicy.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Privacypolicy.css"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\resiter.css",

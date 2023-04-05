@@ -134,7 +134,7 @@ namespace CI.Controllers
 
         {
             var sessionUserId = HttpContext.Session.GetString("userID");
-            ViewBag.UserId = int.Parse(sessionUserId);
+            ViewBag.UserId = Convert.ToInt64(sessionUserId);
             if (ViewBag.UserId != id)
             {
                 TempData["Sessonerrormsg"] = "please login again";

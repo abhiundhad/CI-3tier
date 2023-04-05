@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model CI.Models.UserprofileViewModel
 @{
     Layout = "_navbar2";
 }
@@ -19,61 +17,10 @@
 
 <body>
 
-    <div class="container" style="margin-top:70px">
+
+  @*  <div class="container" style="margin-top:70px">
         <div class="row">
-            <div class="col-12 col-md-3 col-lg-2 user-profile-left-div d-flex flex-column align-items-center justify-content-center">
-                <div class="d-flex flex-column align-items-center justify-content-center">
-                    <div class="user-profile-div">
-                        <img src="~/images/volunteer1.png" alt=""
-                             class="rounded-circle user-profile-img">
-                    </div>
-                    <div class="user-username">Abhi Undhad</div>
-                    <div class="">
-                        <!-- Button trigger modal -->
-                        <button class="  bg-white border-0 border-white user-change-pass-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Change Password
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Change Password</h1>
-                                        <button type="button" class=" bg-white border-0" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                            <i class="bi bi-x-lg"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <input type="password" id="inputPassword1" class=" form-control  mb-3"
-                                               aria-labelledby="passwordHelpBlock" placeholder="Enter old Password" >
-
-                                        <input type="password" id="inputPassword2" class=" form-control  mb-3"
-                                               aria-labelledby="passwordHelpBlock" placeholder="Enter new Password">
-
-                                        <input type="password" id="inputPassword3" class="form-control  boxborder"
-                                               aria-labelledby="passwordHelpBlock" placeholder="Enter confirm Password">
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class=" user-password-cancel-btn bg-white py-1 px-2"
-                                                data-bs-dismiss="modal">
-                                            Cancel
-                                        </button>
-                                        <button type="button" class=" user-password-change-btn bg-white py-1">
-                                            Change
-                                            Password
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-12 col-md-9 col-lg-10">
                 <div class="mb-3">
                     <div class="user-edit-header-1">Basic Information</div>
@@ -297,18 +244,281 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
+    <div class="container" style="margin-top:70px">
+        <div class="row">
+            
+            <div class="col-12 col-md-3 col-lg-2 user-profile-left-div d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="user-profile-div " id="imgdiv">
+                        <input type="file" asp-for="avatar" style="display:none" id="imginput" />
+                        @if (Model.avatar != "")
+                        {
+                            <img  src="@Model.avatar" alt=""
+                                 class="rounded-circle user-profile-img">
+                        }else
+                        {
+                            <img src="~/images/user.png" alt=""
+                                 class="rounded-circle user-profile-img">
+                        }
+                       
+                        <i class="bi bi-plus-circle-fill addimgplus" height="25px" width="25px"></i>
 
+                    </div>
+                    <div class="user-username">Abhi Undhad</div>
+                    <div class="">
+                        <!-- Button trigger modal -->
+                        <button class="  bg-white border-0 border-white user-change-pass-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Change Password
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-9 col-lg-10">
+                <form asp-action="Userprofile" asp-controller="Home" method="post">
+                    <div class="mb-3">
+                        <div class="user-edit-header-1">Basic Information</div>
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Name*</label>
+                                <input type="text" asp-for="firstname" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name">
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Surname*</label>
+                                <input type="text" asp-for="lastname" class="form-control" id="exampleFormControlInput1" placeholder="Enter your surname">
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Employee ID</label>
+                                <input type="text" class="form-control" asp-for="employeeid" id="exampleFormControlInput1" placeholder="Enter your employee id">
+                            </div>
+
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                                <input type="text" class="form-control" asp-for="title" id="exampleFormControlInput1" placeholder="Enter a title">
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Department</label>
+                                <input type="text" class="form-control" asp-for="department" id="exampleFormControlInput1" placeholder="Enter your department details">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">My Profile*</label>
+                                <textarea class="form-control" asp-for="myprofile" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your comments"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Why I Volunteer?</label>
+                                <textarea class="form-control" asp-for="whyivolunteered" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your comments"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="user-edit-header-1">Adderss Information</div>
+                        <hr>
+                        <div class="row">
+                            <div class="mb-3 col-12 col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">City</label>
+                                <select class="form-select " asp-for="cityid" aria-label="Default select example" id="user-city">
+                                    <option selected disabled>select your city</option>
+                                    @foreach (var city in ViewBag.allcities)
+                                    {
+                                        <option value=@city.CityId>@city.Name</option>
+                                    }
+
+
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="exampleFormControlTextarea1" class="form-label">Country*</label>
+                                <select class="form-select " asp-for="countryid" aria-label="Default select example" id="user-country">
+                                    <option selected disabled>select your country</option>
+                                    @foreach (var country in ViewBag.allcountry)
+                                    {
+                                        <option value=@country.CountryId>@country.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="user-edit-header-1">Adderss Information</div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <label for="exampleFormControlTextarea1" class="form-label">Availablity</label>
+                                <select class="form-select " asp-for="availability" aria-label="Default select example" id="user-country">
+                                    <option selected disabled>select your availablity</option>
+                                    <option value="Daily">Daily</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-12 col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">LinkedIn</label>
+                                <input type="text" class="form-control" asp-for="linkedinurl" id="exampleFormControlInput1" placeholder="Enter LinkedIn url">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="user-edit-header-1">My Skills</div>
+                        <hr>
+                        <div class="user-skill-list-div" id="userskilldiv">
+                            <ul class="user-skills-list">
+                                @if (ViewBag.userskills != null)
+                                {
+                                    @foreach (var item in ViewBag.userskills)
+                                    {
+                                        <li>@item.SkillName</li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                        <button type="button" class="user-add-skills-btn" data-bs-toggle="modal" data-bs-target="#addskillmodal">
+                            Add
+                            Skills
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="addskillmodal" tabindex="-1" aria-labelledby="addskillmodalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="addskillmodalLabel">Add your skills</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body d-flex">
+                                        <div class="container ">
+                                            <br />
+
+                                            <select multiple style="float:left;width:150px;height:300px" id="s1">
+                                                @if (ViewBag.userskills != null)
+                                                {
+                                                    @foreach (var it in ViewBag.remainingSkills)
+                                                    {
+                                                        <option value=@it.SkillId>@it.SkillName</option>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @if (ViewBag.allskills != null)
+                                                    {
+                                                        @foreach (var i in ViewBag.allskills)
+                                                        {
+                                                            <option value=@i.SkillId>@i.SkillName</option>
+                                                        }
+                                                    }
+                                                }
+
+
+
+
+                                            </select>
+                                            <div style="float:left">
+                                                <input type="button" value=">" id="t1" onclick="ved1()" style="width:30px;margin-left:10px;margin-right:10px"><br>
+                                                <input type="button" value="<" id="t2" onclick="ved2()" style="width:30px;margin-left:10px;margin-right:10px"> <br>
+                                                <input type="button" value=">>" id="t3" onclick="ved3()" style="width:30px;margin-left:10px;margin-right:10px"> <br>
+                                                <input type="button" value="<<" id="t4" onclick="ved4()" style="width:30px;margin-left:10px;margin-right:10px">
+                                            </div>
+                                            <select multiple style="width:150px;height:300px" id="s2">
+                                                @if (ViewBag.userskills != null)
+                                                {
+                                                    @foreach (var it in ViewBag.userskills)
+                                                    {
+                                                        <option value=@it.SkillId>@it.SkillName</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-start">
+                                        <button type="button" class="user-add-skill-cancel-btn" id="close" data-bs-dismiss="modal">
+                                            Cancel
+                                        </button>
+                                        <button type="button" id="skillSave" class="user-add-skill-save-btn">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-5">
+                        <button type="submit" class="user-profile-save-btn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Change Password</h1>
+                    <button type="button" class=" bg-white border-0" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <form asp-action="Userprofile" asp-controller="Home" method="post">
+
+
+                    <div class="modal-body">
+                        <span class="text-danger" asp-validation-for="OldPassword"></span>
+                        <input  asp-for="OldPassword"  class=" form-control  mb-3"
+                              placeholder="Enter old Password" onclick="errormsg()">
+                       
+                        <div class="text-danger " id="alredyreg">
+                            @ViewBag.wrongoldpass
+                        </div>
+                        <input type="Password" asp-for="NewPassword" class=" form-control  mb-3"
+                               placeholder="Enter new Password" onclick="errormsg()">
+                        <span class="text-danger" asp-validation-for="NewPassword"></span>
+                        <input type="Password" asp-for="NewConfirmPassword" class="form-control  boxborder"
+                               placeholder="Enter confirm Password" onclick="errormsg()">
+                        <span class="text-danger" asp-validation-for="NewConfirmPassword"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class=" user-password-cancel-btn bg-white py-1 px-2"
+                                data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="submit" class=" user-password-change-btn bg-white py-1">
+                            Change
+                            Password
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <hr>
-    <div class="container user-profile-footer d-flex align-items-center">
-        <div class="me-3 user-profile-privacy-policy">Privacy Policy</div>
+    <div class="container user-profile-footer d-flex align-items-center mb-4">
+        <a class="me-3 user-profile-privacy-policy" href="/Home/Privacypolicy/">Privacy Policy</a>
         <div class="user-profile-contact-us">Contact Us</div>
     </div>
-
-  @*  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-            crossorigin="anonymous"></script>*@
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+  
 <script src="~/js/Userprofile.js" asp-append-version="true"></script>
 </body>
 
 </html>
+    

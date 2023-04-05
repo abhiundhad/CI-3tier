@@ -36,7 +36,8 @@ function addtofav(missionId, Id, callId) {
 function sendRecomrel(missionid) {
 
     var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
-    var sendbtn = document.getElementById("sendbutton");
+
+    var sendbtn = document.getElementById("sendbtn");
     sendbtn.innerHTML = "Sending...";
     $.ajax
         ({
@@ -44,7 +45,7 @@ function sendRecomrel(missionid) {
             type: 'POST',
             data: { missionid: missionid,  Email: Email },
             success: function (result) {
-                
+              
                 const checkboxes = document.querySelectorAll('input[name="email"]:checked');
                 checkboxes.forEach((checkbox) => {
                     checkbox.checked = false;
@@ -56,7 +57,6 @@ function sendRecomrel(missionid) {
                     sendbtn.innerHTML = "Send Recommandation";
 
                 }, 2000);
-
             },
             error: function () {
                 // Handle error response from the server, e.g. show an error message to the user

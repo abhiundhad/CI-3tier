@@ -99,6 +99,9 @@ namespace CI.Controllers
             else
             {
                 var storydetail = _db.Stories.FirstOrDefault(s => s.StoryId == StoryId);
+                storydetail.StoryView += 1;
+                _db.Stories.Update(storydetail);
+                _db.SaveChanges();
                 List<VolunteeringVM> StoryDetail = new List<VolunteeringVM>();
                 if (storydetail != null)
                 {
@@ -112,6 +115,7 @@ namespace CI.Controllers
                         StoryDescription = HttpUtility.HtmlDecode(storydetail.Description),
                         MissionId = storydetail.MissionId,
                         StoryId = storydetail.StoryId,
+                        Storyview=storydetail.StoryView,
 
 
                     });

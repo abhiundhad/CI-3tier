@@ -109,8 +109,12 @@
     background-color: lightgray;
 }
 .rightdiv {
-    border:1px solid black;
+    border:1px solid grey;
     position:relative;
+    /*border-radius:25px;*/
+}
+.storydescriptiondiv, .storyviewdiv {
+    border: 1px solid grey
 }
 .storyuserimg {
     height: 90px;

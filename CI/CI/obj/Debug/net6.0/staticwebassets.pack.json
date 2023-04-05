@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Adminindex.css"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\Privacypolicy.css",
+      "PackagePath": "staticwebassets\\css\\Privacypolicy.css"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\ShareStory.css",
       "PackagePath": "staticwebassets\\css\\ShareStory.css"
     },
