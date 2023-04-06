@@ -11,261 +11,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    
+
     <link rel="stylesheet" href="~/css/userprofile.css" asp-append-version="true" />
 </head>
 
 <body>
 
-
-  @*  <div class="container" style="margin-top:70px">
-        <div class="row">
-            
-            <div class="col-12 col-md-9 col-lg-10">
-                <div class="mb-3">
-                    <div class="user-edit-header-1">Basic Information</div>
-                    <hr>
-                    <div class="row">
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Name*</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter your name">
-                        </div>
-
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Surname*</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter your surname">
-                        </div>
-
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Employee ID</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter your employee id">
-                        </div>
-
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Manager</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter your manager details">
-                        </div>
-
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Title</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter a title">
-                        </div>
-
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Department</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter your department details">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">My Profile*</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                      placeholder="Enter your comments"></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Why I Volunteer?</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                      placeholder="Enter your comments"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <div class="user-edit-header-1">Adderss Information</div>
-                    <hr>
-                    <div class="row">
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">City</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter your city">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label for="exampleFormControlTextarea1" class="form-label">Country*</label>
-                            <select class="form-select " aria-label="Default select example" id="user-country">
-                                <option selected disabled>select your country</option>
-                                <option value="1">India</option>
-                                <option value="2">US</option>
-                                <option value="3">Canada</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <div class="user-edit-header-1">Adderss Information</div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <label for="exampleFormControlTextarea1" class="form-label">Availablity</label>
-                            <select class="form-select " aria-label="Default select example" id="user-country">
-                                <option selected disabled>select your availablity</option>
-                                <option value="1">India</option>
-                                <option value="2">US</option>
-                                <option value="3">Canada</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">LinkedIn</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="Enter LinkedIn url">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <div class="user-edit-header-1">My Skills</div>
-                    <hr>
-                    <div class="user-skill-list-div">
-                        <ul class="user-skills-list">
-                            <li>Anthropology </li>
-                            <li>Archeology </li>
-                            <li>Astronomy </li>
-                            <li>Computer Science </li>
-                            <li>Environmental Science </li>
-                            <li>History</li>
-                        </ul>
-                    </div>
-                    <button class="user-add-skills-btn" data-bs-toggle="modal" data-bs-target="#addskillmodal">
-                        Add
-                        Skills
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="addskillmodal" tabindex="-1" aria-labelledby="addskillmodalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="addskillmodalLabel">Add your skills</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body d-flex" >
-                                    <div class="container " >
-                                        <br />
-                                        <div class="row mb-3">
-
-                                            <div class="dual-list list-left col-md-5">
-                                                <div class="well text-right">
-                                                    <div class="row">
-                                                        <div class=" col-8 col-md-10 pe-0">
-                                                            <div class="input-group">
-                                                                <span class="bi bi-search  bg-dark bg-opacity-25 rounded-start p-2" style="border:1px solid grey;"></span>
-                                                                <input type="text" name="SearchDualList" class="form-control " placeholder="search" />
-                                                            </div>
-                                                        </div>
-                                                        <div class=" col-2 col-md-2 d-flex align-items-center p-0  ">
-                                                            <div class="btn-group ">
-                                                                <a class="btn btn-default selector border-0 " title="select all"><i class="bi bi-check bg-opacity-25 bg-dark  p-2 rounded-2 boxborder"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="list-group">
-                                                        
-                                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                                        <li class="list-group-item">Morbi leo risus</li>
-                                                        <li class="list-group-item">Porta ac consectetur ac</li>
-                                                        <li class="list-group-item">Vestibulum at eros</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <div class="list-arrows col-md-1 d-none d-md-block text-center ">
-                                                <button class="btn btn-default btn-sm move-left bg-opacity-25 bg-dark d-flex align-items-center justify-content-center">
-                                                    <span class="glyphicon glyphicon-chevron-left"><img src="~/images/left1.png" /></span>
-                                                </button>
-
-                                                <button class="btn btn-default btn-sm move-right bg-opacity-25 bg-dark d-flex align-items-center justify-content-center ">
-                                                    <span class="glyphicon glyphicon-chevron-right"><img src="~/images/right-arrow2.png" /></span>
-                                                </button>
-                                            </div>
-
-                                            <div class=" p-3 d-block d-md-none text-center  ">
-                                                <button class="btn btn-default btn-sm move-left bg-opacity-25 bg-dark ">
-                                                    <span class="glyphicon glyphicon-chevron-left"><img src="~/images/up.png" /></span>
-                                                </button>
-
-                                                <button class="btn btn-default btn-sm move-right bg-opacity-25 bg-dark">
-                                                    <span class="glyphicon glyphicon-chevron-right"><img src="~/images/down.png" /></span>
-                                                </button>
-                                            </div>
-
-                                            <div class="dual-list list-right col-md-5">
-                                                <div class="well">
-                                       
-                                                    <div class="row">
-                                                        <div class=" col-8 col-md-10 pe-0">
-                                                            <div class="input-group">
-                                                                <span class="bi bi-search  bg-dark bg-opacity-25 rounded-start p-2" style="border:1px solid grey;"></span>
-                                                                <input type="text" name="SearchDualList" class="form-control " placeholder="search" />
-                                                            </div>
-                                                        </div>
-                                                        <div class=" col-2 col-md-2 d-flex align-items-center p-0  ">
-                                                            <div class="btn-group ">
-                                                                <a class="btn btn-default selector border-0 " title="select all"><i class="bi bi-check bg-opacity-25 bg-dark  p-2 rounded-2 boxborder"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="list-group">
-                                                        <li class="list-group-item">Cras justo odio</li>
-                                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                                        <li class="list-group-item">Morbi leo risus</li>
-                                                        <li class="list-group-item">Porta ac consectetur ac</li>
-                                                        <li class="list-group-item">Vestibulum at eros</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                              
-                                
-                                </div>
-                                <div class="modal-footer d-flex justify-content-start">
-                                    <button type="button" class="user-add-skill-cancel-btn"
-                                            data-bs-dismiss="modal">
-                                        Cancel
-                                    </button>
-                                    <button type="button" class="user-add-skill-save-btn">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-end mt-5">
-                    <button class="user-profile-save-btn">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>*@
     <div class="container" style="margin-top:70px">
+        <form asp-action="Userprofile" asp-controller="Home" method="post" enctype="multipart/form-data">
         <div class="row">
-            
+
             <div class="col-12 col-md-3 col-lg-2 user-profile-left-div d-flex flex-column align-items-center justify-content-center">
                 <div class="d-flex flex-column align-items-center justify-content-center">
                     <div class="user-profile-div " id="imgdiv">
-                        <input type="file" asp-for="avatar" style="display:none" id="imginput" />
-                        @if (Model.avatar != "")
+                        <input type="file" asp-for="files" style="display:none" id="imginput" />
+                        @if (@Model.avatar != "")
                         {
-                            <img  src="@Model.avatar" alt=""
-                                 class="rounded-circle user-profile-img">
-                        }else
+                            <img src="@Model.avatar" alt=""
+                                 class="rounded-circle user-profile-img " id="user-profile-img">
+                        }
+                        else
                         {
                             <img src="~/images/user.png" alt=""
-                                 class="rounded-circle user-profile-img">
+                                 class="rounded-circle user-profile-img" id="user-profile-img">
                         }
-                       
+
                         <i class="bi bi-plus-circle-fill addimgplus" height="25px" width="25px"></i>
 
                     </div>
-                    <div class="user-username">Abhi Undhad</div>
+                    <div class="user-username">@Model.firstname.ToUpperInvariant() @Model.lastname.ToUpperInvariant()</div>
                     <div class="">
                         <!-- Button trigger modal -->
                         <button class="  bg-white border-0 border-white user-change-pass-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -276,7 +50,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-9 col-lg-10">
-                <form asp-action="Userprofile" asp-controller="Home" method="post">
+                
                     <div class="mb-3">
                         <div class="user-edit-header-1">Basic Information</div>
                         <hr>
@@ -352,7 +126,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <div class="user-edit-header-1">Adderss Information</div>
+                        <div class="user-edit-header-1">Professional Information</div>
                         <hr>
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -399,48 +173,69 @@
                                         <h1 class="modal-title fs-5" id="addskillmodalLabel">Add your skills</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body d-flex">
-                                        <div class="container ">
+                                    <div class="modal-body ">
+                                        <div class="container  p-0">
                                             <br />
-
-                                            <select multiple style="float:left;width:150px;height:300px" id="s1">
-                                                @if (ViewBag.userskills != null)
-                                                {
-                                                    @foreach (var it in ViewBag.remainingSkills)
+                                            <div class="row d-flex m-0 p-0">
+                                                <select multiple style="height:300px;" id="s1" class="  px-0 col-12 col-md-5 ">
+                                                    @if (ViewBag.userskills != null)
                                                     {
-                                                        <option value=@it.SkillId>@it.SkillName</option>
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    @if (ViewBag.allskills != null)
-                                                    {
-                                                        @foreach (var i in ViewBag.allskills)
+                                                        @foreach (var it in ViewBag.remainingSkills)
                                                         {
-                                                            <option value=@i.SkillId>@i.SkillName</option>
+                                                            <option value=@it.SkillId>@it.SkillName</option>
                                                         }
                                                     }
-                                                }
-
-
-
-
-                                            </select>
-                                            <div style="float:left">
-                                                <input type="button" value=">" id="t1" onclick="ved1()" style="width:30px;margin-left:10px;margin-right:10px"><br>
-                                                <input type="button" value="<" id="t2" onclick="ved2()" style="width:30px;margin-left:10px;margin-right:10px"> <br>
-                                                <input type="button" value=">>" id="t3" onclick="ved3()" style="width:30px;margin-left:10px;margin-right:10px"> <br>
-                                                <input type="button" value="<<" id="t4" onclick="ved4()" style="width:30px;margin-left:10px;margin-right:10px">
-                                            </div>
-                                            <select multiple style="width:150px;height:300px" id="s2">
-                                                @if (ViewBag.userskills != null)
-                                                {
-                                                    @foreach (var it in ViewBag.userskills)
+                                                    else
                                                     {
-                                                        <option value=@it.SkillId>@it.SkillName</option>
+                                                        @if (ViewBag.allskills != null)
+                                                        {
+                                                            @foreach (var i in ViewBag.allskills)
+                                                            {
+                                                                <option value=@i.SkillId>@i.SkillName</option>
+                                                            }
+                                                        }
                                                     }
-                                                }
-                                            </select>
+                                                </select>
+                                                <div class="col-2 mt-5  px-2 d-md-block d-none flex-column ">
+                                                    <div class="mt-3 d-flex justify-content-center align-items-center ">
+                                                      
+                                                        <i class="bi bi-chevron-right py-2  px-1 skillimg" id="t1 " onclick="ved1()"></i>
+                                                    </div>
+                                                    <div class="mt-1  d-flex justify-content-center align-items-center">
+                                                       
+                                                        <i class="bi bi-chevron-left skillimg py-2  px-1" id="t2" onclick="ved2()"></i>
+
+                                                    </div>
+                                                    <div class="mt-1  d-flex justify-content-center align-items-center">
+                                                        
+                                                        <i class="bi bi-chevron-double-right skillimg py-2  px-1"  id="t3" onclick="ved3()"></i>
+                                                    </div>
+                                                    <div class="mt-1  d-flex justify-content-center align-items-center">
+                                             
+                                                        <i class="bi bi-chevron-double-left skillimg py-2 px-1 "  id="t4" onclick="ved4()"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 my-2 d-flex justify-content-center  align-items-center d-block d-md-none   px-2">
+                                                   
+                                                    <i class="bi bi-chevron-down  p-2 skillimg" id="t1 " onclick="ved1()"></i>
+                                               
+                                                    <i class="bi bi-chevron-up skillimg p-2 ms-2" id="t2" onclick="ved2()"></i>
+                                              
+                                                    <i class="bi bi-chevron-double-down skillimg px-2 ms-2"  id="t3" onclick="ved3()"></i>
+                                                   
+                                                    <i class="bi bi-chevron-double-up skillimg px-2 ms-2" id="t4" onclick="ved4()"></i>
+                                                </div>
+
+                                                <select multiple id="s2" style="height:300px;" class=" px-0 col-12 col-md-5 ">
+                                                    @if (ViewBag.userskills != null)
+                                                    {
+                                                        @foreach (var it in ViewBag.userskills)
+                                                        {
+                                                            <option value=@it.SkillId>@it.SkillName</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
                                         </div>
 
 
@@ -459,9 +254,11 @@
                     <div class="d-flex justify-content-end mt-5">
                         <button type="submit" class="user-profile-save-btn">Save</button>
                     </div>
-                </form>
+               
+               
             </div>
         </div>
+        </form>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -479,19 +276,19 @@
 
 
                     <div class="modal-body">
-                        <span class="text-danger" asp-validation-for="OldPassword"></span>
-                        <input  asp-for="OldPassword"  class=" form-control  mb-3"
-                              placeholder="Enter old Password" onclick="errormsg()">
-                       
+           
+                        <input  class=" form-control  mb-3"
+                               placeholder="Enter old Password" onclick="errormsg()">
+
                         <div class="text-danger " id="alredyreg">
                             @ViewBag.wrongoldpass
                         </div>
-                        <input type="Password" asp-for="NewPassword" class=" form-control  mb-3"
+                        <input type="Password" class=" form-control  mb-3"
                                placeholder="Enter new Password" onclick="errormsg()">
-                        <span class="text-danger" asp-validation-for="NewPassword"></span>
-                        <input type="Password" asp-for="NewConfirmPassword" class="form-control  boxborder"
+                   
+                        <input type="Password" class="form-control  boxborder"
                                placeholder="Enter confirm Password" onclick="errormsg()">
-                        <span class="text-danger" asp-validation-for="NewConfirmPassword"></span>
+                      
                     </div>
                     <div class="modal-footer">
                         <button type="button" class=" user-password-cancel-btn bg-white py-1 px-2"
@@ -512,13 +309,9 @@
         <a class="me-3 user-profile-privacy-policy" href="/Home/Privacypolicy/">Privacy Policy</a>
         <div class="user-profile-contact-us">Contact Us</div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-  
-<script src="~/js/Userprofile.js" asp-append-version="true"></script>
+   
+
+    <script src="~/js/Userprofile.js" asp-append-version="true"></script>
 </body>
 
 </html>
-    

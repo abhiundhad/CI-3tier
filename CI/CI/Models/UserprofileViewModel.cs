@@ -6,19 +6,19 @@ namespace CI.Models
     public class UserprofileViewModel
     {
 
-        [Required]
-       public string OldPassword { get; set; }
+        //[Required]
+        //public string OldPassword { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [MinLength(8, ErrorMessage = "Password should contain atleast 8 charachter")]
-        [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", ErrorMessage = "Password should contain atleast one Capital letter , one small case letter, one Digit and one special symbol")]
-        public string NewPassword { get; set; }
+        //[Required]
+        //[DataType(DataType.Password)]
+        //[MinLength(8, ErrorMessage = "Password should contain atleast 8 charachter")]
+        //[RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", ErrorMessage = "Password should contain atleast one Capital letter , one small case letter, one Digit and one special symbol")]
+        //public string NewPassword { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        
-        public string NewConfirmPassword { get; set; }
+        //[Required]
+        //[DataType(DataType.Password)]
+
+        //public string NewConfirmPassword { get; set; }
 
         public string firstname { get; set; }
         public string lastname { get; set; }
@@ -39,6 +39,7 @@ namespace CI.Models
         public string linkedinurl { get; set; }
 
         public string avatar { get; set; }
+        public IFormFile files { get; set; }
         public long? cityid { get; set; }
         public long? countryid { get; set; }
 

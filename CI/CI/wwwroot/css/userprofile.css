@@ -162,3 +162,35 @@ input:focus, textarea:focus, select:focus {
 .user-profile-div{
     position:relative;
 }
+.skillimg{
+    background-color:white;
+  
+   
+}
+/*select:-internal-list-box option:checked:hover,::after.:active,:checked,:focus {
+    background-color: #F88634 !important;
+}*/
+/*option.active{
+    background-color:red !important;
+}
+select.active {
+    background-color: red !important;
+}*/
+/*option:checked {
+    color: white;
+    background: #F88634 !important;
+    background-color: #F88634!important;
+}
+option:hover {
+    color: white;
+    background: #F88634 !important;
+    background-color: #F88634 !important;
+}*/
+
+select[multiple]:focus option:checked {
+    background: #F88634 linear-gradient(0deg, #F88634 0%, #F88634 100%);
+}
+input {
+    caret-color: #F88634 !important;
+    color: #F88634!important;
+}

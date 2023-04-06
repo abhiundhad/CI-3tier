@@ -3,6 +3,7 @@ using CI.Repository.Interface;
 using CI_Entity.CIDbContext;
 using CI_Entity.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.SqlServer.Management.Smo;
 using System.Diagnostics;
 
 namespace CI.Controllers
@@ -96,8 +97,8 @@ namespace CI.Controllers
 //                _Idb.changepassword(model.NewPassword, ID);
 //            }
 //TempData["userpasschang"] = "Password change Successfully";
-[HttpPost]
-        public IActionResult Userprofile(UserprofileViewModel model)
+         [HttpPost]
+        public async Task<IActionResult> Userprofile(UserprofileViewModel model, IFormFileCollection files)
         {
             var sessionUserId = HttpContext.Session.GetString("userID");
                 var id = Convert.ToInt64(sessionUserId);
@@ -108,7 +109,7 @@ namespace CI.Controllers
             userdetail.LastName = model.lastname;
             userdetail.WhyIVolunteer = model.whyivolunteered;
             userdetail.Title = model.title;
-            userdetail.Avatar = model.avatar;
+            
             userdetail.EmployeeId = model.employeeid;
             userdetail.ProfileText = model.myprofile;
             userdetail.LinkedInUrl = model.linkedinurl;
@@ -117,6 +118,29 @@ namespace CI.Controllers
             userdetail.CountryId = model.countryid;
             userdetail.CityId = model.cityid;
             userdetail.Availability = model.availability;
+
+            if (files.Count()==0)
+            {
+                model.avatar = userdetail.Avatar;
+            }
+            else
+            {
+                userdetail.Avatar = model.avatar;
+           
+            }
+            foreach (var file in files)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    await file.CopyToAsync(ms);
+                    var imageBytes = ms.ToArray();
+                    var base64String = Convert.ToBase64String(imageBytes);
+                    userdetail.Avatar = "data:image/png;base64," + base64String;
+                    model.avatar = "data:image/png;base64," + base64String;
+                    HttpContext.Session.SetString("useravtar", "data:image/png;base64," + base64String);
+                }
+            }
+
             var allskills = _Idb.skillList();
             ViewBag.allskills = allskills;
             var skills = from US in _db.UserSkills
