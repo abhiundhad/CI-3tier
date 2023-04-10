@@ -345,39 +345,6 @@ namespace CI.Controllers
             return RedirectToAction("Volunteering", "Volunteering", new { id = id, missionid = missionid });
         }
 
-        //public IActionResult Volunteeringtimesheet()
-        //{
-        //    var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
-
-        //    var ShareStoryData = new TimesheetViewModel();
-        //    ShareStoryData.Missions = _Idb.MissionsList();
-        //    ShareStoryData.MissionApplications = _Idb.missionApplications().Where(m => m.UserId == userId).ToList();
-        //    ShareStoryData.timesheetslist=_Idb.TimesheetList().Where(x=>x.UserId==userId).ToList();
-
-
-
-        //    return View(ShareStoryData);
-        //}
-        //#region AddTimeMIssionTimesheet
-        //[HttpPost]
-        //public IActionResult AddTimeMIssionTimesheet(TimesheetViewModel timesheet)
-        //{
-        //    var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
-        //    if (timesheet != null)
-        //    {
-        //        _Idb.AddTimeMIssionTimesheetdata(timesheet.missionId, userId, timesheet.hours, timesheet.minutes, timesheet.action, timesheet.date, timesheet.message);
-        //    }
-        //    return RedirectToAction("Volunteeringtimesheet" , "Volunteering" , new {  Id = userId });
-        //}
-        //#endregion
-        //#region deletedata
-        //public IActionResult deletedata(long timesheetid)
-        //{
-        //    var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
-        //    _Idb.deletedatatimesheet(timesheetid);
-        //    return RedirectToAction("Volunteeringtimesheet", "Volunteering", new { Id = userId });
-        //}
-        //#endregion
         public IActionResult VolunteeringTimeSheet()
         {
             var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));

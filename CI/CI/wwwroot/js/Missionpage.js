@@ -35,13 +35,13 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
-function  addRating(starId, missionId, Id) {
+function addRating(starId, missionId, Id) {
     $.ajax({
         url: '/Volunteering/Addrating',
         type: 'POST',
         data: { missionId: missionId, Id: Id, rating: starId },
         success: function (result) {
-         
+
             $('#Ratting').html($(result).find('#Ratting').html());
             $('#avgrat').html($(result).find('#avgrat').html());
 
@@ -52,7 +52,7 @@ function  addRating(starId, missionId, Id) {
     });
 }
 function addtofav1(missionId, Id) {
-   
+
     $.ajax({
         url: '/Volunteering/Addfav',
         type: 'POST',
@@ -65,7 +65,7 @@ function addtofav1(missionId, Id) {
                 var heartbtn = document.getElementById("heart");
                 heartbtn.style.color = "#F88634";
                 favbtn.style.color = "orange"
-                favbtn.innerHTML="Remove From Favourite"
+                favbtn.innerHTML = "Remove From Favourite"
 
             }
             else {
@@ -81,7 +81,7 @@ function addtofav1(missionId, Id) {
     });
 }
 function sendRecom(missionid) {
-  
+
     var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
     var sendbtn = document.getElementById("sendbutton");
     sendbtn.innerHTML = "Sending...";
@@ -89,11 +89,10 @@ function sendRecom(missionid) {
         ({
             url: '/Volunteering/sendRecom',
             type: 'POST',
-            data: { missionid: missionid,  Email: Email },
-         
-            success: function (result)
-            {
-          
+            data: { missionid: missionid, Email: Email },
+
+            success: function (result) {
+
                 const checkboxes = document.querySelectorAll('input[name="email"]:checked');
                 checkboxes.forEach((checkbox) => {
                     checkbox.checked = false;
@@ -106,8 +105,7 @@ function sendRecom(missionid) {
 
                 }, 2000);
             },
-            error: function ()
-            {
+            error: function () {
 
                 // Handle error response from the server, e.g. show an error message to the user
                 alert('Error: Could not recommend mission.');
@@ -117,16 +115,14 @@ function sendRecom(missionid) {
 }
 
 
-function missionapplied(missionid, id)
-{
+function missionapplied(missionid, id) {
     $.ajax
         ({
             url: '/Volunteering/AppliedMission',
             type: 'POST',
             data: { missionid: missionid, id: id },
-            success: function (result)
-            {
-               
+            success: function (result) {
+
                 $('.Appleddiv').html($(result).find('.Appleddiv').html());
                 $('#seatleft').html($(result).find('#seatleft').html());
                 $('#recentvolunteer').html($(result).find('#recentvolunteer').html());
@@ -148,27 +144,35 @@ function missionapplied(missionid, id)
 
 function AddPost(missionid, id) {
     var comttext = document.getElementById("floatingTextarea2").value;
-    $.ajax
-        ({
-            url: '/Volunteering/addComment',
-            type: 'POST',
-            data: { missionid: missionid, id: id, comttext: comttext },
-            success: function (result) {
-                $('.commentdiv').html($(result).find('.commentdiv').html());
+    if (comttext == "")
+    {
+        alert("Please Write Comment");
+    } else
+    {
 
-             
 
-            },
-            error: function () {
-                // Handle error response from the server, e.g. show an error message to the user
-                alert('Error: Could not recommend mission.');
-            }
-        });
+        $.ajax
+            ({
+                url: '/Volunteering/addComment',
+                type: 'POST',
+                data: { missionid: missionid, id: id, comttext: comttext },
+                success: function (result) {
+                    $('.commentdiv').html($(result).find('.commentdiv').html());
+
+
+
+                },
+                error: function () {
+                    // Handle error response from the server, e.g. show an error message to the user
+                    alert('Error: Could not recommend mission.');
+                }
+            });
+    }
 }
 
 
 
-function recentvol(pg, missionid,id) {
+function recentvol(pg, missionid, id) {
 
 
     //var missionid = $("input[name='theme']").val();
@@ -177,7 +181,7 @@ function recentvol(pg, missionid,id) {
     $.ajax({
         url: "/Volunteering/Volunteering",
         type: "POST",
-        data: { 'pg': pg, 'missionid': missionid,'id':id },
+        data: { 'pg': pg, 'missionid': missionid, 'id': id },
 
         success: function (res) {
             //$("#recentvolunteering").html('');
@@ -190,16 +194,15 @@ function recentvol(pg, missionid,id) {
         }
     })
 }
-function cmtdelete(cmtid,missionid,id)
-{
+function cmtdelete(cmtid, missionid, id) {
     $.ajax({
         url: "/Volunteering/cmtdelete",
         type: "POST",
-        data: { 'cmtid': cmtid, 'missionid': missionid ,'id':id},
+        data: { 'cmtid': cmtid, 'missionid': missionid, 'id': id },
 
         success: function (res) {
-          
-       
+
+
             $('.commentdiv').html($(res).find('.commentdiv').html());
 
         },

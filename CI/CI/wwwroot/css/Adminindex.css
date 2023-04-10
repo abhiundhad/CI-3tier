@@ -34,3 +34,15 @@ a:hover{
     
    
 }
+.adminofcanvasdiv {
+    background-color: #F88634;
+    width:max-content!important;
+}
+.form-control:focus, .btn:focus, .form-select:focus {
+    outline: none !important;
+    
+    box-shadow: none !important;
+}
+.nav-link:hover, .nav-link:has(:hover){
+    color:white!important;
+}

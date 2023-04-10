@@ -236,7 +236,15 @@
                                         <img src="~/images/Seats-left.png" alt="" class="mt-2">
                                         <div class="ms-2 ">
                                             <fs-2>@item.Availability</fs-2><br>
+                                            @if (@item.isApplied == true&&id!=null)
+                                            {
+                                                <fs-5> Alredy Applied</fs-5>
+                                            }
+                                            else
+                                            {
+                                                
                                             <fs-5> seats left</fs-5>
+                                            }
                                         </div>
                                     </div>
                                     @if (item.MissionType == "Time")

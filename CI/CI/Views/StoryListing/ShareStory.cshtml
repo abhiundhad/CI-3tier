@@ -73,31 +73,36 @@
                         }
                   
                     </select>
+                    <span asp-validation-for="MissionId" class="text-danger"></span>
                 </div>
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2 ">
                     <lable class="fs-6">My Story Title </lable>
                      
                     <input type="text" asp-for="StoryTitle" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray">
-
-                    </input>
-                  @*  <input type="text" class=" col-12 border-1" style="border-color:grey heigh"/>*@
+                    <span asp-validation-for="StoryTitle" class="text-danger"></span>
+                    <span asp-validation-for="editor1" class="text-danger"></span>
+                 
+             
                 </div>
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
                     <lable class="fs-6">Date </lable>
 
                     <input type="datetime-local" asp-for="date" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray">
+                    <span asp-validation-for="date" class="text-danger"></span>
 
-                    </input>
+                
                 </div>
             </div>
+            
             <div class="row mt-4">
                 <label class="fs-5 ">My Story</label>
 
                 <div class="col-12 mt-2">
                     <textarea class="" name="editor1" asp-for="editor1"></textarea>
                 </div>
-
+               
             </div>
+     
 
             <div class="row mt-4">
                 <label class="fs-5">Enter Video URL</label>
@@ -142,5 +147,9 @@
         CKEDITOR.replace('editor1');
     </script>
     <script src="~/js/ShareStory.js" asp-append-version="true"></script>
+    @*<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>*@
 </body>
 </html>

@@ -77,6 +77,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\12.gif",
+      "PackagePath": "staticwebassets\\images\\12.gif"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\13.gif",
+      "PackagePath": "staticwebassets\\images\\13.gif"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\14.gif",
+      "PackagePath": "staticwebassets\\images\\14.gif"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\404.png",
       "PackagePath": "staticwebassets\\images\\404.png"
     },
