@@ -20,21 +20,43 @@ namespace CI.Controllers
         }
         public IActionResult Index()
         {
+            try
+            {
+
+            
             List<User> Users = _Idb.alluser();
             return View(Users);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
 
 
         public IActionResult Register()
         {
+            try
+            {
+
+            
             //User user = new User();
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpPost]
         public IActionResult Register(RegistrationViewModel user)
         {
+            try
+            {
+
+            
             var obj = _Idb.UserExist(user.Email);
             if (obj == null)
                 
@@ -58,6 +80,11 @@ namespace CI.Controllers
 
             }
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
 

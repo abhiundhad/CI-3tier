@@ -25,6 +25,10 @@ namespace CI.Controllers
         public IActionResult StoryListing(long id, int? pageIndex, int pg)
 
         {
+            try
+            {
+
+            
             var userId = HttpContext.Session.GetString("userID");
 
             ViewBag.UserId = int.Parse(userId);
@@ -82,12 +86,21 @@ namespace CI.Controllers
             ViewBag.totalcount = totalCount;
 
             return View(Finalstorys);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
         #endregion
 
         #region StoryDetail
         public IActionResult StoryDetail(long id, int StoryId)
         {
+            try
+            {
+
+            
             var userId = HttpContext.Session.GetString("userID");
 
             ViewBag.UserId = int.Parse(userId);
@@ -139,6 +152,11 @@ namespace CI.Controllers
                 ViewBag.allavailuser = allavailuser;
                 return View();
             }
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
         #endregion
 
@@ -146,6 +164,10 @@ namespace CI.Controllers
         [HttpPost]
         public async Task<IActionResult> sendRecom(long Id, long storyid, string[] Email)
         {
+            try
+            {
+
+            
             foreach (var email in Email)
             {
                 var user = _db.Users.FirstOrDefault(m => m.Email == email);
@@ -175,12 +197,21 @@ namespace CI.Controllers
 
             }
             return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
         #endregion
         #region ShareStory
         public IActionResult ShareStory(int id, int Storyid)
 
         {
+            try
+            {
+
+            
             var ShareStoryData = new ShareStoryViewModel();
             if (Storyid != 0)
             {
@@ -210,6 +241,11 @@ namespace CI.Controllers
 
             }
             return View(ShareStoryData);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
         #endregion
 
@@ -217,6 +253,10 @@ namespace CI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddStory(ShareStoryViewModel model)
         {
+            try
+            {
+
+            
             var id = HttpContext.Session.GetString("userID");
             long userid = Convert.ToInt64(id);
 
@@ -251,6 +291,11 @@ namespace CI.Controllers
             }
             TempData["Story submit"] = "Story Submitted Sucessfully";
             return RedirectToAction("ShareStory", "StoryListing");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
 
 
         }
@@ -260,6 +305,10 @@ namespace CI.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveASDraft(ShareStoryViewModel model)
         {
+            try
+            {
+
+            
             var id = HttpContext.Session.GetString("userID");
             long userid = Convert.ToInt64(id);
 
@@ -294,6 +343,11 @@ namespace CI.Controllers
             }
             TempData["Story draft"] = "Story Detail Save As Draft ";
             return RedirectToAction("ShareStory", "StoryListing");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
 
 
         }
@@ -302,6 +356,10 @@ namespace CI.Controllers
         public IActionResult DraftStorys(long id)
 
         {
+            try
+            {
+
+            
             var userId = HttpContext.Session.GetString("userID");
 
             ViewBag.UserId = int.Parse(userId);
@@ -358,6 +416,11 @@ namespace CI.Controllers
             ViewBag.totalcount = totalCount;
 
             return View(Storys);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
         #endregion
 

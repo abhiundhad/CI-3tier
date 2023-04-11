@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = A:\CI\CI\CI
 build_property._RazorSourceGeneratorDebug = 
 
+[A:/CI/CI/CI/Views/Admin/AdminCms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5DbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Admin/AdminMission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5NaXNzaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [A:/CI/CI/CI/Views/Forget/Forget.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ2V0XEZvcmdldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,8 +36,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ2V0XFJlc2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[A:/CI/CI/CI/Views/Home/Adminindex.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbmluZGV4LmNzaHRtbA==
+[A:/CI/CI/CI/Views/Home/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [A:/CI/CI/CI/Views/Home/Index.cshtml]
@@ -60,6 +72,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlY2VudHZvbHVudGVlcmluZ19wYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[A:/CI/CI/CI/Views/Shared/_AdminSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pblNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/_Missionadmin_partialview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NaXNzaW9uYWRtaW5fcGFydGlhbHZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [A:/CI/CI/CI/Views/Shared/_Missioncards_partialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NaXNzaW9uY2FyZHNfcGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [A:/CI/CI/CI/Views/Shared/_relatedmission_partial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9yZWxhdGVkbWlzc2lvbl9wYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Shared/_UseradminPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyYWRtaW5QYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [A:/CI/CI/CI/Views/Shared/_ValidationScriptsPartial.cshtml]

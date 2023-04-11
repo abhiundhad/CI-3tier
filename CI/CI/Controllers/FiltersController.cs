@@ -13,7 +13,11 @@ namespace CI.Controllers
             _db = db;
         }
         public IActionResult _navbar( )
-        { 
+        {
+            try
+            {
+
+            
           List<City> citylist =_db.Cities.ToList();
           List<Country> country =_db.Countries.ToList();
             foreach ( var item in citylist)
@@ -26,6 +30,11 @@ namespace CI.Controllers
             }
             
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
     }
 }

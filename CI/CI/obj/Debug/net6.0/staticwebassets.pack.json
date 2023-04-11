@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\Storypage.css"
     },
     {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\Useradmin.css",
+      "PackagePath": "staticwebassets\\css\\Useradmin.css"
+    },
+    {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\css\\Volunteering.css",
       "PackagePath": "staticwebassets\\css\\Volunteering.css"
     },
@@ -571,6 +575,10 @@
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\images\\web.png",
       "PackagePath": "staticwebassets\\images\\web.png"
+    },
+    {
+      "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Admin.js",
+      "PackagePath": "staticwebassets\\js\\Admin.js"
     },
     {
       "Id": "A:\\CI\\CI\\CI\\wwwroot\\js\\Missioncards.js",

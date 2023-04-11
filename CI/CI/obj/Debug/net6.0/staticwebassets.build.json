@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "omfo2AfpBSsq3XRW+y03q3WRoONzFTzWVkxJltBaA3A=",
+  "Hash": "NcbfIAAlSti3Ss2NcpPrWjj+nkoQZyPEUSOMA6GBPFo=",
   "Source": "CI",
   "BasePath": "_content/CI",
   "Mode": "Default",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Storypage.css"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\Useradmin.css",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "css/Useradmin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Useradmin.css"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\css\\userprofile.css",
@@ -2480,6 +2497,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\_RelatedMission.js"
+    },
+    {
+      "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\Admin.js",
+      "SourceId": "CI",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\CI\\CI\\CI\\wwwroot\\",
+      "BasePath": "_content/CI",
+      "RelativePath": "js/Admin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Admin.js"
     },
     {
       "Identity": "A:\\CI\\CI\\CI\\wwwroot\\js\\Missioncards.js",

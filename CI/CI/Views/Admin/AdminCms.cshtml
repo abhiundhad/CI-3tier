@@ -1,0 +1,315 @@
+﻿@{
+    Layout = "_AdminSidebar";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <title>Admin Dashboard</title>
+
+
+    <link rel="stylesheet" href="~/css/Adminindex.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="row d-flex">
+        @*  <-----sidebar----->*@
+
+        <div class="row mt-2" id="Views">
+
+            <div class="d-flex" id="wrapper">
+
+                <div id="page-content-wrapper">
+                    <nav class=" d-none navbar navbar-expand-lg navbar-light bg-transparent py-2 px-2 adminnavbar">
+                        <div class="d-none align-items-center">
+                            <img src="~/Images/menu-logo.jpg" class="primary-text fs-4 me-3" alt="" id="menu-toggle">
+
+                        </div>
+                    </nav>
+                    <div class="container-fluid px-4 ">
+                        <div id="content">
+                            <section id="cmspage" class="row my-3 content-section">
+                                <div class="border-bottom">
+                                    <span class="text-muted fs-4" style="border-bottom: 3px solid black !important; padding-bottom:2px;">CMS Page</span>
+                                </div>
+                                <div class="modal fade" id="exampleModalcmsadd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <form action="">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">CMS Add</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="title">Page Title</label>
+                                                    <input type="text" class="form-control" placeholder="Enter page title">
+
+                                                    <label for="page description" class="mt-2">Page Description</label>
+                                                    <textarea name="editor1" class="form-control"></textarea>
+
+                                                    <label for="slug" class="mt-2">Slug</label>
+                                                    <input type="text" class="form-control" placeholder="Enter slug">
+
+                                                    <label for="status" class="mt-2">Status</label>
+                                                    <input type="text" class="form-control" placeholder="Enter status">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <table id="cmsrecord" class="table overABC bg-white rounded shadow-sm  table-hover">
+                                    <thead style="background-color: #F8F9FC;">
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, dignissimos.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, odit.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, laborum.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, qui.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, ducimus!</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum, nisi.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, reiciendis!</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, provident.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, hic.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, vitae!</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, ipsum.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, aut.</td>
+                                            <td>Active</td>
+                                            <td>
+                                                <a type="button" class="border-0">
+                                                    <i class="bi bi-pencil-square text-warning"></i>
+                                                </a>
+                                                <a type="button" class="border-0 ms-2">
+                                                    <i class="bi bi-trash-fill text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+
+        var userrecordFilter = document.getElementById("userrecord_filter");
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+
+        const menulink = document.querySelectorAll(".list-group-item");
+        const contentSections = document.querySelectorAll('.content-section');
+
+        menulink.forEach((link) => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                contentSections.forEach((section) => {
+                    section.classList.remove('active');
+                });
+                targetSection.classList.add('active');
+                menulink.forEach((link) => {
+                    link.classList.remove('active');
+                    link.classList.add("bg-transparent");
+                });
+                link.classList.add('active');
+                link.classList.remove("bg-transparent");
+            });
+        });
+
+
+        // cmstable
+        $(document).ready(function () {
+            $('#cmsrecord').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+        $('#cmsrecord').DataTable({
+            "ordering": false,
+            "lengthChange": false
+        });
+
+
+
+
+
+                //const profileImgInput = document.querySelector('#profile-img-input');
+                //profileImgInput.addEventListener('change', () => {
+                //    const file = profileImgInput.files[0];
+                //    if (file) {
+                //        const reader = new FileReader();
+                //        reader.addEventListener('load', () => {
+                //            profileImg.src = reader.result;
+                //        });
+                //        reader.readAsDataURL(file);
+                //    }
+                //});
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

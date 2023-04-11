@@ -30,6 +30,10 @@ namespace CI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Forget(Forget model)
         {
+            try
+            {
+
+            
             if (ModelState.IsValid)
             {
                 //var user = _db.Users.FirstOrDefault(u => u.Email == model.Email);
@@ -73,12 +77,21 @@ namespace CI.Controllers
             }
 
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpGet]
         [AllowAnonymous]
         public ActionResult ResetPassword(string email, string token)
         {
+            try
+            {
+
+            
             // var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == email && pr.Token == token);
             var passwordReset = _Idb.PasswordResets(email,  token);
             if (passwordReset == null)
@@ -92,6 +105,11 @@ namespace CI.Controllers
                 Token = token
             };
             return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpPost]
@@ -99,6 +117,10 @@ namespace CI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ResetpassModel rsp)
         {
+            try
+            {
+
+            
             if (ModelState.IsValid)
             {
                 _Idb.Updateremovepassword(rsp.Email,rsp.Token,rsp.Password);
@@ -108,6 +130,11 @@ namespace CI.Controllers
             }
 
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
 
@@ -123,20 +150,47 @@ namespace CI.Controllers
 
         // GET: ForgetController
         public ActionResult Index()
+
         {
+            try
+            {
+
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         // GET: ForgetController/Details/5
         public ActionResult Details(int id)
         {
+            try
+            {
+
+            
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         // GET: ForgetController/Create
         public ActionResult Create()
         {
+            try
+            {
+
+            
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         // POST: ForgetController/Create
@@ -157,7 +211,16 @@ namespace CI.Controllers
         // GET: ForgetController/Edit/5
         public ActionResult Edit(int id)
         {
+            try
+            {
+
+            
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         // POST: ForgetController/Edit/5
@@ -178,7 +241,16 @@ namespace CI.Controllers
         // GET: ForgetController/Delete/5
         public ActionResult Delete(int id)
         {
+            try
+            {
+
+            
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         // POST: ForgetController/Delete/5

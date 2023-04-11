@@ -197,7 +197,9 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel">Send Recomandation to Friend</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class=" btn border-0 bg-white fw-bold  " data-bs-dismiss="modal" aria-label="Close">
+                                                <i class="bi bi-x-lg "></i>
+                                            </button>
                                         </div>
                                         <div class="modal-body overflow-y-auto " style="height:200px;">
                                             @foreach (var user in ViewBag.allavailuser)
@@ -478,7 +480,7 @@
             </div>
             <div class="col col-12 col-lg-4 flex-lg-column justify-content-center d-md-flex mb-2 ">
 
-                <div class="col col-12 col-lg-12  col-md-6  mt-3 mt-lg-0    foursquer shadow-lg">
+                <div class="col col-12 col-lg-12  col-md-6  mt-3 mt-lg-0     shadow-lg">
                     <p class="fs-3 p-2 pb-0">Information</p>
                     <div class="d-flex">
                         <hr class="" style="border:2px solid black; width:230px;" />
@@ -530,7 +532,7 @@
                     </div>
 
                 </div>
-                <div class="col col-12 col-lg-12  col-md-6   ms-0 ms-lg-0 ms-md-3 mt-3     foursquer shadow-lg" id="recent">
+                <div class="col col-12 col-lg-12  col-md-6   ms-0 ms-lg-0 ms-md-3 mt-3      shadow-lg" id="recent">
                     <div id="recentvolunteer">
                         <p class="fs-3 p-2 pb-0">Recent Volunteers</p>
                         <div class="d-flex">
@@ -569,7 +571,7 @@
 
 
                             </div>
-                       @* </div>*@
+                       
 
 
                         <hr class="my-0"/>
@@ -580,39 +582,39 @@
                                 {
 
                                     <li class="page-item ">
-                                        <a class="page-link" style="background-color:gray;" onclick="recentvol(@pagination.CurrentPage - 1,@ViewBag.Missiondetail.MissionId,@ViewBag.UserID)"><img src="~/images/left1.png" /></a>
+                                        <a class="page-link " style="background-color:white;" onclick="recentvol(@pagination.CurrentPage - 1,@ViewBag.Missiondetail.MissionId,@ViewBag.UserID)"><img src="~/images/left.png" /></a>
                                     </li>
 
                                 }
                                 else
                                 {
                                     <li class="page-item ">
-                                        <a class="page-link" style="background-color:gray;"><img src="~/images/left1.png" /></a>
+                                        <a class="page-link " style="background-color:white;"><img src="~/images/left.png" /></a>
                                     </li>
                                 }
-                                <li class="page-item d-flex justify-content-center align-items-center">
-                                    <span> Recent @ViewBag.totalcount Pepole Voluntered</span>
+                                <li class="page-item d-flex justify-content-center align-items-center ">
+                                    <span class=""> Recent @ViewBag.totalcount Pepole Voluntered</span>
                                 </li>
 
 
                                 @if (pagination.CurrentPage < pagination.TotalPages)
                                 {
                                     <li class="page-item">
-                                        <a class="page-link" style="background-color:gray;" onclick="recentvol(@pagination.CurrentPage + 1,@ViewBag.Missiondetail.MissionId,@ViewBag.UserID)"><img src="~/images/right-arrow2.png" /></a>
+                                        <a class="page-link" style="background-color:white" onclick="recentvol(@pagination.CurrentPage + 1,@ViewBag.Missiondetail.MissionId,@ViewBag.UserID)"><img src="~/images/right-arrow1.png" /></a>
                                     </li>
 
                                 }
                                 else
                                 {
                                     <li class="page-item">
-                                        <a class="page-link" style="background-color:gray;" ><img src="~/images/right-arrow2.png" /></a>
+                                        <a class="page-link" style="background-color:white;"><img src="~/images/right-arrow1.png" /></a>
                                     </li>
                                 }
                             </ul>
                         }
 
 
-                        @*         <partial name="Recentvolunteering_partialView" />*@
+                     
 
 
                     </div>

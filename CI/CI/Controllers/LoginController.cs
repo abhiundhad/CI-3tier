@@ -23,18 +23,40 @@ namespace CI.Controllers
         }
         public IActionResult Login(long missionid ,int StoryId)
         {
+            try
+            {
+
+            
             HttpContext.Session.Clear();
             return View();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
         public IActionResult Logout()
         {
+            try
+            {
+
+            
             HttpContext.Session.Clear();
             return RedirectToAction("Landingpage", "Landingpage");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(UserViewModel model)
         {
+            try
+            {
+
+            
             if (model.MissionId !=0 && model.MissionId != null )
             {
                 // var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
@@ -104,7 +126,11 @@ namespace CI.Controllers
                 return View();
 
             }
-
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
 
         }
         //    [HttpPost]

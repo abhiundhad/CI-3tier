@@ -46,6 +46,10 @@ namespace CI.Controllers
         }
         public IActionResult Userprofile()
         {
+            try
+            {
+
+            
             var sessionUserId = HttpContext.Session.GetString("userID");
             var id = Convert.ToInt64(sessionUserId);
             var user = _Idb.alluser().FirstOrDefault(u => u.UserId == id);
@@ -83,7 +87,12 @@ namespace CI.Controllers
             ViewBag.allcities = _Idb.CityList();
             ViewBag.allcountry = _Idb.CountryList();
             return View(userVM);
-           
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
         }
 //        var sessionUserId = HttpContext.Session.GetString("userID");
 //        var ID = Convert.ToInt64(sessionUserId);
@@ -100,6 +109,10 @@ namespace CI.Controllers
          [HttpPost]
         public async Task<IActionResult> Userprofile(UserprofileViewModel model, IFormFileCollection files)
         {
+            try
+            {
+
+            
             var sessionUserId = HttpContext.Session.GetString("userID");
                 var id = Convert.ToInt64(sessionUserId);
             //long id = Convert.ToInt64(userid);
@@ -159,12 +172,20 @@ namespace CI.Controllers
 
             _Idb.updateuser(userdetail);
             return View(model);
-          
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
         }
         [HttpPost]
         public async Task<IActionResult> SaveUserSkills(long[] selectedSkills)
         {
+            try
+            {
 
+            
             var sessionUserId = HttpContext.Session.GetString("userID");
             var id = Convert.ToInt64(sessionUserId);
             var abc = _db.UserSkills.Where(e => e.UserId == id).ToList();
@@ -180,6 +201,11 @@ namespace CI.Controllers
             }
 
             return RedirectToAction("Userprofile", "Home");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
 
         }
         public IActionResult Adminindex()
