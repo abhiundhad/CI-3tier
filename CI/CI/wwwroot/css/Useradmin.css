@@ -1,4 +1,4 @@
-﻿:root {
+﻿/*:root {
     --main-bg-color: #FFFFFF;
     --main-text-color: #212529;
     --second-text-color: #FFFFFF;
@@ -25,10 +25,10 @@
     border-radius: 100%;
 }
 
-#wrapper {
+#wrapper {*/
     /*overflow-x: auto;
     width:100vw;*/
-    background-image: linear-gradient( to right, #FFFFFF, #FFFFFF, #FFFFFF, #FFFFFF, #FFFFFF );
+    /*background-image: linear-gradient( to right, #FFFFFF, #FFFFFF, #FFFFFF, #FFFFFF, #FFFFFF );
 }
 
 #sidebar-wrapper {
@@ -136,4 +136,4 @@
 .overABC {
      overflow-x:auto;
     width:77vw;
-}
+}*/

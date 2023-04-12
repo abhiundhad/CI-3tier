@@ -1,423 +1,390 @@
-﻿@{
+﻿
+@{
     Layout = "_AdminSidebar";
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CI_Platform</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 
-    <link rel="stylesheet" href="~/css/Adminindex.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
+    <style>
+
+
+    </style>
 </head>
 <body>
-    <div class="row d-flex">
-        @*  <-----sidebar----->*@
-
-        <div class="row mt-2" id="Views">
-
-            <div class="d-flex" id="wrapper">
-
-                <div id="page-content-wrapper">
-                    <nav class=" d-none navbar navbar-expand-lg navbar-light bg-transparent py-2 px-2 adminnavbar">
-                        <div class="d-none align-items-center">
-                            <img src="../CI-Imgs/menu-bar.svg" class="primary-text fs-4 me-3" alt="" id="menu-toggle">
-
-                        </div>
-                    </nav>
-                    <div class="container-fluid px-4 ">
-                        <div id="content">
-                            <section id="user" class="row my-3 content-section active overflow-x-auto" style;">
-                                <div class="border-bottom">
-                                    <span class="text-muted fs-4" style="border-bottom: 3px solid black !important; padding-bottom:2px;">User</span>
-                                </div>
-                                <div class="modal fade" id="exampleModaladd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <form action="">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body usermodalbody">
-                                                    <label for="fname">First Name</label>
-                                                    <input type="text" class="form-control" placeholder="Enter your first name">
-
-                                                    <label for="lname" class="mt-2">Last Name</label>
-                                                    <input type="text" class="form-control" placeholder="Enter your last name">
-
-                                                    <label for="mail" class="mt-2">Email</label>
-                                                    <input type="email" class="form-control" placeholder="Enter your email address">
-
-                                                    <label for="password" class="mt-2">Password</label>
-                                                    <input type="password" class="form-control" placeholder="Enter your password">
-
-                                                    <label for="empid" class="mt-2">Employee Id</label>
-                                                    <input type="text" class="form-control" placeholder="Enter your employee id">
-
-                                                    <label for="avatar" class="mt-2">Avatar</label>
-                                                    <input type="file" id="profile-img-input" class="form-control" placeholder="Upload profile image">
-                                                    <input type="hidden" id="profileImg" value="">
-
-                                                    <label for="department" class="mt-2">Department</label>
-                                                    <input type="text" class="form-control" placeholder="Enter your department">
-
-                                                    <label for="city" class="mt-2">City</label>
-                                                    <select class="form-control form-select">
-                                                        <option value=""></option>
-                                                        <option value="">Ahmedabad</option>
-                                                        <option value="">Ahmedabad</option>
-                                                        <option value="">Ahmedabad</option>
-                                                    </select>
-
-                                                    <label for="country" class="mt-2">Country</label>
-                                                    <select class="form-control form-select">
-                                                        <option value=""></option>
-                                                        <option value="">India</option>
-                                                        <option value="">USA</option>
-                                                        <option value="">UK</option>
-                                                    </select>
-
-                                                    <label for="Profile Text" class="mt-2">Profile text</label>
-                                                    <textarea cols="20" class="form-control"></textarea>
-
-                                                    <label for="status" class="mt-2">Status</label>
-                                                    <input type="text" class="form-control" placeholder="Enter status">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col mt-4  ">
-                                    <table id="userrecord" class="table bg-white rounded shadow-sm  table-hover ">
-                                        <thead style="background-color: #F8F9FC;">
-                                            <tr>
-                                                <th scope="col" width="50">#</th>
-                                                <th scope="col">First Name</th>
-                                                <th scope="col">Last Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Employee Id</th>
-                                                <th scope="col">Department</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Adam</td>
-                                                <td>Baidwin</td>
-                                                <td>Adam12546@yahs.com</td>
-                                                <td>1364978456</td>
-                                                <td>HR</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Peter</td>
-                                                <td>Kenny</td>
-                                                <td>Peter42546@yahs.com</td>
-                                                <td>1364975623</td>
-                                                <td>Sales</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Jacob</td>
-                                                <td>Jenny</td>
-                                                <td>Jacob25546@yahs.com</td>
-                                                <td>1364975656</td>
-                                                <td>HR</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Terry</td>
-                                                <td>Killy</td>
-                                                <td>Terry25546@yahs.com</td>
-                                                <td>1364974556</td>
-                                                <td>HR</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Peg</td>
-                                                <td>Filly</td>
-                                                <td>Peg125546@yahs.com</td>
-                                                <td>1364974569</td>
-                                                <td>Sales</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td>Aida</td>
-                                                <td>Bumbo</td>
-                                                <td>Aida425546@yahs.com</td>
-                                                <td>1364974556</td>
-                                                <td>HR</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">7</th>
-                                                <td>Olive</td>
-                                                <td>Bilbo</td>
-                                                <td>Olive25546@yahs.com</td>
-                                                <td>1364974123</td>
-                                                <td>HR</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">8</th>
-                                                <td>Peter</td>
-                                                <td>Frodo</td>
-                                                <td>Peter45546@yahs.com</td>
-                                                <td>1364974461</td>
-                                                <td>Sales</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">9</th>
-                                                <td>Allie</td>
-                                                <td>Kimo</td>
-                                                <td>Teri145546@yahs.com</td>
-                                                <td>1364974465</td>
-                                                <td>HR</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">10</th>
-                                                <td>Rose</td>
-                                                <td>Zico</td>
-                                                <td>Rose45546@yahs.com</td>
-                                                <td>1364974445</td>
-                                                <td>Sales</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">11</th>
-                                                <td>Carpet</td>
-                                                <td>Jeco</td>
-                                                <td>carpet@gmail.com</td>
-                                                <td>1363749487</td>
-                                                <td>HR</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">12</th>
-                                                <td>Food</td>
-                                                <td>Haso</td>
-                                                <td>haso@gmail.com</td>
-                                                <td>1538598486</td>
-                                                <td>Sales</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a type="button" class="border-0">
-                                                        <i class="bi bi-pencil-square text-warning"></i>
-                                                    </a>
-                                                    <a type="button" class="border-0 ms-2">
-                                                        <i class="bi bi-trash-fill text-danger"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
+    <div class="container-fluid mt-3">
 
-
+        <div class="d-flex justify-content-between">
+            <h3>User</h3>
+            <button class="btn  landing-page-apply-mission-btn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <i class="fa-regular fa-plus" style="color: #F88735"></i>
+                Add
+            </button>
         </div>
 
 
 
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mt-3">
+                            <div class="col-12 col-lg-6 mb-2">
+                                <input type="text" id="FirstName" class="form-control" placeholder="First name">
+                            </div>
+                            <div class="col-12 col-lg-6 mb-2">
+                                <input type="text" id="LastName" class="form-control" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 mb-2">
+                                <input type="email" id="Email" class="form-control" placeholder="Enter Email">
+                            </div>
+                            <div class="col-12 col-lg-6 mb-2">
+                                <input type="password" id="Password" class="form-control" placeholder="Enter Password">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12 col-lg-6 mb-2">
+                                <input class="form-control" type="file" id="file" placeholder="Choose your Profile">
+                            </div>
+                            <div class="col-12 col-lg-6 mb-2">
+                                <input type="text" id="Department" class="form-control" placeholder="Department">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12 col-lg-6 mb-2">
+                                <select class="form-select" @*asp-for="CountryId"*@ aria-label="Default select example" id="countryList">
+                                    <option selected disabled>select your country</option>
+                                   @* @foreach (var country in Model.Country)
+                                    {
+                                       *@ <option value="CountryId">Name</option>
+
+                                   @* }
+*@
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-2">
+                                <select class="form-select " aria-label="Default select example" id="cityList">
+                                    <option selected disabled>select your City</option>
+
+                                 @*   @if (Model.City.Count() != 0)
+                                    {
+                                        @foreach (var city in Model.City)
+                                        {
+*@
+                                            <option value="CityId">Name</option>
+                                       @* }
+
+                                    }*@
+                                    <option>select your City</option>
+                                </select>
+                            </div>
+                            <div class="row ">
+                                <div class="col-12 mb-3">
+                                    <textarea class="form-control" rows="3" placeholder="Enter your Profile" id="ProfileText"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="row ">
+                                <div class="col-12 col-lg-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Enter EmployeeId" id="EmployeeId">
+                                </div>
+                                <div class="col-12 col-lg-6 mb-2">
+                                    <select class="form-select " aria-label="Default select example" id="Status">
+                                        <option selected disabled>Status</option>
+                                        <option value="Active">Active</option>
+                                        <option value="In-Active">In-Active</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-bs-dismiss="modal" class="btn closebtn">Close</button>
+                        <button type="submit" data-bs-dismiss="modal" class="btn savebtn" onclick="saveAdminUser()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <hr />
+
+        <table id="example" class="table" style="width:100%;border: 1px solid #e9ecef;">
+            <thead class="thead-light" style="background-color:#F8F9FC;">
+                <tr>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Employee Id</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+             @*   @foreach (var fn in Model.Users)
+                {
+                  *@  <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                <tr>
+                    <th scope="row">FirstName</th>
+                    <td>LastName</td>
+                    <td>Email</td>
+                    <td>EmployeeId</td>
+                    <td>Department</td>
+                    <td>Status</td>
+                    <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                 <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+                     <tr>
+                        <th scope="row">FirstName</th>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>EmployeeId</td>
+                        <td>Department</td>
+                        <td>Status</td>
+                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser()"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    </tr>
+
+              @*  }*@
+
+
+
+
+            </tbody>
+        </table>
     </div>
 
+   @* <script>
+        function saveAdminUser() {
 
-
-
-
-
-
-
-
-
-
-
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script>
-        var el = document.getElementById("wrapper");
-        var toggleButton = document.getElementById("menu-toggle");
-
-        var userrecordFilter = document.getElementById("userrecord_filter");
-        toggleButton.onclick = function () {
-            el.classList.toggle("toggled");
-        };
-
-        const menulink = document.querySelectorAll(".list-group-item");
-        const contentSections = document.querySelectorAll('.content-section');
-
-        menulink.forEach((link) => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                contentSections.forEach((section) => {
-                    section.classList.remove('active');
-                });
-                targetSection.classList.add('active');
-                menulink.forEach((link) => {
-                    link.classList.remove('active');
-                    link.classList.add("bg-transparent");
-                });
-                link.classList.add('active');
-                link.classList.remove("bg-transparent");
-            });
-        });
-        // user record
-        $(document).ready(function () {
-            $('#userrecord').DataTable();
-            $('.dataTables_length').addClass('bs-select');
-        });
-        $('#userrecord').DataTable({
-            "ordering": false,
-            "lengthChange": false
-        });
-
-        // cmstable
-
-        // userrecordbtn
-        var userrecordFilter = document.getElementById("userrecord_filter");
-        var button = document.createElement("button");
-        button.innerHTML = `<i class="bi bi-plus">Add</i>`;
-        button.classList.add("btn", "btn-outline-warning", "rounded-pill", "addbtn");
-        button.setAttribute("data-bs-toggle", "modal");
-        button.setAttribute("data-bs-target", "#exampleModaladd")
-        userrecordFilter.appendChild(button);
-
-
-
-
-        const profileImgInput = document.querySelector('#profile-img-input');
-        profileImgInput.addEventListener('change', () => {
-            const file = profileImgInput.files[0];
-            if (file) {
+            const toBase64 = file => new Promise((resolve, reject) => {
                 const reader = new FileReader();
-                reader.addEventListener('load', () => {
-                    profileImg.src = reader.result;
-                });
                 reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+
+                reader.onerror = error => reject(error);
+            });
+
+
+            Main();
+
+            async function Main() {
+                const file = document.querySelector('#file').files[0];
+                //console.log(await toBase64(file));
+                var abc = await toBase64(file);
+
+
+
+                alert("hii")
+                var firstName = document.getElementById("FirstName").value;
+                var lastName = document.getElementById("LastName").value;
+                var email = document.getElementById("Email").value;
+                var password = document.getElementById("Password").value;
+                //var avatar = document.getElementById("Avatar").value;
+                var department = document.getElementById("Department").value;
+                var countryList = document.getElementById("countryList").value;
+                var cityList = document.getElementById("cityList").value;
+                var profileText = document.getElementById("ProfileText").value;
+                var employeeId = document.getElementById("EmployeeId").value;
+                var status = document.getElementById("Status").value;
+                $.ajax({
+
+                    url: '/Admin/AdminPages/AddAdminUser',
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        firstName: firstName, lastName: lastName, email: email, password: password, avatar: abc, department: department, countryList: countryList,
+                        cityList: cityList, profileText: profileText, employeeId: employeeId, status: status
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        if (result.success) {
+
+                            $("#user-avatar").load(window.location.href + " #user-avatar");
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'profile pic has been updated successfully',
+                                showConfirmButton: false,
+                                timer: 1500,
+                            })
+
+                        }
+
+                    }
+                });
             }
-        });
 
-    </script>
-
+        }
 
 
+        function editAdminUser(UI) {
+            $.ajax({
+
+                url: '/Admin/AdminPages/EditAdminUser',
+                method: "POST",
+                dataType: "json",
+                data: { userId: UI },
+                success: function (result) {
+                    console.log(result);
+                    if (result.success) {
+
+                        $("#user-avatar").load(window.location.href + " #user-avatar");
+
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'profile pic has been updated successfully',
+                            showConfirmButton: false,
+                            timer: 1500,
+                        })
+
+                    }
+
+                }
+            });
+        }
+    </script>*@
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/Admin.js" asp-append-version="true"></script>
+    <link href="~/css/Admin.css" rel="stylesheet" asp-append-version="true" />
 
 </body>
 </html>
 
+@*@RenderBody()*@

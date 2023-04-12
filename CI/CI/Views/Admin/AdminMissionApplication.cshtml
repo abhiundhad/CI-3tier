@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = "_AdminSidebar";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CI_Platform</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="container-fluid mt-3">
+
+        <div><h3>Mission Application</h3></div>
+        <hr />
+
+        <table id="example" class="table" style="width:100%;border: 1px solid #e9ecef;">
+            <thead class="thead-light" style="background-color:#F8F9FC;">
+                <tr>
+                    <th scope="col">Mission Title</th>
+                    <th scope="col">Mission Id</th>
+                    <th scope="col">User Id</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Apply Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+              @*  @foreach (var ma in Model.MissionApplication)
+                {
+                    @foreach (var miss in Model.Missions)
+                    {
+                        @if (ma.MissionId == miss.MissionId)
+                        {
+                            @foreach (var user in Model.Users)
+                            {
+                                @if (ma.UserId == user.UserId)
+                                {*@
+
+                                    <tr>
+                                        <th scope="row">Title</th>
+                                        <td>MissionId</td>
+                                        <td>UserId</td>
+                                        <td>FirstName LastName</td>
+                                        <td>AppliedAt.ToShortDateString()</td>
+                                        <td><i class="fa-regular fa-circle-check" style="color:green;"></i> | <i class="fa-sharp fa-regular fa-circle-xmark" style="color:red;"></i></td>
+                                    </tr>
+                              @*  }
+                            }
+                        }
+
+                    }
+
+                }*@
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+  @*  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/Admin.js" asp-append-version="true"></script>
+    <link href="~/css/Adminindex.css" rel="stylesheet" asp-append-version="true" />
+
+</body>
+</html>
+
+@*@RenderBody()*@

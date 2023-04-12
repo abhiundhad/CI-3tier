@@ -16,12 +16,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = A:\CI\CI\CI
 build_property._RazorSourceGeneratorDebug = 
 
+[A:/CI/CI/CI/Views/Admin/AdminBannerManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5CYW5uZXJNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [A:/CI/CI/CI/Views/Admin/AdminCms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5DbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [A:/CI/CI/CI/Views/Admin/AdminMission.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5NaXNzaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Admin/AdminMissionApplication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5NaXNzaW9uQXBwbGljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Admin/AdminSkills.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5Ta2lsbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Admin/AdminStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5TdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/CI/CI/CI/Views/Admin/AdminTheme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5UaGVtZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [A:/CI/CI/CI/Views/Admin/Index.cshtml]

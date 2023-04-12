@@ -6,9 +6,7 @@
     height: 100vh;
     background-color: #F88634;
 }
-a:hover{
-    color:none;
-}
+
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #F88634;
@@ -16,23 +14,23 @@ a:hover{
     z-index: 2;
     border-color: white;
 }
-.sidebarcontent {
-    font-size: 18px;
-   
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
-    text-decoration:none;
-    display:flex;
-    flex-direction:row;
-  
-    align-items:center
-}
-.sidebar-img{
+    .nav-pills .nav-link.active:hover {
+        color: #F88634!important;
+    }
+    .sidebarcontent {
+        font-size: 18px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        opacity: 1;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center
+    }
+
+.sidebar-img {
     width: 18px;
     height: 23px;
-    
-   
 }
 .adminofcanvasdiv {
     background-color: #F88634;
@@ -43,6 +41,116 @@ a:hover{
     
     box-shadow: none !important;
 }
-.nav-link:hover, .nav-link:has(:hover){
-    color:white!important;
+.nav-link:hover, .nav-link:has(:hover) {
+  
+    color: #F88634!important;
+    background-color: white  !important;
+    z-index: 2;
+    border-color: white;
+}
+
+
+
+.closebtn, btn:hover {
+    background-color: white !important;
+    border: 2px solid grey!important;
+    border-radius: 25px !important;
+}
+.savebtn, btn:hover {
+    background-color: #F88634 !important;
+    border: #F88634;
+    color: white !important;
+    border-radius: 25px!important;
+}
+.form-control:focus, .btn:focus, .form-select:focus {
+    outline: none !important;
+    border: 1px solid #F88634 !important;
+    box-shadow: none !important;
+}
+select:focus option:checked {
+    background: #F88634 linear-gradient(0deg, #F88634 0%, #F88634 100%);
+}
+ option:hover {
+    background: #F88634 linear-gradient(0deg, #F88634 0%, #F88634 100%) !important;
+}
+
+#cke_12, #cke_13, #cke_14, #cke_15, #cke_16, #cke_17, #cke_18, #cke_19, #cke_20, #cke_21, #cke_22, #cke_23, #cke_24, #cke_25, #cke_26, #cke_27,
+#cke_28, #cke_29, #cke_30, #cke_31, #cke_32, #cke_33, #cke_34, #cke_48 {
+    display: none!important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #F88634 !important;
+    background-color: #F88634 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0!important;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: none!important;
+    border:none!important;
+    border-radius: 2px;
+    background: none!important;
+}
+a:hover {
+    color: white !important;
+    background-color: #F88634 !important;
+}
+
+
+
+
+
+
+#example_length {
+    display: none !important;
+}
+
+/*.col-md-6 {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    text-align: left !important;
+}*/
+/*.dataTables_filter {
+    display: none !important;
+}*/
+
+
+
+    div.dataTables_wrapper div.dt-row {
+        position: relative;
+        overflow-x: scroll !important;
+    }
+
+
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: left !important;
+    margin-top: 1%;
+}
+
+div#example_info {
+    display: none;
+}
+
+.active > .page-link, .page-link.active {
+    background-color: #F88634 !important;
+    border-color: #F88634 !important;
+}
+
+.pagination {
+    --bs-pagination-focus-bg: white !important;
+    --bs-pagination-focus-box-shadow: white !important;
+    --bs-pagination-color: #F88634 !important;
+}
+
+.landing-page-apply-mission-btn,
+.landing-page-apply-mission-btn:hover {
+    border: 2px solid #F88735;
+    border-radius: 30px;
+    color: #F88735;
+    font-weight: 500;
 }
